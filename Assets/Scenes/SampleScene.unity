@@ -1239,11 +1239,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74c1707755bcc3d46b785ee80157549e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellPrefab: {fileID: 2009838580}
+  cellPrefab: {fileID: 1712155488500880, guid: faf4b4ec0cbbb3840a5ba44685c18d99, type: 3}
   gridSizeX: 10
-  gridSizeY: 10
-  gridEcartX: 1
-  gridEcartY: 1
+  gridSizeY: 20
+  gridEcartX: 0
+  gridEcartY: 0
   cellSize: 1
 --- !u!1 &1279709934
 GameObject:
@@ -2027,11 +2027,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1471285172}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2009838580 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1104501389826644622, guid: b118e067967ac1a44abaef9491efa290, type: 3}
-  m_PrefabInstance: {fileID: 2081905599005579633}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2009838584 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4432092104416556761, guid: b118e067967ac1a44abaef9491efa290, type: 3}
