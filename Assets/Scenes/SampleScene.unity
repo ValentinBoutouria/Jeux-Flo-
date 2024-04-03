@@ -647,6 +647,7 @@ MonoBehaviour:
   _prix: 1
   _ajoutPoint: {fileID: 1092025607}
   _validationUI: {fileID: 2129755812}
+  InstantiateMaison: {fileID: 7920630610415122644, guid: fa02b4ea79ec5e84daa6ea896ce7272d, type: 3}
 --- !u!1 &78521835
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,8 @@ public class Maison : MonoBehaviour
     public int _prix;
     public AjoutPoint _ajoutPoint;
     public GameObject _validationUI;
+    public GameObject InstantiateMaison; // Référence vers le prefab de l'objet à instancier
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,9 @@ public class Maison : MonoBehaviour
     {
         _ajoutPoint.scoreSelect = _ajoutPoint.scoreSelect - (_prix * _ajoutPoint.scoreSelect);//retire le prix pour placer un Maison sur chaque hexagone selectionné
         _validationUI.SetActive(true);
+        InstantiateMaison.gameObject.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);//changement du scale de la maison
+        GameObject Maison = Instantiate(InstantiateMaison, Vector3.zero + new Vector3(0f, 0.2f,0f), Quaternion.identity) ;//a changer
+
 
 
     }
