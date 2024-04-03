@@ -23,7 +23,7 @@ public class GenerationGrille : MonoBehaviour
     }
     void AleaHexa()
     {
-        int randomNumber = Random.Range(0, 3);
+        int randomNumber = Random.Range(0, 5);
         cellPrefab=prefabs[randomNumber];
 
     }
