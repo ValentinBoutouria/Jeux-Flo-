@@ -1084,7 +1084,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.81, y: 19.44, z: -0.7}
+  m_LocalPosition: {x: 10, y: 15, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1240,8 +1240,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cellPrefab: {fileID: 1712155488500880, guid: faf4b4ec0cbbb3840a5ba44685c18d99, type: 3}
-  gridSizeX: 10
-  gridSizeY: 20
+  cam: {fileID: 963194225}
+  gridSizeX: 20
+  gridSizeY: 10
   gridEcartX: 0
   gridEcartY: 0
   cellSize: 1
