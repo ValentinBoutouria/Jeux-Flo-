@@ -6,7 +6,8 @@ public class GenerationGrille : MonoBehaviour
 {
     // Start is called before the first frame update
   
-    public GameObject cellPrefab; // Pr�fabriqu� de la cellule de la grille
+    private GameObject cellPrefab; // Pr�fabriqu� de la cellule de la grille
+    public List<GameObject> prefabs = new List<GameObject>();
     public GameObject cam; // GameObject de la camera
     public int gridSizeX = 5; // Nombre de cellules en largeur
     public int gridSizeY = 5; // Nombre de cellules en hauteur
@@ -20,6 +21,12 @@ public class GenerationGrille : MonoBehaviour
     {
         GenerateGrid();
     }
+    void AleaHexa()
+    {
+        int randomNumber = Random.Range(0, 3);
+        cellPrefab=prefabs[randomNumber];
+
+    }
 
     void GenerateGrid()
     {
@@ -32,6 +39,7 @@ public class GenerationGrille : MonoBehaviour
                 // Calcule la position de la cellule dans la grille
                 Vector3 cellPosition = new Vector3(x * (cellSize+gridEcartX), 0, y * (cellSize+ gridEcartY));
 
+                AleaHexa();//Choisi aleatoirement un hexagone parmi les trois
                 // Instancie une nouvelle cellule de la grille � la position calcul�e
                 GameObject newCell = Instantiate(cellPrefab, cellPosition, Quaternion.identity);
                 newCell.transform.localScale = new Vector3(cellSize, 1f, cellSize); // R�glage de la taille de la cellule

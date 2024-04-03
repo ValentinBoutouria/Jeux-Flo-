@@ -1610,7 +1610,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74c1707755bcc3d46b785ee80157549e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellPrefab: {fileID: 1712155488500880, guid: faf4b4ec0cbbb3840a5ba44685c18d99, type: 3}
+  prefabs:
+  - {fileID: 1712155488500880, guid: faf4b4ec0cbbb3840a5ba44685c18d99, type: 3}
+  - {fileID: 1408386809328536, guid: 0c9cd282647074244950d07c3846fa0c, type: 3}
+  - {fileID: 1984707139914558, guid: 71199765df3f9d147bc10d0b8c6f4af7, type: 3}
   cam: {fileID: 963194225}
   gridSizeX: 20
   gridSizeY: 10
@@ -2485,12 +2488,12 @@ GameObject:
   - component: {fileID: 2069486401}
   - component: {fileID: 2069486400}
   m_Layer: 0
-  m_Name: Map
+  m_Name: Map(ancienne)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &2069486400
 BoxCollider:
   m_ObjectHideFlags: 0
