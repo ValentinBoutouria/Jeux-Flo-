@@ -1,26 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using TMPro;
-public class CoutUI : MonoBehaviour
+
+public class Validation : MonoBehaviour
 {
-    public AjoutPoint _ajoutPoint;
-    public TMP_Text textMeshPro;
-    private int _cout;
+    public GameObject _validationUI;
     // Start is called before the first frame update
     void Start()
     {
-        
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        _cout = _ajoutPoint.scoreSelect;
-        textMeshPro.text = "Coût : " + _cout;
-
         
+    }
+    public void CliqueValidation()
+    {
+        _validationUI.SetActive(false);
     }
 }

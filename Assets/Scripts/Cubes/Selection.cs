@@ -39,6 +39,7 @@ public class Selection : MonoBehaviour
                 renderer.material = _matSelection;//on place le mat selection
                 if (deselction.Select==false)//uniquement si pas deja selectionner
                 {
+                  //liste des hexa selectionné ????
                 ScriptAjout.scoreSelect = ScriptAjout.scoreSelect + 1; //on ajout le score de 1 vu qu'on selectionne
                 deselction.Select=true;//on met le bool Selection a true
                 }
@@ -62,8 +63,9 @@ public class Selection : MonoBehaviour
                 Renderer renderer = hit.collider.GetComponent<Renderer>();//on recupere le renderer
                 renderer.material = _matInitial;//on place le mat deselection
 
-                if (deselction.Select == true)//uniquement si pas deja selectionner
+                if (deselction.Select == true)//uniquement si deja selectionner
                 {
+                    
                     ScriptAjout.scoreSelect = ScriptAjout.scoreSelect - 1; //on ajout le score de 1 vu qu'on selectionne
                     deselction.Select = false;//on met le bool Selection a true
                 }
