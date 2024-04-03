@@ -2530,7 +2530,7 @@ Transform:
   m_GameObject: {fileID: 1255655104}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2555,10 +2555,9 @@ MonoBehaviour:
   - {fileID: 1589122122581606, guid: b6b0c220ebe042b498958eadf1f52fa4, type: 3}
   - {fileID: 1520068213326888, guid: d8deb0d5cca03814e8f5cd71fb9e7a1e, type: 3}
   cam: {fileID: 963194225}
-  gridSizeX: 100
-  gridSizeY: 100
-  gridEcartX: 0
-  gridEcartY: 0
+  gridSizeX: 20
+  gridSizeY: 5
+  gridEcart: 1
   cellSize: 1
 --- !u!1 &1272260714
 GameObject:

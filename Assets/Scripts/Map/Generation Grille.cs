@@ -11,8 +11,8 @@ public class GenerationGrille : MonoBehaviour
     public GameObject cam; // GameObject de la camera
     public int gridSizeX = 5; // Nombre de cellules en largeur
     public int gridSizeY = 5; // Nombre de cellules en hauteur
-    public float gridEcartX = 1f; // Nombre D'ecart entre les cellules en X
-    public float gridEcartY = 1f; // Nombre D'ecart entre les cellules en Y
+    public float gridEcart = 1f; // Nombre D'ecart entre les cellules en X
+    
     public float cellSize = 1f; // Taille de chaque cellule
     private float posCamX; //Pos camX
     private float posCamY; //Pos camY
@@ -36,8 +36,11 @@ public class GenerationGrille : MonoBehaviour
         {
             for (int y = 0; y < gridSizeY; y++)
             {
+                // Calculer la position de l'hexagone
+                float xPos = x * (cellSize/2);
+                float yPos = (x % 2 == 0 ? 0 : 0.866f) + y * (1.732f * cellSize);
                 // Calcule la position de la cellule dans la grille
-                Vector3 cellPosition = new Vector3(x * (cellSize+gridEcartX), 10f, y * (cellSize+ gridEcartY));
+                Vector3 cellPosition = new Vector3(xPos, 0f, yPos);
 
                 AleaHexa();//Choisi aleatoirement un hexagone parmi les trois
                 // Instancie une nouvelle cellule de la grille � la position calcul�e
@@ -50,8 +53,8 @@ public class GenerationGrille : MonoBehaviour
     void CalibrageCamera()
     {
         posCamX=gridSizeX/2;
-        posCamY=gridSizeY/2;
-        Vector3 posCamVect=new Vector3 (posCamX,50.0f,posCamY);
+        posCamY=gridSizeY;
+        Vector3 posCamVect=new Vector3 (posCamX,gridSizeY*2,posCamY);
         cam.transform.localPosition =posCamVect;
 
 
