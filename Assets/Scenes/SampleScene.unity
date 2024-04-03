@@ -646,6 +646,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prix: 1
   _ajoutPoint: {fileID: 1092025607}
+  _validationUI: {fileID: 2129755812}
 --- !u!1 &78521835
 GameObject:
   m_ObjectHideFlags: 0
@@ -4498,7 +4499,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2129755813
 RectTransform:
   m_ObjectHideFlags: 0
