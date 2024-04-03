@@ -37,7 +37,7 @@ public class GenerationGrille : MonoBehaviour
             for (int y = 0; y < gridSizeY; y++)
             {
                 // Calcule la position de la cellule dans la grille
-                Vector3 cellPosition = new Vector3(x * (cellSize+gridEcartX), 0, y * (cellSize+ gridEcartY));
+                Vector3 cellPosition = new Vector3(x * (cellSize+gridEcartX), 10f, y * (cellSize+ gridEcartY));
 
                 AleaHexa();//Choisi aleatoirement un hexagone parmi les trois
                 // Instancie une nouvelle cellule de la grille � la position calcul�e
@@ -51,7 +51,7 @@ public class GenerationGrille : MonoBehaviour
     {
         posCamX=gridSizeX/2;
         posCamY=gridSizeY/2;
-        Vector3 posCamVect=new Vector3 (posCamX,15.0f,posCamY);
+        Vector3 posCamVect=new Vector3 (posCamX,50.0f,posCamY);
         cam.transform.localPosition =posCamVect;
 
 
