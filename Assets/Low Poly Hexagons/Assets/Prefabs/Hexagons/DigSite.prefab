@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33755175983760936}
   - component: {fileID: 23577297564048948}
   - component: {fileID: 64908013253476108}
+  - component: {fileID: 727938367096373991}
   m_Layer: 0
   m_Name: DigSite
   m_TagString: Cube
@@ -106,3 +107,17 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: b066cbce47052904ebb41e4a1dc0b4da, type: 3}
+--- !u!114 &727938367096373991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712155488500880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 271b488acb71eb94caa6cd792e9dd259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Selection: 0
+  _matInitial: {fileID: 2100000, guid: cf051fba995609b459f0eb4baf4bb478, type: 2}
