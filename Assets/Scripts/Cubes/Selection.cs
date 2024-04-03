@@ -5,8 +5,10 @@ using UnityEngine;
 public class Selection : MonoBehaviour
 {
     public Material _matSelection; // Le nouveau mat�riau que vous souhaitez appliquer
+    public AjoutPoint ScriptAjout;
     private Material _matInitial; //Material initial de l'hexagone
     private Deselction deselction;
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +38,8 @@ public class Selection : MonoBehaviour
                 Renderer renderer = hit.collider.GetComponent<Renderer>();//on recupere le renderer
                 renderer.material = _matSelection;//on place le mat selection
                 deselction.Select=true;//on met le bool Selection a true
-                
+                ScriptAjout.scoreSelect = ScriptAjout.scoreSelect + 1; //on ajout le score de 1 vu qu'on selectionne
+
             }
         }
 

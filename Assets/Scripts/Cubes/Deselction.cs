@@ -6,6 +6,7 @@ public class Deselction : MonoBehaviour
 {
     public bool Select=false;
     public Material _matInitial;
+    public AjoutPoint ScriptAjout;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +35,7 @@ public class Deselction : MonoBehaviour
                 if(renderer.material !=_matInitial)
                 {
                     deselect.Select=false;
+                    //ScriptAjout.scoreSelect = ScriptAjout.scoreSelect - 1; //on retire le score de 1 vu qu'on deselectionne
                     renderer.material= _matInitial;
                 }
             }
