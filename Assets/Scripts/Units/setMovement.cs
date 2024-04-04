@@ -21,7 +21,7 @@ public class setMovement : MonoBehaviour
     void Update()
     {
         if(UnityEngine.Input.GetMouseButtonUp(1))
-        {   
+        {
             //pos.position = Input.mousePosition;
             if(UnityEngine.Input.GetMouseButtonUp(1))
             {
