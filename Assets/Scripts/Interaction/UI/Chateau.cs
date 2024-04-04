@@ -20,7 +20,7 @@ public class Chateau : MonoBehaviour
     }
     public void CliqueChateau()
     {
-        _ajoutPoint.scoreSelect=_ajoutPoint.scoreSelect-(_prix*_ajoutPoint.scoreSelect);//retire le prix pour placer un chateau sur chaque hexagone selectionné
+        //_ajoutPoint.scoreSelect=_ajoutPoint.scoreSelect-(_prix*_ajoutPoint.scoreSelect);//retire le prix pour placer un chateau sur chaque hexagone selectionnï¿½
 
     }
 }

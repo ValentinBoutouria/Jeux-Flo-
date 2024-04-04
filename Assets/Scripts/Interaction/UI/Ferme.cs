@@ -21,7 +21,7 @@ public class Ferme : MonoBehaviour
     }
     public void CliqueFerme()
     {
-        _ajoutPoint.scoreSelect = _ajoutPoint.scoreSelect - (_prix * _ajoutPoint.scoreSelect);//retire le prix pour placer un Ferme sur chaque hexagone selectionné
+        //_ajoutPoint.scoreSelect = _ajoutPoint.scoreSelect - (_prix * _ajoutPoint.scoreSelect);//retire le prix pour placer un Ferme sur chaque hexagone selectionnï¿½
 
     }
 }

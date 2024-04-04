@@ -6,7 +6,7 @@ using TMPro;
 public class AjoutPoint : MonoBehaviour
 {
     public TMP_Text textMeshPro;
-    public int scoreSelect;
+    public Selection _select;
     public GameObject UI;
     // Start is called before the first frame update
     void Start()
@@ -22,12 +22,12 @@ public class AjoutPoint : MonoBehaviour
     }
     public void AjoutPointfct()
         {
-        textMeshPro.text = "Score : " + scoreSelect;
+        textMeshPro.text = "Score : " + _select.nbGameObjectSelect;
        // scoreSelect = 0;
         }
     public void uiSelect()
     {
-        if (scoreSelect>=1)
+        if (_select.nbGameObjectSelect>=1)
         {
             UI.SetActive(true);
         }
