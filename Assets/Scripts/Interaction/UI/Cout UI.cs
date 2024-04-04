@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 public class CoutUI : MonoBehaviour
 {
-    public AjoutPoint _ajoutPoint;
+    public Selection _selection;
     public TMP_Text textMeshPro;
     private int _cout;
     // Start is called before the first frame update
@@ -17,8 +17,8 @@ public class CoutUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _cout = _ajoutPoint.scoreSelect;
-        textMeshPro.text = "Coût : " + _cout;
+        _cout = _selection.nbGameObjectSelect;
+        textMeshPro.text = "Coï¿½t : " + _cout;
 
         
     }
