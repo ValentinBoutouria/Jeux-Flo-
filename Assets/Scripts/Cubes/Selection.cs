@@ -14,6 +14,8 @@ public class Selection : MonoBehaviour
     public List<GameObject> listeGameObjectGold = new List<GameObject>();
     public int nbGameObjectSelect;
 
+    public Bois _bois;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,15 @@ public class Selection : MonoBehaviour
                 gameObjectListSelectionne.Add(hit.collider.gameObject);//ajout du game object selectionne dans la liste selectionne
                 listeGameObjectNONSelect.Remove(hit.collider.gameObject);
             }
+            //clique sur du bois
+            if (listeGameObjectWOOD.Contains(hit.collider.gameObject))
+            {
+                gameObjectListSelectionne.Add(hit.collider.gameObject);//ajout du game object selectionne dans la liste selectionne
+                listeGameObjectWOOD.Remove(hit.collider.gameObject);//on retire l'hexa de la liste ou il y avait la ressource (bois)
+                _bois._nbBois+=1;
+                Destroy(hit.collider.gameObject.transform.GetChild(0).gameObject);
+            }
+
         }
     }
 

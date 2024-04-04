@@ -11,6 +11,7 @@ public class Instanciateur : MonoBehaviour
     public Compteur _compteur;
     public Selection _selection;
     public int _spawnTime;
+
     private GameObject _ressourceSpawn;
     private int _aleaHexaIndex;
 
@@ -62,6 +63,7 @@ public class Instanciateur : MonoBehaviour
             if(_ressourceSpawn==_woodPrefab)
             {
                 _selection.listeGameObjectWOOD.Add(_tempHexa);  
+
             }
             if(_ressourceSpawn==_stonePrefab)
             {

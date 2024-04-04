@@ -824,6 +824,52 @@ MonoBehaviour:
   _validationUI: {fileID: 2129755812}
   _selection: {fileID: 674256382}
   _chateauPrefabLVL1: {fileID: 5928208106729360501, guid: e37f3aa36c12dcf49a6657cfca043e0d, type: 3}
+--- !u!1 &134210219
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 134210220}
+  - component: {fileID: 134210221}
+  m_Layer: 0
+  m_Name: Wood
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &134210220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134210219}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1296242151}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &134210221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134210219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6c1d02fe87551a4db7bd70806a6d6a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nbBois: 0
+  tMP_Text: {fileID: 146997727}
 --- !u!1 &146997725
 GameObject:
   m_ObjectHideFlags: 0
@@ -2082,6 +2128,7 @@ MonoBehaviour:
   listeGameObjectStone: []
   listeGameObjectGold: []
   nbGameObjectSelect: 0
+  _bois: {fileID: 134210221}
 --- !u!114 &674256383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3949,7 +3996,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 134210220}
   m_Father: {fileID: 674256381}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1296242152
