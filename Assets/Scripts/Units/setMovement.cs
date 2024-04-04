@@ -7,14 +7,15 @@ using UnityEngine.Windows;
 
 public class setMovement : MonoBehaviour
 {
-    public GameObject selectionController;
-    private bool orderGiven = false;
+    private GameObject selectionController;
     public UnityEngine.Vector3 worldPos;
     private UnityEngine.Plane plane = new UnityEngine.Plane(UnityEngine.Vector3.up, 0);
+    public Transform _tf_dest;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        selectionController = GameObject.FindGameObjectWithTag("selectionController");
     }
 
     // Update is called once per frame
@@ -33,17 +34,17 @@ public class setMovement : MonoBehaviour
                 }
             }
 
-            foreach (var warrior in selectionController.GetComponent<SelectionController>().selectedWarriorList)
+            if (selectionController.GetComponent<SelectionController>().selectedWarriorList.Contains(this.gameObject) )
             {
-                setMovementDest(worldPos, warrior);
+                setMovementDest(worldPos);
             }
         }
     }
 
-    public void setMovementDest(UnityEngine.Vector3 position, GameObject warrior)
+    public void setMovementDest(UnityEngine.Vector3 position)
     {
-        warrior.GetComponent<Transform>().parent.GetChild(1).gameObject.SetActive(true);
-        warrior.GetComponent<Transform>().parent.GetChild(1).position = position; 
+        _tf_dest.gameObject.SetActive(true);
+        _tf_dest.position = position; 
     }
 
 
