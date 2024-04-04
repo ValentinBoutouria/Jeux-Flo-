@@ -54,7 +54,7 @@ public class Instanciateur : MonoBehaviour
     }
     void instanciation()
     {
-        if (_compteur.counter == _spawnTime)
+        if (_compteur.counterSpawnRessources == _spawnTime)
         {
             //instancie la ressource sur le bon hexa
             GameObject _tempHexa=_selection.listeGameObjectNONSelect[_aleaHexaIndex];//hexa ou la ressource spawn
@@ -73,7 +73,7 @@ public class Instanciateur : MonoBehaviour
             {
                 _selection.listeGameObjectGold.Add(_tempHexa);  
             }
-            _compteur.counter=0;
+            _compteur.counterSpawnRessources=0;
         }
     }
 }

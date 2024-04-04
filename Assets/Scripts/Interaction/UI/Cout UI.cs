@@ -18,7 +18,7 @@ public class CoutUI : MonoBehaviour
     void Update()
     {
         _cout = _selection.nbGameObjectSelect;
-        textMeshPro.text = "Co�t : " + _cout;
+        textMeshPro.text = "Coût x " + _cout;
 
         
     }
