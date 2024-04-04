@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Plugins.meta
 guid: e02dd008c71375e41b94a341683a32d8
-========
-guid: 7b6d4fbc6442e6e438fd57b6432dbe6d
->>>>>>>> c16a882e394840f0b6b3daf4d97900ad6d256f83:Assets/Prefabs/Maison.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

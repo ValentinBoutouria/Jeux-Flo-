@@ -26,22 +26,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5575432644976486734}
-<<<<<<< HEAD
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.19, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-=======
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
->>>>>>> d6585a054b9a324195ab7a1e4c859ed3a9dd8130
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5575432644973524300
 MeshFilter:
@@ -62,18 +52,9 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-=======
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
->>>>>>> d6585a054b9a324195ab7a1e4c859ed3a9dd8130
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -85,10 +66,6 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-<<<<<<< HEAD
-  m_ReceiveGI: 1
-=======
->>>>>>> d6585a054b9a324195ab7a1e4c859ed3a9dd8130
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -101,10 +78,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
-  m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> d6585a054b9a324195ab7a1e4c859ed3a9dd8130
 --- !u!65 &65424094663201028
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -113,22 +86,8 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5575432644976486734}
   m_Material: {fileID: 0}
-<<<<<<< HEAD
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-=======
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
->>>>>>> d6585a054b9a324195ab7a1e4c859ed3a9dd8130
   m_Size: {x: 3.1901631, y: 4.975865, z: 3.370679}
   m_Center: {x: -1.1018245, y: 2.4879286, z: 0.6179165}

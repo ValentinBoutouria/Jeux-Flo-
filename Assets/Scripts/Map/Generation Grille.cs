@@ -13,7 +13,8 @@ public class GenerationGrille : MonoBehaviour
     public GameObject cam; // GameObject de la camera
     public int gridSizeX = 5; // Nombre de cellules en largeur
     public int gridSizeY = 5; // Nombre de cellules en hauteur
-   
+    private float gridEcart = 1f; // Nombre D'ecart entre les cellules en X
+    
     public float cellSize = 1f; // Taille de chaque cellule
     private float posCamX; //Pos camX
     private float posCamY; //Pos camY
