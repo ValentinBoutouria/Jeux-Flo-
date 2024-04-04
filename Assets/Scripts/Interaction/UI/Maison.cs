@@ -10,6 +10,7 @@ public class Maison : MonoBehaviour
     public GameObject _validationUI;
     public Selection _selection;
     public GameObject _maisonPrefabLVL1;
+    public GameObject _parent;
     public Bois _bois;
     public Compteur _compteur;
     public int benefice;
@@ -45,7 +46,7 @@ public class Maison : MonoBehaviour
             foreach (GameObject obj in _selection.gameObjectListSelectionne)//pour tout les gameobject dans liste selectionne
             {
                 _nbMaison += 1;//on ajoute une maison
-                GameObject GameObjectTemp=Instantiate(_maisonPrefabLVL1,obj.transform.position+new Vector3(0,0.3f,0),Quaternion.Euler(0, -90, 0),obj.transform);
+                GameObject GameObjectTemp=Instantiate(_maisonPrefabLVL1,obj.transform.position+new Vector3(0,0.3f,0),Quaternion.Euler(0, -90, 0),_parent.transform);
                 GameObjectTemp.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
                 Renderer renderer = obj.GetComponent<Renderer>();//on recupere le renderer
                 renderer.material = _selection._matInitial;//on place le mat deselection
