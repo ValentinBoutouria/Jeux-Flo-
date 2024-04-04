@@ -594,6 +594,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 821724275}
+        m_TargetAssemblyTypeName: Validation, Assembly-CSharp
+        m_MethodName: PhraseValidationMaison
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &32905071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -645,7 +657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prix: 1
-  _ajoutPoint: {fileID: 1092025607}
+  _nbMaisonsAchete: 0
   _validationUI: {fileID: 2129755812}
   _selection: {fileID: 674256382}
   _maisonPrefabLVL1: {fileID: 1005756616148439715, guid: fb8bf63a90c7e9347b64ca17c0b9a27e, type: 3}
@@ -745,6 +757,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 821724275}
+        m_TargetAssemblyTypeName: Validation, Assembly-CSharp
+        m_MethodName: PhraseValidationChateau
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &78521838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -796,7 +820,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prix: 1
-  _ajoutPoint: {fileID: 1092025607}
+  _nbChateauAchete: 0
+  _validationUI: {fileID: 2129755812}
+  _selection: {fileID: 674256382}
+  _chateauPrefabLVL1: {fileID: 5928208106729360501, guid: e37f3aa36c12dcf49a6657cfca043e0d, type: 3}
 --- !u!1 &215387267
 GameObject:
   m_ObjectHideFlags: 0
@@ -2041,7 +2068,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _validationUI: {fileID: 2129755812}
-  _selection: {fileID: 674256382}
+  _maison: {fileID: 0}
+  _ferme: {fileID: 0}
+  _chateau: {fileID: 0}
   textMeshPro: {fileID: 394303881}
 --- !u!114 &821724276
 MonoBehaviour:
@@ -4438,6 +4467,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 821724275}
+        m_TargetAssemblyTypeName: Validation, Assembly-CSharp
+        m_MethodName: PhraseValidationFerme
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2088138846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4489,7 +4530,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prix: 1
-  _ajoutPoint: {fileID: 1092025607}
+  _nbFermeAchete: 0
+  _validationUI: {fileID: 2129755812}
+  _selection: {fileID: 674256382}
+  _fermePrefabLVL1: {fileID: 3452888887045216775, guid: 4caf7b34b61fc124bb84ae3e096efb64, type: 3}
 --- !u!1 &2129755812
 GameObject:
   m_ObjectHideFlags: 0
