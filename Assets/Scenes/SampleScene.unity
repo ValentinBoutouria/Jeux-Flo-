@@ -2038,7 +2038,7 @@ GameObject:
   - component: {fileID: 674256382}
   - component: {fileID: 674256383}
   m_Layer: 0
-  m_Name: Action Manager
+  m_Name: Action/Liste Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2073,9 +2073,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _matSelection: {fileID: 2100000, guid: 13b73181b5d8859469cd2e2265fa0786, type: 2}
-  ScriptAjout: {fileID: 1092025607}
+  _grille: {fileID: 1255655106}
   _matInitial: {fileID: 2100000, guid: cf051fba995609b459f0eb4baf4bb478, type: 2}
   gameObjectListSelectionne: []
+  listeGameObjectNONSelect: []
   nbGameObjectSelect: 0
 --- !u!114 &674256383
 MonoBehaviour:
@@ -3563,10 +3564,10 @@ MonoBehaviour:
   - {fileID: 1984707139914558, guid: 71199765df3f9d147bc10d0b8c6f4af7, type: 3}
   - {fileID: 1589122122581606, guid: b6b0c220ebe042b498958eadf1f52fa4, type: 3}
   - {fileID: 1520068213326888, guid: d8deb0d5cca03814e8f5cd71fb9e7a1e, type: 3}
+  _selection: {fileID: 674256382}
   cam: {fileID: 963194225}
   gridSizeX: 20
   gridSizeY: 5
-  gridEcart: 1
   cellSize: 1
 --- !u!1 &1272260714
 GameObject:

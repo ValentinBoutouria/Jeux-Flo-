@@ -32,7 +32,7 @@ public class Ferme : MonoBehaviour
           GameObjectTemp.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
           Renderer renderer = obj.GetComponent<Renderer>();//on recupere le renderer
           renderer.material = _selection._matInitial;//on place le mat deselection
-
+          _selection.listeGameObjectNONSelect.Add(obj);
         }
         _selection.gameObjectListSelectionne.Clear();
     }
