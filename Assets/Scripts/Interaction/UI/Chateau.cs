@@ -13,7 +13,7 @@ public class Chateau : MonoBehaviour
     public Gold _gold;
     public int benefice;
     public Compteur _compteur;
-    [SerializeField]
+  
     private int _nbChateau = 0;
     // Start is called before the first frame update
     void Start()
@@ -33,15 +33,16 @@ public class Chateau : MonoBehaviour
         if (_compteur.counterAjoutChateau < 0f)
         {
             _compteur.counterAjoutChateau = 9;
-            _gold._nbGold = benefice * _nbChateau;
+            _gold._nbGold += benefice * _nbChateau;
         }
     }
     public void CliqueChateau()
     {
-        _nbChateauAchete=_selection.nbGameObjectSelect;
         //_validationUI.SetActive(true);
+        
         if(_gold._nbGold>=_prix*_selection.gameObjectListSelectionne.Count)//si assez d'or pour acheter un chateau
         {
+            _nbChateauAchete=_selection.nbGameObjectSelect;
             _gold._nbGold -= _prix * _selection.gameObjectListSelectionne.Count;//on retire le prix des batiments
 
             foreach (GameObject obj in _selection.gameObjectListSelectionne)//pour tout les gameobject dans liste selectionne
@@ -51,7 +52,7 @@ public class Chateau : MonoBehaviour
                 GameObjectTemp.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
                 Renderer renderer = obj.GetComponent<Renderer>();//on recupere le renderer
                 renderer.material = _selection._matInitial;//on place le mat deselection
-                _selection.listeGameObjectNONSelect.Add(obj);
+                _selection.listeGameObjectBatimentPresent.Add(obj);
             }
         }
         else

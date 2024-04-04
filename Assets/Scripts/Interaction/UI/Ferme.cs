@@ -13,7 +13,7 @@ public class Ferme : MonoBehaviour
     public Stone _stone;
     public int benefice;
     public Compteur _compteur;
-    [SerializeField]
+
     private int _nbFerme = 0;
     // Start is called before the first frame update
     void Start()
@@ -31,15 +31,16 @@ public class Ferme : MonoBehaviour
         if (_compteur.counterAjoutFerme < 0f)
         {
             _compteur.counterAjoutFerme = 9;
-            _stone._nbStone = benefice * _nbFerme;
+            _stone._nbStone += benefice * _nbFerme;
         }
     }
     public void CliqueFerme()
     {
-        _nbFermeAchete=_selection.nbGameObjectSelect;
         //_validationUI.SetActive(true);
         if (_stone._nbStone >= _prix * _selection.gameObjectListSelectionne.Count)//si assez d'or pour acheter un chateau
         {
+            _nbFermeAchete=_selection.nbGameObjectSelect;
+            //Debug.Log("??????????????");
             _stone._nbStone -= _prix * _selection.gameObjectListSelectionne.Count;//on retire le prix des batiments
             foreach (GameObject obj in _selection.gameObjectListSelectionne)//pour tout les gameobject dans liste selectionne
             {
@@ -48,7 +49,7 @@ public class Ferme : MonoBehaviour
                 GameObjectTemp.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
                 Renderer renderer = obj.GetComponent<Renderer>();//on recupere le renderer
                 renderer.material = _selection._matInitial;//on place le mat deselection
-                _selection.listeGameObjectNONSelect.Add(obj);
+                _selection.listeGameObjectBatimentPresent.Add(obj);
             }
         }
         else

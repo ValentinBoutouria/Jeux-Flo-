@@ -662,6 +662,9 @@ MonoBehaviour:
   _validationUI: {fileID: 2129755812}
   _selection: {fileID: 674256382}
   _maisonPrefabLVL1: {fileID: 1005756616148439715, guid: fb8bf63a90c7e9347b64ca17c0b9a27e, type: 3}
+  _bois: {fileID: 134210221}
+  _compteur: {fileID: 1296242152}
+  benefice: 1
 --- !u!1 &78521835
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,6 +829,9 @@ MonoBehaviour:
   _validationUI: {fileID: 2129755812}
   _selection: {fileID: 674256382}
   _chateauPrefabLVL1: {fileID: 5928208106729360501, guid: e37f3aa36c12dcf49a6657cfca043e0d, type: 3}
+  _gold: {fileID: 714695069}
+  benefice: 1
+  _compteur: {fileID: 1296242152}
 --- !u!1 &134210219
 GameObject:
   m_ObjectHideFlags: 0
@@ -2401,6 +2407,7 @@ MonoBehaviour:
   listeGameObjectWOOD: []
   listeGameObjectStone: []
   listeGameObjectGold: []
+  listeGameObjectBatimentPresent: []
   nbGameObjectSelect: 0
   _bois: {fileID: 134210221}
   _gold: {fileID: 714695069}
@@ -4382,7 +4389,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b0e77be541d1d43a5329a3d780201c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  counter: 0
+  counterSpawnRessources: 0
+  counterAjoutFerme: 0
+  counterAjoutChateau: 0
+  counterAjoutMaison: 0
 --- !u!114 &1296242153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4629,7 +4639,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1455068043
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5601,6 +5611,9 @@ MonoBehaviour:
   _validationUI: {fileID: 2129755812}
   _selection: {fileID: 674256382}
   _fermePrefabLVL1: {fileID: 3452888887045216775, guid: 4caf7b34b61fc124bb84ae3e096efb64, type: 3}
+  _stone: {fileID: 1015728838}
+  benefice: 1
+  _compteur: {fileID: 1296242152}
 --- !u!1 &2129755812
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ public class Maison : MonoBehaviour
     public Bois _bois;
     public Compteur _compteur;
     public int benefice;
-    [SerializeField]
+ 
     private int _nbMaison = 0;
 
     // Start is called before the first frame update
@@ -32,15 +32,15 @@ public class Maison : MonoBehaviour
         if (_compteur.counterAjoutMaison<0f)
         {
             _compteur.counterAjoutMaison = 9;
-            _bois._nbBois = benefice * _nbMaison;
+            _bois._nbBois += benefice * _nbMaison;
         }
     }
     public void CliqueMaison()
     {
-        _nbMaisonsAchete=_selection.nbGameObjectSelect;
         //_validationUI.SetActive(true);
         if (_bois._nbBois >= _prix * _selection.gameObjectListSelectionne.Count)//si assez de bois pour acheter un chateau
         {
+            _nbMaisonsAchete=_selection.nbGameObjectSelect;
             _bois._nbBois -= _prix * _selection.gameObjectListSelectionne.Count;//on retire le prix des batiments
             foreach (GameObject obj in _selection.gameObjectListSelectionne)//pour tout les gameobject dans liste selectionne
             {
@@ -49,7 +49,7 @@ public class Maison : MonoBehaviour
                 GameObjectTemp.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
                 Renderer renderer = obj.GetComponent<Renderer>();//on recupere le renderer
                 renderer.material = _selection._matInitial;//on place le mat deselection
-                _selection.listeGameObjectNONSelect.Add(obj);
+                _selection.listeGameObjectBatimentPresent.Add(obj);
             }
         }
         else
