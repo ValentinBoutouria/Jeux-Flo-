@@ -12,6 +12,7 @@ public class Selection : MonoBehaviour
     public List<GameObject> listeGameObjectWOOD = new List<GameObject>();
     public List<GameObject> listeGameObjectStone = new List<GameObject>();
     public List<GameObject> listeGameObjectGold = new List<GameObject>();
+    public List<GameObject> listeGameObjectBatimentPresent = new List<GameObject>();
     public int nbGameObjectSelect;
 
     public Bois _bois;
