@@ -28,7 +28,7 @@ public class Chateau : MonoBehaviour
         _validationUI.SetActive(true);
         foreach (GameObject obj in _selection.gameObjectListSelectionne)//pour tout les gameobject dans liste selectionne
         {
-          GameObject GameObjectTemp=Instantiate(_chateauPrefabLVL1,obj.transform.position+new Vector3(0,0.1f,0),Quaternion.Euler(0, -90, 0),obj.transform);
+          GameObject GameObjectTemp=Instantiate(_chateauPrefabLVL1,obj.transform.position+new Vector3(0,0.2f,0),Quaternion.Euler(0, -90, 0),obj.transform);
           GameObjectTemp.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
           Renderer renderer = obj.GetComponent<Renderer>();//on recupere le renderer
           renderer.material = _selection._matInitial;//on place le mat deselection
