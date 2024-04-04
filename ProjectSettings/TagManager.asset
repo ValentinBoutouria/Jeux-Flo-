@@ -7,6 +7,8 @@ TagManager:
   - Cube
   - unit
   - selectionController
+  - ennemie
+  - empty
   layers:
   - Default
   - TransparentFX

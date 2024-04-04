@@ -6,14 +6,24 @@ using UnityEngine;
 public class goToDest : MonoBehaviour
 {
     private int speed;
+    private int portee;
+
     private GameObject body;
     public Transform _tf_dest;
+    private GameObject ennemie;
+
+    private bool isEnnemie;
+
+    private int minDist = 1;
+
 
     // Start is called before the first frame update
     void Start()
     {
         _tf_dest.gameObject.SetActive(false);
         speed = this.GetComponent<Transform>().parent.parent.parent.GetChild(0).GetComponent<caracteristique>().getVitesse();
+        portee = this.GetComponent<Transform>().parent.parent.parent.GetChild(0).GetComponent<caracteristique>().getPortee();
+
         body = this.GetComponent<Transform>().parent.parent.gameObject;
     }
 
@@ -22,9 +32,17 @@ public class goToDest : MonoBehaviour
     {
         if(_tf_dest.gameObject.activeSelf)
         {
-            if(Vector3.Distance(body.GetComponent<Transform>().position, _tf_dest.position) < 1)
+            if (isEnnemie)
+            {
+                minDist = portee;
+                Debug.Log("diatnce obj = " + minDist);
+
+            }
+
+            if (Vector3.Distance(body.GetComponent<Transform>().position, _tf_dest.position) < minDist)
             {
                 _tf_dest.gameObject.SetActive(false);
+                minDist = 1;
             }
             else
             {
@@ -32,4 +50,19 @@ public class goToDest : MonoBehaviour
             }
         }
     }
+
+
+    public void setIsEnnemie(bool maybe)
+    {
+        isEnnemie = maybe;
+    }
+
+    public void setEnnemie(GameObject e)
+    {
+        ennemie = e;
+        _tf_dest.position = ennemie.GetComponent<Transform>().position;
+        _tf_dest.gameObject.SetActive(true);
+    }
 }
+
+
