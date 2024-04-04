@@ -37,19 +37,18 @@ public class Selection : MonoBehaviour
         // Lance un rayon et v�rifie s'il a touch� un objet avec le tag "Cube"
         if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Cube"))
         {
-            // L'objet touch� a le tag "Cube", vous pouvez impl�menter ici la logique de s�lection
-            Renderer renderer = hit.collider.GetComponent<Renderer>();//on recupere le renderer
-            renderer.material = _matSelection;//on place le mat selection
             if (listeGameObjectNONSelect.Contains(hit.collider.gameObject))//uniquement si dans liste NON selectionne
             {
                 gameObjectListSelectionne.Add(hit.collider.gameObject);//ajout du game object selectionne dans la liste selectionne
                 listeGameObjectNONSelect.Remove(hit.collider.gameObject);
+                Renderer renderer = hit.collider.GetComponent<Renderer>();//on recupere le renderer
+                renderer.material = _matSelection;//on place le mat selection
             }
 
             //clique sur du bois
             if (listeGameObjectWOOD.Contains(hit.collider.gameObject))
             {
-                gameObjectListSelectionne.Add(hit.collider.gameObject);//ajout du game object selectionne dans la liste selectionne
+                listeGameObjectNONSelect.Add(hit.collider.gameObject);//ajout du game object selectionne dans la liste NON selectionne
                 listeGameObjectWOOD.Remove(hit.collider.gameObject);//on retire l'hexa de la liste ou il y avait la ressource (bois)
                 _bois._nbBois+=1;
                 Destroy(hit.collider.gameObject.transform.GetChild(0).gameObject);
@@ -58,7 +57,7 @@ public class Selection : MonoBehaviour
             //clique sur du Gold
             if (listeGameObjectGold.Contains(hit.collider.gameObject))
             {
-                gameObjectListSelectionne.Add(hit.collider.gameObject);//ajout du game object selectionne dans la liste selectionne
+                listeGameObjectNONSelect.Add(hit.collider.gameObject);//ajout du game object selectionne dans la liste NON selectionne
                 listeGameObjectGold.Remove(hit.collider.gameObject);//on retire l'hexa de la liste ou il y avait la ressource (gold)
                 _gold._nbGold += 1;
                 Destroy(hit.collider.gameObject.transform.GetChild(0).gameObject);
@@ -67,7 +66,7 @@ public class Selection : MonoBehaviour
             //clique sur de la Stone
             if (listeGameObjectStone.Contains(hit.collider.gameObject))
             {
-                gameObjectListSelectionne.Add(hit.collider.gameObject);//ajout du game object selectionne dans la liste selectionne
+                listeGameObjectNONSelect.Add(hit.collider.gameObject);//ajout du game object selectionne dans la liste NON selectionne
                 listeGameObjectStone.Remove(hit.collider.gameObject);//on retire l'hexa de la liste ou il y avait la ressource (bois)
                 _stone._nbStone += 1;
                 Destroy(hit.collider.gameObject.transform.GetChild(0).gameObject);
