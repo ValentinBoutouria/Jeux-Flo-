@@ -6,7 +6,11 @@ TagManager:
   tags:
   - Cube
   - unit
+<<<<<<< Updated upstream
   - selectionController
+=======
+  - Batiment
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX

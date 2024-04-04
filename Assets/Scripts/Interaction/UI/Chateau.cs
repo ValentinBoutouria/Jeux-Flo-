@@ -10,6 +10,8 @@ public class Chateau : MonoBehaviour
     public GameObject _validationUI;
     public Selection _selection;
     public GameObject _chateauPrefabLVL1;
+    public GameObject _parent;
+
     public Gold _gold;
     public int benefice;
     public Compteur _compteur;
