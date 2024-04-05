@@ -11,6 +11,13 @@ public class badGuysAttacks : MonoBehaviour
     private int portee;
     private int attaque;
 
+    private int RayonExplosion = 5;
+    public GameObject effet;
+
+    public GameObject plus_proche;
+    float min_dist = -1;
+
+    private string classe;
 
     public List<GameObject> availableWarriorList;
     // Start is called before the first frame update
@@ -22,6 +29,7 @@ public class badGuysAttacks : MonoBehaviour
         attaque = gameObject.GetComponent<caracEnnemie>().getAttaque();
 
         availableWarriorList = GameObject.FindGameObjectWithTag("selectionController").GetComponent<SelectionController>().availableWarriorList;
+        classe = gameObject.GetComponent<caracEnnemie>().getClasse();
     }
 
     // Update is called once per frame
@@ -29,11 +37,21 @@ public class badGuysAttacks : MonoBehaviour
     {
         try
         {
+            plus_proche = null;
+            min_dist = -1;
             foreach (var warrior in availableWarriorList)
             {
-                if (Vector3.Distance(warrior.transform.position, gameObject.transform.position) < portee)
+                if(min_dist == -1)
+                    plus_proche = warrior;
+                var dist = Vector3.Distance(warrior.transform.position, gameObject.transform.position);
+                if ( dist < portee)
                 {
-                    attack(warrior);
+                    if(dist < min_dist)
+                    {
+                        min_dist = dist;
+                        plus_proche = warrior;
+                    }
+                    attack(plus_proche);
                 }
             }
         }
@@ -43,14 +61,41 @@ public class badGuysAttacks : MonoBehaviour
 
     private void attack(GameObject warrior)
     {
-        if(gameObject.name == "spinner")
-        {
-            timer += Time.deltaTime;
+        if (warrior == null)
+            return;
 
-            if (timer > vitesseAtt)
+        timer += Time.deltaTime;
+
+        if (timer > vitesseAtt)
+        {
+            timer = 0;
+            switch(classe)
             {
-                timer = 0;
-                warrior.GetComponent<Transform>().parent.GetComponent<health>().getDamages(attaque);
+                case "spinne":
+                    warrior.GetComponent<Transform>().parent.GetComponent<health>().getDamages(attaque);
+                    break;
+
+                case "mage__":
+                    explosion(warrior);
+                    break;
+            }
+
+        }
+    }
+
+
+    public void explosion(GameObject warrior)
+    {
+        var tmp = GameObject.Instantiate<GameObject>(effet, warrior.transform);
+        Debug.Log("Particle sys ---------- " + tmp.activeSelf);
+        tmp.SetActive(true);
+        foreach(var unit in availableWarriorList)
+        {
+            var dist = Vector3.Distance(warrior.GetComponent<Transform>().position, unit.transform.position);
+            if (dist < RayonExplosion)
+            {
+                Debug.Log("BOUUUUUUUUUUUUUUUUUUUM : " + warrior);
+                warrior.GetComponent<Transform>().parent.GetComponent<health>().getDamages((int)((float)attaque/(float)(dist+1)));
             }
         }
     }

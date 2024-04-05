@@ -5,14 +5,16 @@ using UnityEngine;
 public class targeted : MonoBehaviour
 {
 
-    public GameObject selectionController;
-    public GameObject generalScript;
+    private GameObject selectionController;
+    private GameObject generalScript;
 
     // Start is called before the first frame update
     void Start()
     {
         this.gameObject.GetComponent<Outline>().enabled = false;
         generalScript = GameObject.FindGameObjectWithTag("empty");
+        selectionController = GameObject.FindGameObjectWithTag("selectionController");
+
 
     }
 

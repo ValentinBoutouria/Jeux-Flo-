@@ -7,15 +7,16 @@ public class caracEnnemie : MonoBehaviour
 
     private Dictionary<string, int> nameToIndex = new Dictionary<string, int>()
     {
-        {"spinne", 0}
+        {"spinne", 0},
+        {"mage__", 1 }
     };
 
 
     private int[] attaque = new int[3] { 5, 7, 3 };
-    private int[] vie = new int[3] { 15, 10, 12 };
-    private int[] defense = new int[3] { 3, 1, 2 };
-    private readonly int[] vitesse = new int[3] { 5, 8, 15 };
-    private int[] vitesseAttaque = new int[3] { 2, 1, 3 };
+    private int[] vie = new int[3] { 15, 8, 12 };
+    private int[] defense = new int[3] { 3, 0, 2 };
+    private readonly int[] vitesse = new int[3] { 5, 4, 15 };
+    private int[] vitesseAttaque = new int[3] { 2, 4, 3 };
     private int[] portee = new int[3] { 3, 10, 1 };
 
     private string classe;
@@ -61,5 +62,10 @@ public class caracEnnemie : MonoBehaviour
     public int getPortee()
     {
         return portee[nameToIndex[classe]];
+    }
+
+    public string getClasse() 
+    { 
+        return classe;
     }
 }
