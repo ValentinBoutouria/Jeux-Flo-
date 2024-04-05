@@ -49,6 +49,8 @@ public class health : MonoBehaviour
         if (currenthealth <= 0) 
         {
             Debug.Log(selectionController.GetComponent<SelectionController>().availableWarriorList.Remove(GetComponent<Transform>().GetChild(0).gameObject));
+            Debug.Log(selectionController.GetComponent<SelectionController>().selectedWarriorList.Remove(GetComponent<Transform>().GetChild(0).gameObject));
+
             Destroy(Master);
         }
         majHealthBar();
@@ -57,8 +59,8 @@ public class health : MonoBehaviour
     private void majHealthBar()
     {
         float rate = (float)((float)currenthealth / (float)maxHealth);
-        healthColor.g -= rate*0.5f;
-        healthColor.r += rate*1.1f;
+        healthColor.g = rate;
+        healthColor.r = 1-rate;
         healthBar.GetComponent<RectTransform>().sizeDelta = new Vector2(2*rate, healthBar.GetComponent<RectTransform>().sizeDelta.y);
         healthBar.GetComponent<Image>().color = healthColor;
     }

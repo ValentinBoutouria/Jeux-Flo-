@@ -15,7 +15,7 @@ public class badGuysAttacks : MonoBehaviour
     public GameObject effet;
 
     public GameObject plus_proche;
-    float min_dist = -1;
+    public float min_dist = -1;
 
     private string classe;
 
@@ -41,9 +41,10 @@ public class badGuysAttacks : MonoBehaviour
             min_dist = -1;
             foreach (var warrior in availableWarriorList)
             {
-                if(min_dist == -1)
-                    plus_proche = warrior;
                 var dist = Vector3.Distance(warrior.transform.position, gameObject.transform.position);
+                if (min_dist == -1)
+                    plus_proche = warrior;
+                    min_dist = dist;
                 if ( dist < portee)
                 {
                     if(dist < min_dist)
@@ -51,9 +52,12 @@ public class badGuysAttacks : MonoBehaviour
                         min_dist = dist;
                         plus_proche = warrior;
                     }
-                    attack(plus_proche);
                 }
             }
+            if (Vector3.Distance(plus_proche.transform.position, gameObject.transform.position) > portee)
+                plus_proche = null;
+            attack(plus_proche);
+
         }
         catch { timer = 0; }
 
@@ -88,15 +92,7 @@ public class badGuysAttacks : MonoBehaviour
     {
         var tmp = GameObject.Instantiate<GameObject>(effet, warrior.transform);
         Debug.Log("Particle sys ---------- " + tmp.activeSelf);
-        tmp.SetActive(true);
-        foreach(var unit in availableWarriorList)
-        {
-            var dist = Vector3.Distance(warrior.GetComponent<Transform>().position, unit.transform.position);
-            if (dist < RayonExplosion)
-            {
-                Debug.Log("BOUUUUUUUUUUUUUUUUUUUM : " + warrior);
-                warrior.GetComponent<Transform>().parent.GetComponent<health>().getDamages((int)((float)attaque/(float)(dist+1)));
-            }
-        }
+        tmp.GetComponent<ParticleSystem>().Play();
+
     }
 }

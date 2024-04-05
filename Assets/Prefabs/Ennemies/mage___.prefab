@@ -169,8 +169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952085f8caba13143b50a67ee8d59019, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionController: {fileID: 0}
-  generalScript: {fileID: 0}
 --- !u!114 &248497540791426891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effet: {fileID: 3768021369104772989}
+  plus_proche: {fileID: 0}
   availableWarriorList: []
 --- !u!114 &1010361809625857464
 MonoBehaviour:
@@ -367,6 +366,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8623172416229908105, guid: 54174a6af3e772445b0f6c2662b69dc7, type: 3}
+      propertyPath: carac
+      value: 
+      objectReference: {fileID: 4966413760568548913}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
