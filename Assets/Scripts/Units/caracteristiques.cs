@@ -27,7 +27,6 @@ public class caracteristique : MonoBehaviour
     void Start()
     {
         classe = this.GetComponent<Transform>().parent.name.Substring(0,6);
-        Debug.Log(classe);
     }
 
     // Update is called once per frame

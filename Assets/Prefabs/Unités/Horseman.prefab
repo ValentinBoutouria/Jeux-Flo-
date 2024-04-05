@@ -278,6 +278,10 @@ PrefabInstance:
       propertyPath: _tf_dest
       value: 
       objectReference: {fileID: 2054591975636636019}
+    - target: {fileID: 2366820655586568898, guid: 33cdc01ee9f7a8a448fcb94618719198, type: 3}
+      propertyPath: imageSelection
+      value: 
+      objectReference: {fileID: 8039066551605590054}
     - target: {fileID: 4611499877119675679, guid: 33cdc01ee9f7a8a448fcb94618719198, type: 3}
       propertyPath: m_Name
       value: Unit
@@ -322,6 +326,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7751040215456040947, guid: 33cdc01ee9f7a8a448fcb94618719198, type: 3}
+      propertyPath: carac
+      value: 
+      objectReference: {fileID: 2761500418332950576}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

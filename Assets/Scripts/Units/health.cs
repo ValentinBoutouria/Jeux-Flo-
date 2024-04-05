@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 public class health : MonoBehaviour
 {
-    private GameObject carac;
+    public GameObject carac;
     public GameObject healthBar;
+    private GameObject Master;
+    private GameObject selectionController;
 
     private int maxHealth;
     private int currenthealth;
@@ -16,10 +18,21 @@ public class health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        carac = gameObject.GetComponent<Transform>().parent.parent.GetChild(0).gameObject;
-        maxHealth = carac.GetComponent<caracteristique>().getVie();
+        selectionController = GameObject.FindGameObjectWithTag("selectionController");
+        try
+        {
+            maxHealth = carac.GetComponent<caracteristique>().getVie();
+        }
+        catch
+        {
+            maxHealth = carac.GetComponent<caracEnnemie>().getVie();
+        }
         currenthealth = maxHealth;
         healthColor = Color.green;
+        if (gameObject.tag == "unit")
+            Master = GetComponent<Transform>().parent.parent.gameObject;
+        else
+            Master = GetComponent<Transform>().parent.gameObject;
 
     }
 
@@ -31,12 +44,14 @@ public class health : MonoBehaviour
 
     public void getDamages(int dgt)
     {
+        Debug.Log(" classe : " + Master + " --------- Vie max : " + maxHealth + " ---------- vie act : " + currenthealth);
+
         currenthealth -= dgt;
 
         if (currenthealth <= 0) 
         {
-            Debug.Log("DESTRUCTION : ----------- " + GameObject.FindGameObjectWithTag("selectionController").GetComponent<SelectionController>().availableWarriorList.Remove(this.gameObject.GetComponent<Transform>().GetChild(0).gameObject));
-            Destroy(carac.GetComponent<Transform>().parent.gameObject);
+            Debug.Log(selectionController.GetComponent<SelectionController>().availableWarriorList.Remove(GetComponent<Transform>().GetChild(0).gameObject));
+            Destroy(Master);
         }
         majHealthBar();
     }

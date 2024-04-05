@@ -42,4 +42,9 @@ public class targeted : MonoBehaviour
         generalScript.GetComponent<mouseOversomething>().ennemi = 0 ;
 
     }
+
+    public void getDamages(int dgt)
+    {
+        gameObject.GetComponent<Transform>().GetChild(0).GetComponent<health>().getDamages(dgt);
+    }
 }

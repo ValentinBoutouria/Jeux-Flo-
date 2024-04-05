@@ -11,7 +11,6 @@ public class goToDest : MonoBehaviour
     private GameObject body;
     public Transform _tf_dest;
     private GameObject ennemie;
-
     private bool isEnnemie;
 
     private int minDist = 1;
@@ -35,8 +34,10 @@ public class goToDest : MonoBehaviour
             if (isEnnemie)
             {
                 minDist = portee;
-                Debug.Log("diatnce obj = " + minDist);
-
+            }
+            else
+            {
+                gameObject.GetComponent<attack>().setEnnemie(null);
             }
 
             if (Vector3.Distance(body.GetComponent<Transform>().position, _tf_dest.position) < minDist)
@@ -57,9 +58,10 @@ public class goToDest : MonoBehaviour
         isEnnemie = maybe;
     }
 
-    public void setEnnemie(GameObject e)
+    public void goToEnnemie(GameObject e)
     {
         ennemie = e;
+        gameObject.GetComponent<attack>().setEnnemie(e);
         _tf_dest.position = ennemie.GetComponent<Transform>().position;
         _tf_dest.gameObject.SetActive(true);
     }
