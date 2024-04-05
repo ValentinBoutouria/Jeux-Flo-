@@ -29,11 +29,10 @@ public class health : MonoBehaviour
         }
         currenthealth = maxHealth;
         healthColor = Color.green;
-        if (gameObject.tag == "unit")
+        if (gameObject.name == "Unit")
             Master = GetComponent<Transform>().parent.parent.gameObject;
         else
             Master = GetComponent<Transform>().parent.gameObject;
-
     }
 
     // Update is called once per frame
@@ -44,13 +43,13 @@ public class health : MonoBehaviour
 
     public void getDamages(int dgt)
     {
+        Debug.Log("BBBBBBBBBBBBBBBBBBBBB    " + dgt);
         currenthealth -= dgt;
 
         if (currenthealth <= 0) 
         {
-            Debug.Log(selectionController.GetComponent<SelectionController>().availableWarriorList.Remove(GetComponent<Transform>().GetChild(0).gameObject));
-            Debug.Log(selectionController.GetComponent<SelectionController>().selectedWarriorList.Remove(GetComponent<Transform>().GetChild(0).gameObject));
-
+            selectionController.GetComponent<SelectionController>().availableWarriorList.Remove(GetComponent<Transform>().GetChild(0).gameObject);
+            selectionController.GetComponent<SelectionController>().selectedWarriorList.Remove(GetComponent<Transform>().GetChild(0).gameObject);
             Destroy(Master);
         }
         majHealthBar();

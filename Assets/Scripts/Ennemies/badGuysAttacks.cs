@@ -16,6 +16,7 @@ public class badGuysAttacks : MonoBehaviour
 
     public GameObject plus_proche;
     public float min_dist = -1;
+    public float dist;
 
     private string classe;
 
@@ -41,13 +42,17 @@ public class badGuysAttacks : MonoBehaviour
             min_dist = -1;
             foreach (var warrior in availableWarriorList)
             {
-                var dist = Vector3.Distance(warrior.transform.position, gameObject.transform.position);
+                dist = Vector3.Distance(warrior.transform.position, gameObject.transform.position);
+
                 if (min_dist == -1)
+                {
                     plus_proche = warrior;
                     min_dist = dist;
-                if ( dist < portee)
+                }
+
+                if (dist < min_dist)
                 {
-                    if(dist < min_dist)
+                    if (dist < portee)
                     {
                         min_dist = dist;
                         plus_proche = warrior;
@@ -56,6 +61,7 @@ public class badGuysAttacks : MonoBehaviour
             }
             if (Vector3.Distance(plus_proche.transform.position, gameObject.transform.position) > portee)
                 plus_proche = null;
+
             attack(plus_proche);
 
         }
@@ -76,6 +82,7 @@ public class badGuysAttacks : MonoBehaviour
             switch(classe)
             {
                 case "spinne":
+                    Debug.Log("JUSTE POUR ETRE SUR");
                     warrior.GetComponent<Transform>().parent.GetComponent<health>().getDamages(attaque);
                     break;
 
@@ -90,8 +97,8 @@ public class badGuysAttacks : MonoBehaviour
 
     public void explosion(GameObject warrior)
     {
-        var tmp = GameObject.Instantiate<GameObject>(effet, warrior.transform);
-        Debug.Log("Particle sys ---------- " + tmp.activeSelf);
+        var tmp = GameObject.Instantiate<GameObject>(effet, warrior.transform.position, warrior.transform.rotation);
+        tmp.SetActive(true);
         tmp.GetComponent<ParticleSystem>().Play();
 
     }
