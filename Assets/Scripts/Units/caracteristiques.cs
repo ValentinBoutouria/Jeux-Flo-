@@ -14,7 +14,7 @@ public class caracteristique : MonoBehaviour
     private int[] attaque = new int[3] {5, 7, 3};
     private int[] vie = new int[3] {15, 10, 12};
     private int[] defense = new int[3] {3, 1, 2};
-    private int[] vitesse = new int[3] {5, 8, 15};
+    private readonly int[] vitesse = new int[3] {5, 8, 15};
     private int[] vitesseAttaque = new int[3] {2, 1, 3};
     private int[] portee = new int[3] {2, 10, 1};
 
@@ -26,7 +26,8 @@ public class caracteristique : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        classe = this.GetComponent<Transform>().parent.name.Substring(0,6); 
+        classe = this.GetComponent<Transform>().parent.name.Substring(0,6);
+        Debug.Log(classe);
     }
 
     // Update is called once per frame
