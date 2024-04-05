@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class FermeBouton : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class FermeBouton : MonoBehaviour
     public GameObject _fermePrefabLVL1;
     public GameObject _parent;
     public Stone _stone;
+    public TMP_Text _textCoutFerme;
     public int benefice;
     
 
@@ -19,31 +21,28 @@ public class FermeBouton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CalculPrix();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        //calculBenefice();
+        
         
     }
-    void calculBenefice()
+    void CalculPrix()
     {
-        Transform[] children = transform.GetComponentsInChildren<Transform>();
-
-        // Parcourir tous les enfants
-        foreach (Transform child in children)
+        if (_nbFerme>0)
         {
-            // R�cup�rer le composant "ChildScript" attach� � l'enfant
-            InfoFerme _infoFerme = child.GetComponent<InfoFerme>();
-            if (_infoFerme != null)
-            {
-                benefice += _infoFerme.benefice;
-
-            }
-      
+            _prix=_prix*(_nbFerme+1);
+            
         }
+        else
+        {
+            _prix=100;
+        }
+        _textCoutFerme.text=_prix+" Stone";
     }
 
   
@@ -57,6 +56,7 @@ public class FermeBouton : MonoBehaviour
             foreach (GameObject obj in _selection.gameObjectListSelectionne)//pour tout les gameobject dans liste selectionne
             {
                 _nbFerme += 1;//on ajoute une ferme
+                CalculPrix();
                 GameObject GameObjectTemp=Instantiate(_fermePrefabLVL1,obj.transform.position+new Vector3(0,0.1f,0),Quaternion.Euler(0, -90, 0),_parent.transform);
                 GameObjectTemp.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
                 Renderer renderer = obj.GetComponent<Renderer>();//on recupere le renderer

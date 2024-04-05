@@ -53,7 +53,7 @@ public class Selection : MonoBehaviour
             {
                 listeGameObjectNONSelect.Add(hit.collider.gameObject);//ajout du game object selectionne dans la liste NON selectionne
                 listeGameObjectWOOD.Remove(hit.collider.gameObject);//on retire l'hexa de la liste ou il y avait la ressource (bois)
-                _bois._nbBois+=1;
+                _bois._nbBois+=100;
                 Destroy(hit.collider.gameObject.transform.GetChild(0).gameObject);
             }
 
@@ -62,7 +62,7 @@ public class Selection : MonoBehaviour
             {
                 listeGameObjectNONSelect.Add(hit.collider.gameObject);//ajout du game object selectionne dans la liste NON selectionne
                 listeGameObjectGold.Remove(hit.collider.gameObject);//on retire l'hexa de la liste ou il y avait la ressource (gold)
-                _gold._nbGold += 1;
+                _gold._nbGold += 100;
                 Destroy(hit.collider.gameObject.transform.GetChild(0).gameObject);
             }
 
@@ -71,7 +71,7 @@ public class Selection : MonoBehaviour
             {
                 listeGameObjectNONSelect.Add(hit.collider.gameObject);//ajout du game object selectionne dans la liste NON selectionne
                 listeGameObjectStone.Remove(hit.collider.gameObject);//on retire l'hexa de la liste ou il y avait la ressource (bois)
-                _stone._nbStone += 1;
+                _stone._nbStone += 100;
                 Destroy(hit.collider.gameObject.transform.GetChild(0).gameObject);
             }
 
