@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Chateau : MonoBehaviour
 {
@@ -15,29 +16,36 @@ public class Chateau : MonoBehaviour
     public Gold _gold;
     public int benefice;
     public Compteur _compteur;
+    public TMP_Text _textCoutChateau;
   
     private int _nbChateau = 0;
     // Start is called before the first frame update
     void Start()
     {
         
+        CalculPrix();
     }
 
     // Update is called once per frame
     void Update()
     {
-        AjoutRessourcesChateau();
 
         
     }
-    public void AjoutRessourcesChateau()
+    void CalculPrix()
     {
-        if (_compteur.counterAjoutChateau < 0f)
+        if (_nbChateau>0)
         {
-            _compteur.counterAjoutChateau = 9;
-            _gold._nbGold += benefice * _nbChateau;
+            _prix=_prix*(_nbChateau+1);
+            
         }
+        else
+        {
+            _prix=100;
+        }
+        _textCoutChateau.text=_prix+" Gold";
     }
+  
     public void CliqueChateau()
     {
         //_validationUI.SetActive(true);
@@ -50,7 +58,8 @@ public class Chateau : MonoBehaviour
             foreach (GameObject obj in _selection.gameObjectListSelectionne)//pour tout les gameobject dans liste selectionne
             {
                 _nbChateau += 1;//on ajoute un chateau
-                GameObject GameObjectTemp=Instantiate(_chateauPrefabLVL1,obj.transform.position+new Vector3(0,0.2f,0),Quaternion.Euler(0, -90, 0),obj.transform);
+                CalculPrix();
+                GameObject GameObjectTemp=Instantiate(_chateauPrefabLVL1,obj.transform.position+new Vector3(0,0.2f,0),Quaternion.Euler(0, -90, 0),_parent.transform);
                 GameObjectTemp.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
                 Renderer renderer = obj.GetComponent<Renderer>();//on recupere le renderer
                 renderer.material = _selection._matInitial;//on place le mat deselection
@@ -65,8 +74,8 @@ public class Chateau : MonoBehaviour
                 renderer.material = _selection._matInitial;//on place le mat deselection
                 _selection.listeGameObjectNONSelect.Add(obj);
             }
-            Debug.Log("Pas assez d'or pour acheter cette quantité de chateau");
+            Debug.Log("Pas assez d'or pour acheter cette quantitï¿½ de chateau");
         }
-            _selection.gameObjectListSelectionne.Clear();//clear la liste selectionné dans tout les cas
+            _selection.gameObjectListSelectionne.Clear();//clear la liste selectionnï¿½ dans tout les cas
     }
 }
