@@ -13,6 +13,8 @@ public class Selection : MonoBehaviour
     public List<GameObject> listeGameObjectStone = new List<GameObject>();
     public List<GameObject> listeGameObjectGold = new List<GameObject>();
     public List<GameObject> listeGameObjectBatimentPresent = new List<GameObject>();
+    public List<GameObject> listeGameObjectbatimentSelect = new List<GameObject>(1); // Définir la taille maximale à 1
+
     public int nbGameObjectSelect;
 
     public Bois _bois;

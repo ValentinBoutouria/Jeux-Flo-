@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ferme : MonoBehaviour
+public class FermeBouton : MonoBehaviour
 {
 
     public int _prix;
@@ -13,7 +13,7 @@ public class Ferme : MonoBehaviour
     public GameObject _parent;
     public Stone _stone;
     public int benefice;
-    public Compteur _compteur;
+    
 
     private int _nbFerme = 0;
     // Start is called before the first frame update
@@ -25,8 +25,8 @@ public class Ferme : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        calculBenefice();
-        AjoutRessourcesFerme();
+        //calculBenefice();
+        
     }
     void calculBenefice()
     {
@@ -35,7 +35,7 @@ public class Ferme : MonoBehaviour
         // Parcourir tous les enfants
         foreach (Transform child in children)
         {
-            // Récupérer le composant "ChildScript" attaché à l'enfant
+            // Rï¿½cupï¿½rer le composant "ChildScript" attachï¿½ ï¿½ l'enfant
             InfoFerme _infoFerme = child.GetComponent<InfoFerme>();
             if (_infoFerme != null)
             {
@@ -46,14 +46,7 @@ public class Ferme : MonoBehaviour
         }
     }
 
-    public void AjoutRessourcesFerme()
-    {
-        if (_compteur.counterAjoutFerme < 0f)
-        {
-            _compteur.counterAjoutFerme = 9;
-            _stone._nbStone += benefice;
-        }
-    }
+  
     public void CliqueFerme()
     {
         //_validationUI.SetActive(true);
@@ -79,7 +72,7 @@ public class Ferme : MonoBehaviour
                 renderer.material = _selection._matInitial;//on place le mat deselection
                 _selection.listeGameObjectNONSelect.Add(obj);
             }
-            Debug.Log("Pas assez de stone pour acheter cette quantité de ferme");
+            Debug.Log("Pas assez de stone pour acheter cette quantitï¿½ de ferme");
 
         }
         _selection.gameObjectListSelectionne.Clear();

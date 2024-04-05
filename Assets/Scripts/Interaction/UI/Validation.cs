@@ -7,7 +7,7 @@ public class Validation : MonoBehaviour
 {
     public GameObject _validationUI;
     public Maison _maison;
-    public Ferme _ferme;
+    public FermeBouton _ferme;
     public Chateau _chateau;
     public TMP_Text textMeshPro;    
     // Start is called before the first frame update
