@@ -44,8 +44,6 @@ public class health : MonoBehaviour
 
     public void getDamages(int dgt)
     {
-        Debug.Log(" classe : " + Master + " --------- Vie max : " + maxHealth + " ---------- vie act : " + currenthealth);
-
         currenthealth -= dgt;
 
         if (currenthealth <= 0) 
@@ -59,8 +57,8 @@ public class health : MonoBehaviour
     private void majHealthBar()
     {
         float rate = (float)((float)currenthealth / (float)maxHealth);
-        healthColor.g -= rate*300;
-        healthColor.r += rate * 200;
+        healthColor.g -= rate*0.5f;
+        healthColor.r += rate*1.1f;
         healthBar.GetComponent<RectTransform>().sizeDelta = new Vector2(2*rate, healthBar.GetComponent<RectTransform>().sizeDelta.y);
         healthBar.GetComponent<Image>().color = healthColor;
     }
