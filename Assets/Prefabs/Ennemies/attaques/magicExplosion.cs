@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class magicExplosion : MonoBehaviour
@@ -8,7 +9,8 @@ public class magicExplosion : MonoBehaviour
     private GameObject selectionController;
     public GameObject carac;
 
-    private List<(GameObject, int)> li;
+    private List<(GameObject, int)> li = new List<(GameObject, int)>();
+    public int dgt;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,24 +26,16 @@ public class magicExplosion : MonoBehaviour
             float dist = Vector3.Distance(gameObject.transform.position, warrior.transform.position);
             if (dist < transform.GetChild(0).GetComponent<ParticleSystem>().main.startSpeedMultiplier)
             {
-                int dgt = (int)(carac.GetComponent<caracEnnemie>().getAttaque() / (0.3 * dist + 1));
+                dgt = (int)(carac.GetComponent<caracEnnemie>().getAttaque() / (0.3 * dist + 1));
+                Debug.Log("OKOKOKOKOKKOOKOKOKOKOKOKOKOK       " + warrior + "                   " + dgt);
                 li.Add((warrior, dgt));
             }
         }
-
+        
         foreach (var warrior in li) 
         {
             warrior.Item1.transform.parent.GetComponent<health>().getDamages(warrior.Item2);
-
-        }
-
-        try
-        {
-
-            }
-            catch { }
-
-        
+        }   
     }
 
     // Update is called once per frame

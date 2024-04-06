@@ -11,7 +11,6 @@ public class badGuysAttacks : MonoBehaviour
     private int portee;
     private int attaque;
 
-    private int RayonExplosion = 5;
     public GameObject effet;
 
     public GameObject plus_proche;
@@ -60,7 +59,9 @@ public class badGuysAttacks : MonoBehaviour
                 }
             }
             if (Vector3.Distance(plus_proche.transform.position, gameObject.transform.position) > portee)
+            {
                 plus_proche = null;
+            }
 
             attack(plus_proche);
 
@@ -82,11 +83,11 @@ public class badGuysAttacks : MonoBehaviour
             switch(classe)
             {
                 case "spinne":
-                    Debug.Log("JUSTE POUR ETRE SUR");
                     warrior.GetComponent<Transform>().parent.GetComponent<health>().getDamages(attaque);
                     break;
 
                 case "mage__":
+                    Debug.Log("AAAATTTTTTAAAAAACCCCCCCKKKKKKK");
                     explosion(warrior);
                     break;
             }
