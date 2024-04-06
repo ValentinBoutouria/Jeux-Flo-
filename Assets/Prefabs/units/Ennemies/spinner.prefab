@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6751354721890642500}
   - component: {fileID: 248497540791426891}
   - component: {fileID: 1010361809625857464}
+  - component: {fileID: 9187744424742523213}
   m_Layer: 0
   m_Name: spinner
   m_TagString: ennemie
@@ -168,8 +169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952085f8caba13143b50a67ee8d59019, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionController: {fileID: 0}
-  generalScript: {fileID: 0}
 --- !u!114 &248497540791426891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,6 +181,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693a419ac9230b7458aecf6194fd6ef0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effet: {fileID: 0}
+  plus_proche: {fileID: 0}
+  min_dist: -1
+  dist: 0
   availableWarriorList: []
 --- !u!114 &1010361809625857464
 MonoBehaviour:
@@ -195,6 +198,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36346f8151998b42a2679383cffd3d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9187744424742523213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4966413760568548913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f91bc719a0480c341960805b37bd76b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
 --- !u!1001 &1176347919677814873
 PrefabInstance:
   m_ObjectHideFlags: 0

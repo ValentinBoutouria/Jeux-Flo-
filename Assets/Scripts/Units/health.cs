@@ -43,7 +43,6 @@ public class health : MonoBehaviour
 
     public void getDamages(int dgt)
     {
-        Debug.Log("BBBBBBBBBBBBBBBBBBBBB    " + dgt);
         currenthealth -= dgt;
 
         if (currenthealth <= 0) 

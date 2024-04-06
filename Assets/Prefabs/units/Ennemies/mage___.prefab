@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6751354721890642500}
   - component: {fileID: 248497540791426891}
   - component: {fileID: 1010361809625857464}
+  - component: {fileID: 2402106600799451900}
   m_Layer: 0
   m_Name: mage___
   m_TagString: ennemie
@@ -183,6 +184,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effet: {fileID: 3768021369104772989}
   plus_proche: {fileID: 0}
+  min_dist: -1
+  dist: 0
   availableWarriorList: []
 --- !u!114 &1010361809625857464
 MonoBehaviour:
@@ -196,6 +199,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36346f8151998b42a2679383cffd3d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2402106600799451900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4966413760568548913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f91bc719a0480c341960805b37bd76b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
 --- !u!1001 &1176347919677814873
 PrefabInstance:
   m_ObjectHideFlags: 0
