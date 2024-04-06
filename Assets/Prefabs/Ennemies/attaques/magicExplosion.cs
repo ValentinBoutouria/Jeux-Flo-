@@ -26,7 +26,7 @@ public class magicExplosion : MonoBehaviour
             float dist = Vector3.Distance(gameObject.transform.position, warrior.transform.position);
             if (dist < transform.GetChild(0).GetComponent<ParticleSystem>().main.startSpeedMultiplier)
             {
-                dgt = (int)(carac.GetComponent<caracEnnemie>().getAttaque() / (0.3 * dist + 1));
+                dgt = (int)(carac.GetComponent<caracEnnemie>().getAttaque() / (0.1*dist + 1));
                 Debug.Log("OKOKOKOKOKKOOKOKOKOKOKOKOKOK       " + warrior + "                   " + dgt);
                 li.Add((warrior, dgt));
             }
