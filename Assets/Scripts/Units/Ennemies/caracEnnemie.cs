@@ -17,7 +17,9 @@ public class caracEnnemie : MonoBehaviour
     private int[] defense = new int[3] { 3, 0, 2 };
     private readonly int[] vitesse = new int[3] { 5, 4, 15 };
     private int[] vitesseAttaque = new int[3] { 2, 4, 3 };
-    private int[] portee = new int[3] { 3, 20, 1 };
+    private int[] portee = new int[3] { 3, 17, 1 };
+
+    private int[] vision = new int[3] {15, 22, 3};
 
     private string classe;
 
@@ -67,5 +69,10 @@ public class caracEnnemie : MonoBehaviour
     public string getClasse() 
     { 
         return classe;
+    }
+
+    public int getVision()
+    {
+        return vision[nameToIndex[classe]];
     }
 }
