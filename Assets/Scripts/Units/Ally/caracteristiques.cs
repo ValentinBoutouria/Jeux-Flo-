@@ -71,4 +71,34 @@ public class caracteristique : MonoBehaviour
     {
         return portee[nameToIndex[classe]];
     }
+
+    public int getMinerai()
+    {
+        return minerai[nameToIndex[classe]];
+    }
+
+    public int getBois()
+    {
+        return bois[nameToIndex[classe]];
+    }
+
+    public int getGold()
+    {
+        return gold[nameToIndex[classe]];
+    }
+
+    public int getFood()
+    {
+        return food[nameToIndex[classe]];
+    }
+
+    public int getMana()
+    {
+        return mana[nameToIndex[classe]];
+    }
+
+    public int getCorpse()
+    {
+        return corpse[nameToIndex[classe]];
+    }
 }
