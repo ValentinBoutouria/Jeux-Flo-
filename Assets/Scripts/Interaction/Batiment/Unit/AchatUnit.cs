@@ -163,6 +163,7 @@ public class AchatUnit : MonoBehaviour
     {
         if (_selection.listeGameObjectbatimentSelect.Count != 0)
         {//on recupere la position du spawn de l'unit :
+            //Vector3 DecalageSpawn=new Vector3(0,40,0);
             Vector3 _positionSpawnUnit = _selection.listeGameObjectbatimentSelect[0].transform.position;
 
             //select bat Maison
@@ -178,7 +179,7 @@ public class AchatUnit : MonoBehaviour
             //select bat Chateau
             if (_selection.listeGameObjectbatimentSelect[0].name == "Chateau(Clone)")
             {
-                Instantiate(_unitChateau3, _positionSpawnUnit, Quaternion.identity, _chateau.transform.GetChild(3));//instancie l'unité lors de l'appuie du bouton4
+                Instantiate(_unitChateau3, _positionSpawnUnit , Quaternion.identity, _chateau.transform.GetChild(3));//instancie l'unité lors de l'appuie du bouton4
             }
         }
 
