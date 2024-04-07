@@ -29,13 +29,16 @@ public class attack : MonoBehaviour
     void Update()
     {
         //Debug.Log(Vector3.Distance(GetComponent<Transform>().position, target.GetComponent<Transform>().position));
-        if (target != null && Vector3.Distance(GetComponent<Transform>().position, target.GetComponent<Transform>().position) <= portee+0.5)
+        if (target != null)
         {
-            timer += Time.deltaTime;
-            if(timer > vitesseAttaque) 
+            if(Vector3.Distance(GetComponent<Transform>().position, target.GetComponent<Transform>().position) <= portee+0.5)
             {
-                timer = 0;
-                target.GetComponent<targeted>().getDamages(attaque);
+                timer += Time.deltaTime;
+                if(timer > vitesseAttaque) 
+                {
+                    timer = 0;
+                    target.GetComponent<targeted>().getDamages(attaque);
+                }
             }
         }
     }
