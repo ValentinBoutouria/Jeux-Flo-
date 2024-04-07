@@ -30,8 +30,18 @@ public class deplacement : MonoBehaviour
             // Si un soldat est à une distance inférieure à getVision()
             if (Vector3.Distance(transform.position, soldier.transform.position) < carac.getVision())
             {
-                // Rediriger le personnage vers ce soldat
-                targetPosition = soldier.transform.position;
+                // Si le personnage est un "citizen", il doit fuir
+                if (gameObject.name.Contains("citizen"))
+                {
+                    // Inverser la direction du mouvement pour faire fuir le personnage
+                    targetPosition = transform.position + (transform.position - soldier.transform.position).normalized;
+                    targetPosition.y = 0;
+                }
+                else
+                {
+                    // Rediriger le personnage vers ce soldat
+                    targetPosition = soldier.transform.position;
+                }
 
                 // Si la distance entre le personnage et le soldat est inférieure à getPortee(), arrêter le mouvement du personnage
                 if (Vector3.Distance(transform.position, soldier.transform.position) < carac.getPortee())

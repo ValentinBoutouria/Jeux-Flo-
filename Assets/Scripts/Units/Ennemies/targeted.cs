@@ -14,8 +14,6 @@ public class targeted : MonoBehaviour
         this.gameObject.GetComponent<Outline>().enabled = false;
         generalScript = GameObject.FindGameObjectWithTag("empty");
         selectionController = GameObject.FindGameObjectWithTag("selectionController");
-
-
     }
 
     // Update is called once per frame

@@ -8,18 +8,20 @@ public class caracEnnemie : MonoBehaviour
     private Dictionary<string, int> nameToIndex = new Dictionary<string, int>()
     {
         {"spinne", 0},
-        {"mage__", 1 }
+        {"mage__", 1 },
+        {"citize", 2 }
     };
 
 
-    private int[] attaque = new int[3] { 5, 7, 3 };
-    private int[] vie = new int[3] { 15, 8, 12 };
-    private int[] defense = new int[3] { 3, 0, 2 };
-    private readonly int[] vitesse = new int[3] { 5, 4, 15 };
-    private int[] vitesseAttaque = new int[3] { 2, 4, 3 };
-    private int[] portee = new int[3] { 3, 17, 1 };
+    private int[] attaque = new int[3] { 5, 7, 0};
+    private int[] vie = new int[3] { 15, 8, 20};
+    private int[] defense = new int[3] { 3, 0, 1};
+    private readonly int[] vitesse = new int[3] { 5, 4, 3};
+    private int[] vitesseAttaque = new int[3] {2, 4, 10000};
+    private int[] portee = new int[3] { 3, 17, 0};
 
-    private int[] vision = new int[3] {15, 22, 3};
+    private int[] vision = new int[3] {17, 25, 20};
+    private bool[] aggressive = new bool[3] {true, true, false};
 
     private string classe;
 

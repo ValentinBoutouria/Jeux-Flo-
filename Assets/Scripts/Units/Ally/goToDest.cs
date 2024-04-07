@@ -29,25 +29,41 @@ public class goToDest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_tf_dest.gameObject.activeSelf)
+        Debug.Log("ENEMMIE -------------------- " + _tf_dest.gameObject.activeSelf);
+
+        if (_tf_dest.gameObject.activeSelf)
         {
             if (isEnnemie)
             {
                 minDist = portee;
+                try
+                {
+                    if (ennemie == null)
+                    {
+                        _tf_dest.gameObject.SetActive(false);
+                        minDist = 1;
+                    }
+                    else
+                    {
+                        _tf_dest.position = Vector3.MoveTowards(transform.position, ennemie.transform.position, Vector3.Distance(transform.position, ennemie.transform.position) - portee);
+                        gameObject.GetComponent<attack>().setEnnemie(ennemie);
+                    }
+                }
+                catch { }
             }
             else
             {
                 gameObject.GetComponent<attack>().setEnnemie(null);
             }
 
-            if (Vector3.Distance(body.GetComponent<Transform>().position, _tf_dest.position) < minDist)
+            if (!isEnnemie && Vector3.Distance(body.GetComponent<Transform>().position, _tf_dest.position) < minDist)
             {
                 _tf_dest.gameObject.SetActive(false);
                 minDist = 1;
             }
             else
             {
-                body.GetComponent<Transform>().position = Vector3.MoveTowards(body.GetComponent<Transform>().position, _tf_dest.position, Time.deltaTime * speed);
+                body.GetComponent<Transform>().position = Vector3.MoveTowards(body.transform.position, _tf_dest.position, Time.deltaTime * speed);
             }
         }
     }

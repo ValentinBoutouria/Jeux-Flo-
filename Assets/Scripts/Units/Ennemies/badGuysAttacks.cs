@@ -87,7 +87,6 @@ public class badGuysAttacks : MonoBehaviour
                     break;
 
                 case "mage__":
-                    Debug.Log("AAAATTTTTTAAAAAACCCCCCCKKKKKKK");
                     explosion(warrior);
                     break;
             }
