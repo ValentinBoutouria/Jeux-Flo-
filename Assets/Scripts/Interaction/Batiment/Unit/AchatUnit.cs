@@ -9,6 +9,7 @@ public class AchatUnit : MonoBehaviour
     public Bois _bois;
     public Gold _gold;
     public Stone _stone;
+    public caracteristique _caracteristique;
 
     public TMP_Text _unit1TMP;
     public TMP_Text _unit2TMP;
@@ -190,18 +191,11 @@ public class AchatUnit : MonoBehaviour
         }
 
     }
-    void VerifieRessourceMaison()
+    bool VerifieRessource()
     {
-        //if(_bois._nbBois>10)//si on a assez de bois
-
+        bool result = false;
+        return result;
 
     }
-    void VerifieRessourceChateau()
-    {
-
-    }
-    void VerifieRessourceFerme()
-    {
-
-    }
+ 
 }
