@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using JetBrains.Annotations;
 
 public class AchatUnit : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class AchatUnit : MonoBehaviour
     public Food _food;
     public Mana _mana;
     public Corpse _corpse;
+    
+
     public caracteristique _caracteristique;
 
     public TMP_Text _unit1TMP;
@@ -29,7 +32,7 @@ public class AchatUnit : MonoBehaviour
     public GameObject _unitChateau3;
     public GameObject _unitChateau4;
 
-    public GameObject _unitMaison1;
+    public GameObject Soldier;
     public GameObject _unitMaison2;
     public GameObject _unitMaison3;
     public GameObject _unitMaison4;
@@ -38,6 +41,8 @@ public class AchatUnit : MonoBehaviour
     public GameObject _ferme;
     public GameObject _chateau;
 
+    public GameObject _unitRangement;
+    public GameObject tmpinstance;
 
 
     // Start is called before the first frame update
@@ -60,7 +65,7 @@ public class AchatUnit : MonoBehaviour
             //select bat Maison
             if (_selection.listeGameObjectbatimentSelect[0].name =="Maison(Clone)") 
             {
-                _unit1TMP.text = _unitMaison1.name;
+                _unit1TMP.text = Soldier.name;
                 _unit2TMP.text = _unitMaison2.name;
                 _unit3TMP.text = _unitMaison3.name;
                 _unit4TMP.text = _unitMaison4.name;
@@ -87,6 +92,7 @@ public class AchatUnit : MonoBehaviour
     //unit 1
     public void ChoiUnitSpawnBouton1()
     {
+        
         if (_selection.listeGameObjectbatimentSelect.Count != 0)
         {//on recupere la position du spawn de l'unit :
             Vector3 _positionSpawnUnit=_selection.listeGameObjectbatimentSelect[0].transform.position;
@@ -94,7 +100,15 @@ public class AchatUnit : MonoBehaviour
             //select bat Maison
             if (_selection.listeGameObjectbatimentSelect[0].name == "Maison(Clone)")
             {
-                Instantiate(_unitMaison1, _positionSpawnUnit,Quaternion.identity,_maison.transform.GetChild(0));//instancie l'unité lors de l'appuie du bouton1
+                tmpinstance =_unitRangement.transform.GetChild(0).GetChild(0).gameObject;// ferme/caracteristique
+                getCaracteristique(tmpinstance); // a changer pour tout
+
+                
+                if(VerifieRessource())
+                {
+                Instantiate(Soldier, _positionSpawnUnit,Quaternion.identity,_maison.transform.GetChild(0));//instancie l'unité lors de l'appuie du bouton1
+                }
+
                 
             }
             //select bat Ferme
@@ -108,8 +122,6 @@ public class AchatUnit : MonoBehaviour
             if (_selection.listeGameObjectbatimentSelect[0].name == "Chateau(Clone)")
             {
                 Instantiate(_unitChateau1, _positionSpawnUnit, Quaternion.identity, _chateau.transform.GetChild(0));//instancie l'unité lors de l'appuie du bouton1
-
-
             }
         }
 
@@ -194,16 +206,27 @@ public class AchatUnit : MonoBehaviour
         }
 
     }
-    bool VerifieRessource(GameObject unit)
+    void getCaracteristique(GameObject unit)
     {
-        if (true)
-        {
+        Transform Caracteristique=unit.transform.GetChild(0); //on recup le tranform de l'enfant du prefab de la troupe
+        _caracteristique=Caracteristique.GetComponent<caracteristique>();//on recupére le script de la troupe unit
+    }
+    bool VerifieRessource()
+    {
         bool result = false;
-            
-        return result;
+
+        if ( _stone._nbStone>=_caracteristique.getStone()
+            )//si la quantite de ressource qu'on a est supérieur ou égale au cout de la ressource (on a assez)
+        {
+            result = true;//on a assez 
+            _bois._nbBois-=_caracteristique.getBois();
+            _stone._nbStone-=_caracteristique.getStone();
         }
-
-
+        else
+        {
+            Debug.Log("pas assez de ressource pour acheter cette unité");
+        }
+        return result;
     }
  
 }
