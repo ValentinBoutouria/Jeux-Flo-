@@ -33,8 +33,17 @@ public class deplacement : MonoBehaviour
                 // Si le personnage est un "citizen", il doit fuir
                 if (gameObject.name.Contains("citizen"))
                 {
-                    // Inverser la direction du mouvement pour faire fuir le personnage
-                    targetPosition = transform.position + (transform.position - soldier.transform.position).normalized;
+                    // Générer une direction aléatoire
+                    Vector3 randomDirection = Random.insideUnitSphere;
+
+                    // Assurer que la direction est à l'opposé du soldat
+                    if (Vector3.Dot(randomDirection, soldier.transform.position - transform.position) > 0)
+                    {
+                        randomDirection *= -1;
+                    }
+
+                    // Assigner une nouvelle destination à l'opposé du soldat par rapport au citoyen
+                    targetPosition = transform.position + randomDirection.normalized * carac.getVision();
                     targetPosition.y = 0;
                 }
                 else
