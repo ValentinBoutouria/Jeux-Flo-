@@ -29,8 +29,6 @@ public class goToDest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("ENEMMIE -------------------- " + _tf_dest.gameObject.activeSelf);
-
         if (_tf_dest.gameObject.activeSelf)
         {
             if (isEnnemie)
