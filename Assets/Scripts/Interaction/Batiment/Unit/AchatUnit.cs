@@ -6,6 +6,9 @@ using TMPro;
 public class AchatUnit : MonoBehaviour
 {
     public Selection _selection;
+    public Bois _bois;
+    public Gold _gold;
+    public Stone _stone;
 
     public TMP_Text _unit1TMP;
     public TMP_Text _unit2TMP;
@@ -169,7 +172,10 @@ public class AchatUnit : MonoBehaviour
             //select bat Maison
             if (_selection.listeGameObjectbatimentSelect[0].name == "Maison(Clone)")
             {
+                //si le cout le permet
+              
                 Instantiate(_unitMaison3, _positionSpawnUnit, Quaternion.identity, _maison.transform.GetChild(3));//instancie l'unité lors de l'appuie du bouton4
+                
             }
             //select bat Ferme
             if (_selection.listeGameObjectbatimentSelect[0].name == "Ferme(Clone)")
@@ -182,6 +188,20 @@ public class AchatUnit : MonoBehaviour
                 Instantiate(_unitChateau3, _positionSpawnUnit , Quaternion.identity, _chateau.transform.GetChild(3));//instancie l'unité lors de l'appuie du bouton4
             }
         }
+
+    }
+    void VerifieRessourceMaison()
+    {
+        //if(_bois._nbBois>10)//si on a assez de bois
+
+
+    }
+    void VerifieRessourceChateau()
+    {
+
+    }
+    void VerifieRessourceFerme()
+    {
 
     }
 }

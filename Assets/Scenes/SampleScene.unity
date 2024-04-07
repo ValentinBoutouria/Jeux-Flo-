@@ -7609,6 +7609,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _selection: {fileID: 674256382}
+  _bois: {fileID: 134210221}
+  _gold: {fileID: 714695069}
+  _stone: {fileID: 1015728838}
   _unit1TMP: {fileID: 1146424166}
   _unit2TMP: {fileID: 1757373016}
   _unit3TMP: {fileID: 34158186}
