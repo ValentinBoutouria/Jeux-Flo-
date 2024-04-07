@@ -9,6 +9,9 @@ public class AchatUnit : MonoBehaviour
     public Bois _bois;
     public Gold _gold;
     public Stone _stone;
+    public Food _food;
+    public Mana _mana;
+    public Corpse _corpse;
     public caracteristique _caracteristique;
 
     public TMP_Text _unit1TMP;
@@ -191,10 +194,15 @@ public class AchatUnit : MonoBehaviour
         }
 
     }
-    bool VerifieRessource()
+    bool VerifieRessource(GameObject unit)
     {
+        if (true)
+        {
         bool result = false;
+            
         return result;
+        }
+
 
     }
  
