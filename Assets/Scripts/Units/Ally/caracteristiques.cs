@@ -21,7 +21,7 @@ public class caracteristique : MonoBehaviour
 
 
     //Cout fabrication
-    private int[] minerai = new int[3] {1 , 0 , 1};
+    private int[] stone = new int[3] {1 , 0 , 1};
     private int[] bois = new int[3] {0 , 1, 1};
     private int[] gold = new int[3] {1, 1, 1};
     private int[] food = new int[3] {1, 1, 1};
@@ -72,9 +72,9 @@ public class caracteristique : MonoBehaviour
         return portee[nameToIndex[classe]];
     }
 
-    public int getMinerai()
+    public int getStone()
     {
-        return minerai[nameToIndex[classe]];
+        return stone[nameToIndex[classe]];
     }
 
     public int getBois()
