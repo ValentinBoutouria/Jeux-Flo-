@@ -24,10 +24,6 @@ public class SelectionController : MonoBehaviour
 
     private void Awake()
     {
-        //Cherche toutes les unité sur la scène et remplit availableWarriorList
-        foreach (var warrior in GameObject.FindGameObjectsWithTag("unit"))
-            availableWarriorList.Add(warrior.gameObject);
-
         //Initialise selectedWarriorList
         selectedWarriorList = new List<GameObject>();
 
@@ -38,6 +34,10 @@ public class SelectionController : MonoBehaviour
 
     private void Update()
     {
+        //Cherche toutes les unité sur la scène et remplit availableWarriorList
+        availableWarriorList.Clear();
+        foreach (var warrior in GameObject.FindGameObjectsWithTag("unit"))
+            availableWarriorList.Add(warrior.gameObject);
         //Si on clique sur le bouton gauche de la souris
         if (Input.GetMouseButtonDown(0))
         {
