@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 814090948053284427, guid: 21042b06aea703a4783dba642ed9d05d, type: 3}
       propertyPath: m_Name
-      value: Maison_lvl1 Variant
+      value: Maison
       objectReference: {fileID: 0}
     - target: {fileID: 814090948053284427, guid: 21042b06aea703a4783dba642ed9d05d, type: 3}
       propertyPath: m_TagString
@@ -64,6 +64,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 814090948053284427, guid: 21042b06aea703a4783dba642ed9d05d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2500341141386522425}
+    - targetCorrespondingSourceObject: {fileID: 814090948053284427, guid: 21042b06aea703a4783dba642ed9d05d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1482572678078028036}
   m_SourcePrefab: {fileID: 100100000, guid: 21042b06aea703a4783dba642ed9d05d, type: 3}
 --- !u!1 &1005756616148439715 stripped
 GameObject:
@@ -91,3 +94,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.500902, y: 2.421874, z: 2.154799}
   m_Center: {x: -0.9903439, y: 1.210937, z: 0.96733147}
+--- !u!114 &-1482572678078028036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005756616148439715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce897ffaa52830f4083b629f6faa6ad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  benefice: 0
+  _niveau: 0
+  _niveauTemp: 0
+  _benefparsec: 0
+  _nom: 

@@ -31,30 +31,41 @@ public class Upgrade : MonoBehaviour
     public void AffichagePanel()
     {
         GameObject _batimentUpgrade =_selection.listeGameObjectbatimentSelect[0];
-        InfoFerme _infoFerme =_batimentUpgrade.GetComponent<InfoFerme>();
+        InfoFermePrefab _infoFerme =_batimentUpgrade.GetComponent<InfoFermePrefab>();
         InfoChateauPrefab _infoChateau = _batimentUpgrade.GetComponent<InfoChateauPrefab>();
+        InfoMaisonPrefab _infoMaison = _batimentUpgrade.GetComponent<InfoMaisonPrefab>();
         if (_infoFerme)
         { 
             //Panel explicatif
             _nom.text=_infoFerme._nom;
             _niveau.text="Niveau : "+_infoFerme._niveau;
-            _benefParSec.text=_infoFerme._benefparsec+" Wood/s";
+            _benefParSec.text=_infoFerme._benefparsec+" Stone/s";
             _cout.text="Prix : "+_infoFerme._niveau*_prixUpgrade;
         }
         if(_infoChateau)
         {
             _nom.text=_infoChateau._nom;
             _niveau.text="Niveau : "+_infoChateau._niveau;
-            _benefParSec.text=_infoChateau._benefparsec+" Wood/s";
+            _benefParSec.text=_infoChateau._benefparsec+" Gold/s";
             _cout.text="Prix : "+_infoChateau._niveau*_prixUpgrade;    
+        }
+        if(_infoMaison)
+        {
+            _nom.text=_infoMaison._nom;
+            _niveau.text="Niveau : "+_infoMaison._niveau;
+            _benefParSec.text=_infoMaison._benefparsec+" Wood/s";
+            _cout.text="Prix : "+_infoMaison._niveau*_prixUpgrade;
         }
 
     }
     public void CliqueUpgrade()
     {
         GameObject _batimentUpgrade =_selection.listeGameObjectbatimentSelect[0];
-        InfoFerme _infoFerme =_batimentUpgrade.GetComponent<InfoFerme>();
+        InfoFermePrefab _infoFerme =_batimentUpgrade.GetComponent<InfoFermePrefab>();
         InfoChateauPrefab _infoChateau = _batimentUpgrade.GetComponent<InfoChateauPrefab>();
+        InfoMaisonPrefab _infoMaison = _batimentUpgrade.GetComponent<InfoMaisonPrefab>();
+
+
         if (_infoFerme)
         {
             if(_stone._nbStone-_prixUpgrade*_infoFerme._niveau>=0)//10*niveau si  il y a assez d'argent alors on upgrade
@@ -80,6 +91,20 @@ public class Upgrade : MonoBehaviour
             }
 
         }
+        if(_infoMaison)
+        {
+            if(_bois._nbBois-_prixUpgrade*_infoMaison._niveau>=0)//10*niveau si  il y a assez d'argent alors on upgrade
+            {
+            _bois._nbBois-=_prixUpgrade*_infoMaison._niveau;
+            _infoMaison._niveau+=1;
+            }
+            else
+            {
+                Debug.Log("pas assez d'argent pour cette upgrade");
+            }
+
+        }
+
 
     }
 }

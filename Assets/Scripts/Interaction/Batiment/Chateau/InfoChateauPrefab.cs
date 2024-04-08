@@ -48,7 +48,7 @@ public class InfoChateauPrefab : MonoBehaviour
     //fonction lance apres chaque upgrade
     {
         ChateauBat _chateau = GetComponentInParent<ChateauBat>();
-        _chateau._beneficeChateau=_chateau._beneficeChateau+benefice;
+        _chateau._beneficeChateau=_chateau._beneficeChateau+2;//0.2 ressource par secondes en plus par niveau (2 toutes les 10 sec)
 
     }
   void benefParSec()

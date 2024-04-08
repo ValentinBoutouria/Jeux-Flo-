@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class InfoFerme : MonoBehaviour
+public class InfoFermePrefab : MonoBehaviour
 {
   
     public int benefice;
@@ -26,12 +26,12 @@ public class InfoFerme : MonoBehaviour
     void Update()
     {
         
-        benefParSec();
         if (_niveauTemp!=_niveau)
         {
 
         ModificationBenefice();
         ModificationBeneficeParent();
+        benefParSec();
         _niveauTemp=_niveau;
         
         }
@@ -49,7 +49,7 @@ public class InfoFerme : MonoBehaviour
     //fonction lance apres chaque upgrade
     {
         Ferme _ferme = GetComponentInParent<Ferme>();
-        _ferme._beneficeFerme=_ferme._beneficeFerme+benefice;
+        _ferme._beneficeFerme=_ferme._beneficeFerme+2;//0.2 ressource par secondes en plus par niveau (2 toutes les 10 sec)
 
     }
   void benefParSec()
