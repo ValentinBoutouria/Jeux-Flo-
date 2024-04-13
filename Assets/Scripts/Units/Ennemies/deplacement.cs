@@ -27,37 +27,42 @@ public class deplacement : MonoBehaviour
         // Parcourir la liste des soldats disponibles
         foreach (GameObject soldier in selectionController.availableWarriorList)
         {
-            // Si un soldat est à une distance inférieure à getVision()
-            if (Vector3.Distance(transform.position, soldier.transform.position) < carac.getVision())
+            try
             {
-                // Si le personnage est un "citizen", il doit fuir
-                if (gameObject.name.Contains("citizen"))
+                // Si un soldat est à une distance inférieure à getVision()
+                if (Vector3.Distance(transform.position, soldier.transform.position) < carac.getVision())
                 {
-                    // Générer une direction aléatoire
-                    Vector3 randomDirection = Random.insideUnitSphere;
-
-                    // Assurer que la direction est à l'opposé du soldat
-                    if (Vector3.Dot(randomDirection, soldier.transform.position - transform.position) > 0)
+                    // Si le personnage est un "citizen", il doit fuir
+                    if (gameObject.name.Contains("citizen"))
                     {
-                        randomDirection *= -1;
+                        // Générer une direction aléatoire
+                        Vector3 randomDirection = Random.insideUnitSphere;
+
+                        // Assurer que la direction est à l'opposé du soldat
+                        if (Vector3.Dot(randomDirection, soldier.transform.position - transform.position) > 0)
+                        {
+                            randomDirection *= -1;
+                        }
+
+                        // Assigner une nouvelle destination à l'opposé du soldat par rapport au citoyen
+                        targetPosition = transform.position + randomDirection.normalized * carac.getVision();
+                        targetPosition.y = 0;
+                    }
+                    else
+                    {
+                        // Rediriger le personnage vers ce soldat
+                        targetPosition = soldier.transform.position;
                     }
 
-                    // Assigner une nouvelle destination à l'opposé du soldat par rapport au citoyen
-                    targetPosition = transform.position + randomDirection.normalized * carac.getVision();
-                    targetPosition.y = 0;
-                }
-                else
-                {
-                    // Rediriger le personnage vers ce soldat
-                    targetPosition = soldier.transform.position;
-                }
-
-                // Si la distance entre le personnage et le soldat est inférieure à getPortee(), arrêter le mouvement du personnage
-                if (Vector3.Distance(transform.position, soldier.transform.position) < carac.getPortee())
-                {
-                    return;
+                    // Si la distance entre le personnage et le soldat est inférieure à getPortee(), arrêter le mouvement du personnage
+                    if (Vector3.Distance(transform.position, soldier.transform.position) < carac.getPortee())
+                    {
+                        return;
+                    }
                 }
             }
+            catch{ }
+            
         }
 
         // Déplacer le personnage vers la position cible

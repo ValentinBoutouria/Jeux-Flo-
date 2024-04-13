@@ -17,7 +17,7 @@ public class caracteristique : MonoBehaviour
     private int[] defense = new int[3] {3, 1, 2};
     private readonly int[] vitesse = new int[3] {5, 8, 15};
     private int[] vitesseAttaque = new int[3] {2, 1, 3};
-    private int[] portee = new int[3] {2, 10, 1};
+    private float[] portee = new float[3] {0.4f, 2f, 0.2f};
 
 
     //Cout fabrication
@@ -67,7 +67,7 @@ public class caracteristique : MonoBehaviour
         return vitesseAttaque[nameToIndex[classe]];
     }
 
-    public int getPortee()
+    public float getPortee()
     {
         return portee[nameToIndex[classe]];
     }

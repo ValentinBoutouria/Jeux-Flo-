@@ -13,12 +13,12 @@ public class caracEnnemie : MonoBehaviour
     };
 
 
-    private int[] attaque = new int[3] { 5, 7, 0};
+    private int[] attaque = new int[3] { 5, 6, 0};
     private int[] vie = new int[3] { 15, 8, 20};
     private int[] defense = new int[3] { 3, 0, 1};
     private readonly int[] vitesse = new int[3] { 5, 4, 3};
     private int[] vitesseAttaque = new int[3] {2, 4, 10000};
-    private int[] portee = new int[3] { 3, 17, 0};
+    private float[] portee = new float[3] { 0.6f, 3.4f, 0};
 
     private int[] vision = new int[3] {17, 25, 20};
     private bool[] aggressive = new bool[3] {true, true, false};
@@ -63,7 +63,7 @@ public class caracEnnemie : MonoBehaviour
         return vitesseAttaque[nameToIndex[classe]];
     }
 
-    public int getPortee()
+    public float getPortee()
     {
         return portee[nameToIndex[classe]];
     }

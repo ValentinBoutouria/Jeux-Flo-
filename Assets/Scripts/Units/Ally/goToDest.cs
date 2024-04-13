@@ -6,14 +6,14 @@ using UnityEngine;
 public class goToDest : MonoBehaviour
 {
     private int speed;
-    private int portee;
+    private float portee;
 
     private GameObject body;
     public Transform _tf_dest;
     private GameObject ennemie;
     private bool isEnnemie;
 
-    private int minDist = 1;
+    private float minDist = 1;
 
 
     // Start is called before the first frame update

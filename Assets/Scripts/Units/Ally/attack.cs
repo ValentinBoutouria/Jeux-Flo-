@@ -8,7 +8,7 @@ public class attack : MonoBehaviour
 
     private int attaque;
     private int vitesseAttaque;
-    private int portee;
+    private float portee;
     public GameObject target = null;
 
     private float timer;

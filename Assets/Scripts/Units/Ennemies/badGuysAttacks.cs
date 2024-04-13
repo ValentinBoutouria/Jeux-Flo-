@@ -8,7 +8,7 @@ public class badGuysAttacks : MonoBehaviour
 {
     private float timer;
     private int vitesseAtt;
-    private int portee;
+    private float portee;
     private int attaque;
 
     public GameObject effet;
