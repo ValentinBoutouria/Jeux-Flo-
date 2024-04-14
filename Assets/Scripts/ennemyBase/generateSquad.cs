@@ -5,8 +5,7 @@ using UnityEngine;
 public class generateSquad : MonoBehaviour
 {
     public GameObject[] enemyPrefabs; // Les préfabs d'ennemis à instancier
-    public float minSpawnInterval = 120.0f; // L'intervalle de temps minimum entre chaque spawn d'escouade
-    public float maxSpawnInterval = 130.0f; // L'intervalle de temps maximum entre chaque spawn d'escouade
+    public float nextSpawnTime; // L'intervalle de temps minimum entre chaque spawn d'escouade
 
     public List<List<GameObject>> squads; // La liste des escouades
     private int squadSize; // La taille de l'escouade
@@ -15,19 +14,17 @@ public class generateSquad : MonoBehaviour
     void Start()
     {
         squads = new List<List<GameObject>>();
-        SpawnSquad();
+        //SpawnSquad();
     }
 
     private void Update()
     {
         
         // Si le temps écoulé est supérieur à l'intervalle de spawn, instancier une nouvelle escouade
-        if (Time.time > minSpawnInterval)
+        if (Time.time > nextSpawnTime)
         {
             SpawnSquad();
-            float randTime = Random.Range(minSpawnInterval, maxSpawnInterval);
-            minSpawnInterval = Time.time + randTime;
-            maxSpawnInterval = Time.time + randTime + 10;
+            nextSpawnTime = Time.time + Random.Range(60f, 120f);
         }
     }
 
