@@ -23,6 +23,8 @@ public class caracEnnemie : MonoBehaviour
     private int[] vision = new int[3] {17, 25, 20};
     private bool[] aggressive = new bool[3] {true, true, false};
 
+    private bool isInSquad = false;
+
     private string classe;
 
 
@@ -36,6 +38,11 @@ public class caracEnnemie : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void setSquad(bool b)
+    {
+        isInSquad = b;
     }
 
     public int getVie()
@@ -76,5 +83,10 @@ public class caracEnnemie : MonoBehaviour
     public int getVision()
     {
         return vision[nameToIndex[classe]];
+    }
+
+    public bool isAggressive()
+    {
+        return aggressive[nameToIndex[classe]];
     }
 }

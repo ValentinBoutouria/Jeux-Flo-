@@ -32,8 +32,8 @@ public class deplacement : MonoBehaviour
                 // Si un soldat est à une distance inférieure à getVision()
                 if (Vector3.Distance(transform.position, soldier.transform.position) < carac.getVision())
                 {
-                    // Si le personnage est un "citizen", il doit fuir
-                    if (gameObject.name.Contains("citizen"))
+                    // Si getAggressive() retourne false, l'unité doit fuir
+                    if (!carac.isAggressive())
                     {
                         // Générer une direction aléatoire
                         Vector3 randomDirection = Random.insideUnitSphere;
@@ -44,35 +44,47 @@ public class deplacement : MonoBehaviour
                             randomDirection *= -1;
                         }
 
-                        // Assigner une nouvelle destination à l'opposé du soldat par rapport au citoyen
+                        // Assigner une nouvelle destination à l'opposé du soldat par rapport à l'unité
                         targetPosition = transform.position + randomDirection.normalized * carac.getVision();
                         targetPosition.y = 0;
                     }
                     else
                     {
-                        // Rediriger le personnage vers ce soldat
+                        // Rediriger l'unité vers ce soldat
                         targetPosition = soldier.transform.position;
+
+                        // Assigner cette cible à toute l'escouade
+                        squad squadScript = GetComponentInParent<squad>();
+                        squadScript.SetSquadTarget(targetPosition);
                     }
 
-                    // Si la distance entre le personnage et le soldat est inférieure à getPortee(), arrêter le mouvement du personnage
+                    // Si la distance entre l'unité et le soldat est inférieure à getPortee(), arrêter le mouvement de l'unité
                     if (Vector3.Distance(transform.position, soldier.transform.position) < carac.getPortee())
                     {
                         return;
                     }
                 }
             }
-            catch{ }
-            
+            catch { }
+
         }
 
-        // Déplacer le personnage vers la position cible
+        // Déplacer l'unité vers la position cible
         MoveTowardsTarget();
     }
 
-    void GenerateTargetPosition()
+    public void GenerateTargetPosition(Vector3? squadDest = null)
     {
-        // Générer une position cible aléatoire
-        targetPosition = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
+        if (squadDest.HasValue)
+        {
+            // Si squadDest est non nul, assigner sa valeur à targetPosition
+            targetPosition = squadDest.Value;
+        }
+        else
+        {
+            // Sinon, générer une position cible aléatoire
+            targetPosition = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
+        }
     }
 
     void MoveTowardsTarget()

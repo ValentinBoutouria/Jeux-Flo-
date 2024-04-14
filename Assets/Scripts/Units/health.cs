@@ -10,6 +10,7 @@ public class health : MonoBehaviour
     public GameObject healthBar;
     private GameObject Master;
     private GameObject selectionController;
+    private squad squadScript = null; // Ajouter une référence au script squad
 
     private int maxHealth;
     private int currenthealth;
@@ -18,6 +19,13 @@ public class health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Obtenir une référence au script squad
+        try
+        {
+            squadScript = GetComponentInParent<squad>();
+        }
+        catch { }
+
         selectionController = GameObject.FindGameObjectWithTag("selectionController");
         try
         {
@@ -49,6 +57,11 @@ public class health : MonoBehaviour
         {
             selectionController.GetComponent<SelectionController>().availableWarriorList.Remove(GetComponent<Transform>().GetChild(0).gameObject);
             selectionController.GetComponent<SelectionController>().selectedWarriorList.Remove(GetComponent<Transform>().GetChild(0).gameObject);
+            // Supprimer l'unité de l'escouade
+            if (squadScript != null)
+            {
+                squadScript.units.Remove(gameObject);
+            }
             Destroy(Master);
         }
         majHealthBar();
