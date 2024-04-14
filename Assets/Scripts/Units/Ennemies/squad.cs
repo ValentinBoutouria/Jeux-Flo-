@@ -9,6 +9,8 @@ public class squad : MonoBehaviour
     public List<GameObject> units; // La liste des unités dans l'escouade
     private Vector3 destination; // La destination de l'escouade
 
+    private Vector3 positionChef;
+
         // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +25,9 @@ public class squad : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        positionChef = this.transform.GetChild(0).GetComponent<Transform>().position;
         // Si l'escouade a atteint sa destination, générer une nouvelle destination
-        if (Vector3.Distance(transform.position, destination) < 1f)
+        if (Vector3.Distance(positionChef, destination) < 1f)
         {
             GenerateSquadDestination();
         }
@@ -41,7 +44,7 @@ public class squad : MonoBehaviour
     // Cette méthode génère une destination aléatoire pour l'escouade
     void GenerateSquadDestination()
     {
-        destination = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
+        destination = new Vector3(Random.Range(-15, 15), 0.2f, Random.Range(-15, 15));
     }
 
 

@@ -36,6 +36,8 @@ public class generateSquad : MonoBehaviour
 
         // Créer un nouveau GameObject pour l'escouade et lui attacher le script squad
         GameObject squadObject = new GameObject("Escouade");
+        squadObject.transform.position = this.transform.GetChild(1).GetComponent<Transform>().position;
+        Debug.Log("Position de l'escouade: " + squadObject.transform.position);
         squad squadScript = squadObject.AddComponent<squad>();
         squadScript.generateSquadScript = this;
 
@@ -45,7 +47,7 @@ public class generateSquad : MonoBehaviour
             GameObject enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
 
             // Instancier l'ennemi et l'ajouter à l'escouade
-            GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+            GameObject enemy = Instantiate(enemyPrefab, squadObject.transform.position, Quaternion.identity);
             newSquad.Add(enemy);
 
             // Faire de l'ennemi un enfant du GameObject de l'escouade
