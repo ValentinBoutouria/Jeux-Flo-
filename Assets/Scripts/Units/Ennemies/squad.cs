@@ -13,28 +13,29 @@ public class squad : MonoBehaviour
     void Start()
     {
         units = new List<GameObject>();
+        foreach (Transform child in transform)
+        {
+            units.Add(child.gameObject);
+        }
         GenerateSquadDestination();
     }
 
-        // Update is called once per frame
-        void Update()
+    // Update is called once per frame
+    void Update()
     {
-        // Parcourir chaque escouade
-        foreach (List<GameObject> squad in generateSquadScript.squads)
+        // Si l'escouade a atteint sa destination, générer une nouvelle destination
+        if (Vector3.Distance(transform.position, destination) < 1f)
         {
-            // Si l'escouade a atteint sa destination, générer une nouvelle destination
-            if (Vector3.Distance(transform.position, destination) < 1f)
-            {
-                GenerateSquadDestination();
-            }
-
-            // Assigner la destination à chaque unité de l'escouade
-            foreach (GameObject unit in squad)
-            {
-                deplacement unitScript = unit.GetComponent<deplacement>();
-                unitScript.GenerateTargetPosition(destination);
-            }
+            GenerateSquadDestination();
         }
+
+        // Assigner la destination à chaque unité de l'escouade
+        foreach (GameObject unit in units)
+        {
+            deplacement unitScript = unit.GetComponent<deplacement>();
+            unitScript.GenerateTargetPosition(destination);
+        }
+
     }
 
     // Cette méthode génère une destination aléatoire pour l'escouade

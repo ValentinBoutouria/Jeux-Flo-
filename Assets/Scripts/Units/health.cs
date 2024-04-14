@@ -23,6 +23,7 @@ public class health : MonoBehaviour
         try
         {
             squadScript = GetComponentInParent<squad>();
+            Debug.Log("squadScript: " + squadScript);
         }
         catch { }
 
@@ -60,7 +61,7 @@ public class health : MonoBehaviour
             // Supprimer l'unité de l'escouade
             if (squadScript != null)
             {
-                squadScript.units.Remove(gameObject);
+                squadScript.units.Remove(gameObject.transform.parent.gameObject);
             }
             Destroy(Master);
         }

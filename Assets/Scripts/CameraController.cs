@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float moveSpeed = 10f;
+    public float moveSpeed = 15f;
     public float turnSpeed = 50f;
-    public float zoomSpeed = 2000f;
+    public float zoomSpeed = 6000f;
 
     // Update is called once per frame
     void Update()
