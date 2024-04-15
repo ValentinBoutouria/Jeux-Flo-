@@ -8,8 +8,11 @@ public class deplacement : MonoBehaviour
     private Vector3 targetPosition; // Position cible pour le déplacement
     private SelectionController selectionController; // Référence au script SelectionController
 
-    // Start is called before the first frame update
-    void Start()
+    private float vision;
+
+
+// Start is called before the first frame update
+void Start()
     {
         // Obtenir la référence au script caracEnnemie
         carac = GetComponent<caracEnnemie>();
@@ -19,6 +22,7 @@ public class deplacement : MonoBehaviour
 
         // Générer une position cible initiale
         GenerateTargetPosition();
+        vision = carac.getVision();
     }
 
     // Update is called once per frame
@@ -30,7 +34,7 @@ public class deplacement : MonoBehaviour
             try
             {
                 // Si un soldat est à une distance inférieure à getVision()
-                if (Vector3.Distance(transform.position, soldier.transform.position) < carac.getVision())
+                if (Vector3.Distance(transform.position, soldier.transform.position) < vision)
                 {
                     // Si getAggressive() retourne false, l'unité doit fuir
                     if (!carac.isAggressive())
@@ -45,7 +49,7 @@ public class deplacement : MonoBehaviour
                         }
 
                         // Assigner une nouvelle destination à l'opposé du soldat par rapport à l'unité
-                        targetPosition = transform.position + randomDirection.normalized * carac.getVision();
+                        targetPosition = transform.position + randomDirection.normalized * vision;
                         targetPosition.y = 0;
                     }
                     else
