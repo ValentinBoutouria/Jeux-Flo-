@@ -37,9 +37,6 @@ public class generateSquad : MonoBehaviour
         // Créer un nouveau GameObject pour l'escouade et lui attacher le script squad
         GameObject squadObject = new GameObject("Escouade");
         squadObject.transform.position = this.transform.GetChild(1).GetComponent<Transform>().position;
-        Debug.Log("Position de l'escouade: " + squadObject.transform.position);
-        squad squadScript = squadObject.AddComponent<squad>();
-        squadScript.generateSquadScript = this;
 
         for (int i = 0; i < squadSize; i++)
         {
@@ -57,6 +54,9 @@ public class generateSquad : MonoBehaviour
             caracEnnemie enemyScript = enemy.GetComponent<caracEnnemie>();
             enemyScript.setSquad(true);
         }
+
+        squad squadScript = squadObject.AddComponent<squad>();
+        squadScript.generateSquadScript = this;
 
         squads.Add(newSquad);
     }

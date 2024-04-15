@@ -23,7 +23,6 @@ public class health : MonoBehaviour
         try
         {
             squadScript = GetComponentInParent<squad>();
-            Debug.Log("squadScript: " + squadScript);
         }
         catch { }
 
@@ -62,8 +61,21 @@ public class health : MonoBehaviour
             if (squadScript != null)
             {
                 squadScript.units.Remove(gameObject.transform.parent.gameObject);
+                squadScript.setSlowestSpeed();
+                if (squadScript.units.Count == 0)
+                {
+                    Destroy(gameObject.transform.parent.parent.gameObject);
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
             }
-            Destroy(Master);
+  
+            else
+            {
+                Destroy(gameObject);
+            }
         }
         majHealthBar();
     }

@@ -19,6 +19,7 @@ public class squad : MonoBehaviour
         {
             units.Add(child.gameObject);
         }
+        setSlowestSpeed();
         GenerateSquadDestination();
     }
 
@@ -46,6 +47,24 @@ public class squad : MonoBehaviour
     {
         destination = new Vector3(Random.Range(-15, 15), 0.2f, Random.Range(-15, 15));
     }
+
+    public void setSlowestSpeed()
+    {
+        int slowestSpeed = 10000;
+        foreach (GameObject unit in units)
+        {
+            caracEnnemie unitScript = unit.GetComponent<caracEnnemie>();
+            if (unitScript.getVitesse() < slowestSpeed)
+            {
+                slowestSpeed = unitScript.getVitesse();
+            }
+        }
+        foreach (GameObject unit in units)
+        {
+            caracEnnemie unitScript = unit.GetComponent<caracEnnemie>();
+            unitScript.setCurrentSpeed(slowestSpeed);
+        }
+    }   
 
 
     // Cette méthode assigne une nouvelle cible à chaque unité de l'escouade

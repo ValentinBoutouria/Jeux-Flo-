@@ -90,7 +90,7 @@ public class deplacement : MonoBehaviour
     void MoveTowardsTarget()
     {
         // Déplacer le personnage vers la position cible à la vitesse définie
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, carac.getVitesse() * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, carac.getCurrentSpeed() * Time.deltaTime);
 
         // Si le personnage est proche de la position cible, générer une nouvelle position cible
         if (Vector3.Distance(transform.position, targetPosition) < 1f)

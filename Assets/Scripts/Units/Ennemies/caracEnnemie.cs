@@ -25,13 +25,16 @@ public class caracEnnemie : MonoBehaviour
 
     private bool isInSquad = false;
 
-    private string classe;
+    public int currentSpeed;
+
+    public string classe;
 
 
     // Start is called before the first frame update
     void Start()
     {
         classe = this.GetComponent<Transform>().name.Substring(0, 6);
+        currentSpeed = vitesse[nameToIndex[classe]];
     }
 
     // Update is called once per frame
@@ -88,5 +91,15 @@ public class caracEnnemie : MonoBehaviour
     public bool isAggressive()
     {
         return aggressive[nameToIndex[classe]];
+    }
+
+    public void setCurrentSpeed(int speed)
+    {
+        currentSpeed = speed;
+    }
+
+    public int getCurrentSpeed()
+    {
+        return currentSpeed;
     }
 }
