@@ -6,25 +6,25 @@ public class targeted : MonoBehaviour
 {
 
     private GameObject selectionController;
-    private GameObject generalScript;
+    private mouseOversomething _mouseOversomething;
 
     // Start is called before the first frame update
     void Start()
     {
         this.gameObject.GetComponent<Outline>().enabled = false;
-        generalScript = GameObject.FindGameObjectWithTag("empty");
+        _mouseOversomething = GameObject.FindGameObjectWithTag("empty").GetComponent<mouseOversomething>();
         selectionController = GameObject.FindGameObjectWithTag("selectionController");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void OnMouseOver()
     {
-        generalScript.GetComponent<mouseOversomething>().ennemi = 1;
+        _mouseOversomething.ennemi = 1;
 
         this.gameObject.GetComponent<Outline>().enabled = true;
         if(Input.GetMouseButtonUp(1))
@@ -39,7 +39,7 @@ public class targeted : MonoBehaviour
     public void OnMouseExit()
     {
         this.gameObject.GetComponent<Outline>().enabled = false;
-        generalScript.GetComponent<mouseOversomething>().ennemi = 0 ;
+        _mouseOversomething.ennemi = 0 ;
 
     }
 

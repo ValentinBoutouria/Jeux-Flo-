@@ -27,6 +27,7 @@ public class magicExplosion : MonoBehaviour
             if (dist < transform.GetChild(0).GetComponent<ParticleSystem>().main.startSpeedMultiplier)
             {
                 dgt = (int)(carac.GetComponent<caracEnnemie>().getAttaque() / (0.1*dist + 1));
+
                 li.Add((warrior, dgt));
             }
         }
