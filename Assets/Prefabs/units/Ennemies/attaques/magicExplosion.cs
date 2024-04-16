@@ -41,7 +41,6 @@ public class magicExplosion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(GetComponent<ParticleSystem>().isStopped);
         if (GetComponent<ParticleSystem>().isStopped)
         {
             Destroy(gameObject);

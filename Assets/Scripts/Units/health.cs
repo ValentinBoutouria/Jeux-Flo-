@@ -65,17 +65,11 @@ public class health : MonoBehaviour
                 if (squadScript.units.Count == 0)
                 {
                     Destroy(gameObject.transform.parent.parent.gameObject);
-                }
-                else
-                {
-                    Destroy(gameObject);
+                    return;
                 }
             }
-  
-            else
-            {
-                Destroy(gameObject);
-            }
+            Destroy(Master);
+
         }
         majHealthBar();
     }
