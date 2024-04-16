@@ -31,7 +31,6 @@ public class setMovement : MonoBehaviour
     {
         if(UnityEngine.Input.GetMouseButtonDown(1) && empty.GetComponent<mouseOversomething>().ennemi == 0)
         {
-            Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
             float distance;
             Ray ray = Camera.main.ScreenPointToRay(UnityEngine.Input.mousePosition);
             if (plane.Raycast(ray, out distance))

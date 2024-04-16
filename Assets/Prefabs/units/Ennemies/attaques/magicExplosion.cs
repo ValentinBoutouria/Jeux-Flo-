@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class magicExplosion : MonoBehaviour
 {
-    private GameObject selectionController;
+    private SelectionController selectionController;
     public GameObject carac;
 
     private List<(GameObject, int)> li = new List<(GameObject, int)>();
@@ -14,9 +14,9 @@ public class magicExplosion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        selectionController = GameObject.FindGameObjectWithTag("selectionController");
-        List<GameObject> list = selectionController.GetComponent<SelectionController>().availableWarriorList;
-        transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+        selectionController = GameObject.FindGameObjectWithTag("selectionController").GetComponent<SelectionController>();
+        List<GameObject> list = selectionController.availableWarriorList;
+        GetComponent<ParticleSystem>().Play();
 
 
         // GameObject[] _list = new GameObject[selectionController.GetComponent<SelectionController>().availableWarriorList.Capacity];
@@ -24,7 +24,7 @@ public class magicExplosion : MonoBehaviour
         foreach (GameObject warrior in list)
         {
             float dist = Vector3.Distance(gameObject.transform.position, warrior.transform.position);
-            if (dist < transform.GetChild(0).GetComponent<ParticleSystem>().main.startSpeedMultiplier)
+            if (dist < GetComponent<ParticleSystem>().main.startSpeedMultiplier)
             {
                 dgt = (int)(carac.GetComponent<caracEnnemie>().getAttaque() / (0.1*dist + 1));
 
@@ -41,7 +41,8 @@ public class magicExplosion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.GetChild(0).GetComponent<ParticleSystem>().isStopped)
+        Debug.Log(GetComponent<ParticleSystem>().isStopped);
+        if (GetComponent<ParticleSystem>().isStopped)
         {
             Destroy(gameObject);
         }

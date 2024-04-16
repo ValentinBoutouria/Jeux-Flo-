@@ -33,19 +33,21 @@ public class squad : MonoBehaviour
             GenerateSquadDestination();
         }
 
-        // Assigner la destination à chaque unité de l'escouade
-        foreach (GameObject unit in units)
+        // Assigner la destination à chaque unité de l'escouade, y compris le chef
+        foreach (Transform child in transform)
         {
-            deplacement unitScript = unit.GetComponent<deplacement>();
-            unitScript.GenerateTargetPosition(destination);
+            deplacement unitScript = child.GetComponent<deplacement>();
+            if (unitScript != null)
+            {
+                unitScript.GenerateTargetPosition(destination);
+            }
         }
-
     }
 
     // Cette méthode génère une destination aléatoire pour l'escouade
     void GenerateSquadDestination()
     {
-        destination = new Vector3(Random.Range(-15, 15), 0.2f, Random.Range(-15, 15));
+        destination = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
     }
 
     public void setSlowestSpeed()

@@ -40,7 +40,7 @@ void Start()
                     if (!carac.isAggressive())
                     {
                         // Générer une direction aléatoire
-                        Vector3 randomDirection = Random.insideUnitSphere;
+                        Vector3 randomDirection = Random.insideUnitCircle;
 
                         // Assurer que la direction est à l'opposé du soldat
                         if (Vector3.Dot(randomDirection, soldier.transform.position - transform.position) > 0)
@@ -60,6 +60,9 @@ void Start()
                         // Assigner cette cible à toute l'escouade
                         squad squadScript = GetComponentInParent<squad>();
                         squadScript.SetSquadTarget(targetPosition);
+
+                        // Sortir de la boucle
+                        break;
                     }
 
                     // Si la distance entre l'unité et le soldat est inférieure à getPortee(), arrêter le mouvement de l'unité
@@ -97,7 +100,7 @@ void Start()
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, carac.getCurrentSpeed() * Time.deltaTime);
 
         // Si le personnage est proche de la position cible, générer une nouvelle position cible
-        if (Vector3.Distance(transform.position, targetPosition) < 1f)
+        if (transform.parent == null && Vector3.Distance( transform.position, targetPosition) < 1f)
         {
             GenerateTargetPosition();
         }

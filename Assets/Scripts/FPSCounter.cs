@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FPSCounter : MonoBehaviour
@@ -26,7 +27,7 @@ public class FPSCounter : MonoBehaviour
 
             // Mettre à jour le nombre d'unités ennemies
             enemyCount = 0;
-            foreach (var squad in squadGenerator.squads)
+            foreach (List<GameObject> squad in squadGenerator.squads)
             {
                 enemyCount += squad.Count;
             }
