@@ -47,7 +47,33 @@ public class squad : MonoBehaviour
     // Cette méthode génère une destination aléatoire pour l'escouade
     void GenerateSquadDestination()
     {
-        destination = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
+        // Avec une probabilité de 70%, déplacer l'escouade
+        if (Random.Range(0f, 1f) < 0.7f)
+        {
+            destination += new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
+            // Réactiver le script deplacement pour chaque unité
+            foreach (GameObject unit in units)
+            {
+                unit.GetComponent<deplacement>().enabled = true;
+            }
+        }
+        else
+        {
+            // Sinon, désactiver le script deplacement pour chaque unité et commencer une coroutine pour le réactiver après 5 secondes
+            foreach (GameObject unit in units)
+            {
+                deplacement unitScript = unit.GetComponent<deplacement>();
+                unitScript.enabled = false;
+                StartCoroutine(EnableDeplacementAfterDelay(unitScript, 5f));
+            }
+        }
+    }
+
+    // Cette coroutine réactive le script deplacement après un certain délai
+    IEnumerator EnableDeplacementAfterDelay(deplacement unitScript, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        unitScript.enabled = true;
     }
 
     public void setSlowestSpeed()

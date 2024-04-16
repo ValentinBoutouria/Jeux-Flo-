@@ -24,7 +24,7 @@ public class generateSquad : MonoBehaviour
         if (Time.time > nextSpawnTime)
         {
             SpawnSquad();
-            nextSpawnTime = Time.time + Random.Range(120f, 130f);
+            nextSpawnTime = Time.time + Random.Range(1, 1.30f);
         }
     }
 

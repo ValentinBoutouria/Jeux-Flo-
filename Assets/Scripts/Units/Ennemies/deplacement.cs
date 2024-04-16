@@ -9,6 +9,7 @@ public class deplacement : MonoBehaviour
     private SelectionController selectionController; // Référence au script SelectionController
 
     private float vision;
+    private float portee;
 
 
 // Start is called before the first frame update
@@ -23,6 +24,7 @@ void Start()
         // Générer une position cible initiale
         GenerateTargetPosition();
         vision = carac.getVision();
+        portee = carac.getPortee();
     }
 
     // Update is called once per frame
@@ -54,8 +56,9 @@ void Start()
                     }
                     else
                     {
-                        // Rediriger l'unité vers ce soldat
-                        targetPosition = soldier.transform.position;
+                        // Rediriger l'unité vers ce soldat, mais s'arrêter à une distance égale à la portée
+                        Vector3 directionToSoldier = soldier.transform.position - transform.position;
+                        targetPosition = soldier.transform.position - directionToSoldier.normalized * portee;
 
                         // Assigner cette cible à toute l'escouade
                         squad squadScript = GetComponentInParent<squad>();
@@ -84,7 +87,7 @@ void Start()
         else
         {
             // Sinon, générer une position cible aléatoire
-            targetPosition = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
+            targetPosition += new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
         }
     }
 
