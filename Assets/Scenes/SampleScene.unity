@@ -663,7 +663,7 @@ MonoBehaviour:
   _selection: {fileID: 674256382}
   _maisonPrefabLVL1: {fileID: 1005756616148439715, guid: fb8bf63a90c7e9347b64ca17c0b9a27e, type: 3}
   _parent: {fileID: 261154039}
-  _bois: {fileID: 134210221}
+  _ressources: {fileID: 1296242154}
   _compteur: {fileID: 1296242152}
   benefice: 1
 --- !u!1 &34158184
@@ -1131,56 +1131,10 @@ MonoBehaviour:
   _selection: {fileID: 674256382}
   _chateauPrefabLVL1: {fileID: 5928208106729360501, guid: e37f3aa36c12dcf49a6657cfca043e0d, type: 3}
   _parent: {fileID: 638579051}
-  _gold: {fileID: 714695069}
+  _ressources: {fileID: 1296242154}
   benefice: 1
   _compteur: {fileID: 1296242152}
   _textCoutChateau: {fileID: 419446670}
---- !u!1 &134210219
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 134210220}
-  - component: {fileID: 134210221}
-  m_Layer: 0
-  m_Name: Wood
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &134210220
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134210219}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1296242151}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &134210221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134210219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6c1d02fe87551a4db7bd70806a6d6a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _nbBois: 0
-  tMP_Text: {fileID: 146997727}
 --- !u!1 &146997725
 GameObject:
   m_ObjectHideFlags: 0
@@ -1315,37 +1269,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 146997725}
   m_CullTransparentMesh: 1
---- !u!1 &196425841
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 196425842}
-  m_Layer: 0
-  m_Name: Corpse
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &196425842
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 196425841}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1296242151}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &215387267
 GameObject:
   m_ObjectHideFlags: 0
@@ -3139,7 +3062,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 638579052}
-  - component: {fileID: 638579053}
   m_Layer: 0
   m_Name: Chateau
   m_TagString: Untagged
@@ -3166,21 +3088,6 @@ Transform:
   - {fileID: 1971611178}
   m_Father: {fileID: 821686423}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &638579053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 638579051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c46148c64468ccb4396875318cabb11f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _compteur: {fileID: 1296242152}
-  _gold: {fileID: 714695069}
-  _beneficeChateau: 0
 --- !u!1 &658755623
 GameObject:
   m_ObjectHideFlags: 0
@@ -3347,9 +3254,7 @@ MonoBehaviour:
   listeGameObjectBatimentPresent: []
   listeGameObjectbatimentSelect: []
   nbGameObjectSelect: 0
-  _bois: {fileID: 134210221}
-  _gold: {fileID: 714695069}
-  _stone: {fileID: 1015728838}
+  _ressources: {fileID: 1296242154}
 --- !u!114 &674256383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3473,52 +3378,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &714695067
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 714695068}
-  - component: {fileID: 714695069}
-  m_Layer: 0
-  m_Name: Gold
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &714695068
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 714695067}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1296242151}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &714695069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 714695067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ef4c67bb6927c94fa497429ead6d602, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _nbGold: 0
-  tMP_Text: {fileID: 245648156}
 --- !u!1 &764754728
 GameObject:
   m_ObjectHideFlags: 0
@@ -3869,6 +3728,7 @@ GameObject:
   m_Component:
   - component: {fileID: 821686423}
   - component: {fileID: 821686424}
+  - component: {fileID: 821686425}
   m_Layer: 0
   m_Name: Batiment
   m_TagString: Untagged
@@ -3911,6 +3771,25 @@ MonoBehaviour:
   _matselect: {fileID: 2100000, guid: 7b77f7a14645c4f418c3fb582d84b285, type: 2}
   _matBat: {fileID: 2100000, guid: 86ec91b43c6162e40880c8c132d764a2, type: 2}
   _panel: {fileID: 1275331344}
+--- !u!114 &821686425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821686422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78091e6a1fae5c348b77e9887d3a21fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Wood: 0
+  ressource2: 0
+  ressource3: 0
+  ressource4: 0
+  ressource5: 0
+  ressource6: 0
+  ressource7: 0
 --- !u!1 &821724273
 GameObject:
   m_ObjectHideFlags: 0
@@ -4725,7 +4604,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 865997227}
-  - component: {fileID: 865997228}
   m_Layer: 0
   m_Name: Ferme
   m_TagString: Untagged
@@ -4752,21 +4630,6 @@ Transform:
   - {fileID: 524168513}
   m_Father: {fileID: 821686423}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &865997228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 865997226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c59203a7c6082e442b5cb8dd869122ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _compteur: {fileID: 1296242152}
-  _stone: {fileID: 1015728838}
-  _beneficeFerme: 0
 --- !u!1 &888013754
 GameObject:
   m_ObjectHideFlags: 0
@@ -5157,52 +5020,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973504352}
   m_CullTransparentMesh: 1
---- !u!1 &1015728836
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1015728837}
-  - component: {fileID: 1015728838}
-  m_Layer: 0
-  m_Name: Stone
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1015728837
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1015728836}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1296242151}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1015728838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1015728836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6a4f14164d78664eb4dc937bdad6511, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _nbStone: 0
-  tMP_Text: {fileID: 955824862}
 --- !u!1 &1043929382
 GameObject:
   m_ObjectHideFlags: 0
@@ -5876,37 +5693,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1158264554}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1209262147
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1209262148}
-  m_Layer: 0
-  m_Name: Mana
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1209262148
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1209262147}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1296242151}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1221589998
 GameObject:
   m_ObjectHideFlags: 0
@@ -6696,6 +6482,7 @@ GameObject:
   - component: {fileID: 1296242151}
   - component: {fileID: 1296242153}
   - component: {fileID: 1296242152}
+  - component: {fileID: 1296242154}
   m_Layer: 0
   m_Name: Ressources
   m_TagString: Untagged
@@ -6715,13 +6502,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 134210220}
-  - {fileID: 1015728837}
-  - {fileID: 714695068}
-  - {fileID: 1209262148}
-  - {fileID: 196425842}
-  - {fileID: 1640922801}
+  m_Children: []
   m_Father: {fileID: 674256381}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1296242152
@@ -6737,9 +6518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counterSpawnRessources: 0
-  counterAjoutFerme: 0
-  counterAjoutChateau: 0
-  counterAjoutMaison: 0
+  counterAjoutRessources: 0
 --- !u!114 &1296242153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6758,6 +6537,28 @@ MonoBehaviour:
   _compteur: {fileID: 1296242152}
   _selection: {fileID: 674256382}
   _spawnTime: 2
+--- !u!114 &1296242154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296242150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 990b26c2c0d5be6428e4def0fecf1aa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nbWood: 100
+  _nbStone: 0
+  _nbGold: 0
+  _nbMana: 0
+  _nbCorpse: 0
+  _nbRats: 0
+  _compteur: {fileID: 0}
+  _textNbWood: {fileID: 146997727}
+  _textNbStone: {fileID: 955824862}
+  _textNbGold: {fileID: 245648156}
 --- !u!1 &1297627354
 GameObject:
   m_ObjectHideFlags: 0
@@ -7808,37 +7609,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3261143495765217579, guid: 641e6ff793f21e044a2289113200aba1, type: 3}
   m_PrefabInstance: {fileID: 1612925379}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1640922800
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1640922801}
-  m_Layer: 0
-  m_Name: Food
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1640922801
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1640922800}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1296242151}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1641866463
 GameObject:
   m_ObjectHideFlags: 0
@@ -9332,34 +9102,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _selection: {fileID: 674256382}
-  _bois: {fileID: 134210221}
-  _gold: {fileID: 714695069}
-  _stone: {fileID: 1015728838}
-  _food: {fileID: 0}
-  _mana: {fileID: 0}
-  _corpse: {fileID: 0}
-  _caracteristique: {fileID: 0}
+  _ressources: {fileID: 1296242154}
   _unit1TMP: {fileID: 1146424166}
   _unit2TMP: {fileID: 1757373016}
   _unit3TMP: {fileID: 34158186}
   _unit4TMP: {fileID: 1221590000}
-  _unitFerme1: {fileID: 1558660791393603750, guid: b061c9953c34f1b42a1d399a809fccb7, type: 3}
-  _unitFerme2: {fileID: 1558660791393603750, guid: b061c9953c34f1b42a1d399a809fccb7, type: 3}
-  _unitFerme3: {fileID: 1558660791393603750, guid: b061c9953c34f1b42a1d399a809fccb7, type: 3}
-  _unitFerme4: {fileID: 1558660791393603750, guid: b061c9953c34f1b42a1d399a809fccb7, type: 3}
-  _unitChateau1: {fileID: 1558660791393603750, guid: 641e6ff793f21e044a2289113200aba1, type: 3}
-  _unitChateau2: {fileID: 1558660791393603750, guid: 641e6ff793f21e044a2289113200aba1, type: 3}
-  _unitChateau3: {fileID: 1558660791393603750, guid: 641e6ff793f21e044a2289113200aba1, type: 3}
-  _unitChateau4: {fileID: 1558660791393603750, guid: 641e6ff793f21e044a2289113200aba1, type: 3}
-  Soldier: {fileID: 1558660791393603750, guid: 5c90ece2828410742ac7df44687c46f6, type: 3}
-  _unitMaison2: {fileID: 1558660791393603750, guid: 5c90ece2828410742ac7df44687c46f6, type: 3}
-  _unitMaison3: {fileID: 1558660791393603750, guid: 5c90ece2828410742ac7df44687c46f6, type: 3}
-  _unitMaison4: {fileID: 1558660791393603750, guid: 5c90ece2828410742ac7df44687c46f6, type: 3}
   _maison: {fileID: 261154039}
   _ferme: {fileID: 865997226}
   _chateau: {fileID: 638579051}
+  _unitMaison: {fileID: 246501511}
+  _unitFerme: {fileID: 823318409}
+  _unitChateau: {fileID: 836069805}
   _unitRangement: {fileID: 1122208055}
-  tmpinstance: {fileID: 0}
 --- !u!114 &1994405880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9869,9 +9623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _selection: {fileID: 674256382}
   _prixUpgrade: 10
-  _stone: {fileID: 1015728838}
-  _bois: {fileID: 134210221}
-  _gold: {fileID: 714695069}
+  _ressources: {fileID: 1296242154}
   _nom: {fileID: 1406803393}
   _niveau: {fileID: 1671726174}
   _benefParSec: {fileID: 1641866465}
@@ -10041,7 +9793,7 @@ MonoBehaviour:
   _selection: {fileID: 674256382}
   _fermePrefabLVL1: {fileID: 3452888887045216775, guid: 4caf7b34b61fc124bb84ae3e096efb64, type: 3}
   _parent: {fileID: 865997226}
-  _stone: {fileID: 1015728838}
+  _ressources: {fileID: 1296242154}
   _textCoutFerme: {fileID: 556136526}
   benefice: 0
 --- !u!1 &2129755812
