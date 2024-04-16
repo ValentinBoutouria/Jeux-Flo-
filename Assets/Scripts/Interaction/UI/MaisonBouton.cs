@@ -11,7 +11,7 @@ public class Maison : MonoBehaviour
     public Selection _selection;
     public GameObject _maisonPrefabLVL1;
     public GameObject _parent;
-    public Bois _bois;
+    public Ressources _ressources;
     public Compteur _compteur;
     public int benefice;
  
@@ -30,19 +30,19 @@ public class Maison : MonoBehaviour
     }
     public void AjoutRessourcesMaison()
     {
-        if (_compteur.counterAjoutMaison<0f)
+        if (_compteur.counterAjoutRessources>10f)
         {
-            _compteur.counterAjoutMaison = 9;
-            _bois._nbBois += benefice * _nbMaison;
+            _compteur.counterAjoutRessources = 0;
+            _ressources._nbWood += benefice * _nbMaison;
         }
     }
     public void CliqueMaison()
     {
         //_validationUI.SetActive(true);
-        if (_bois._nbBois >= _prix * _selection.gameObjectListSelectionne.Count)//si assez de bois pour acheter un chateau
+        if (_ressources._nbWood >= _prix * _selection.gameObjectListSelectionne.Count)//si assez de bois pour acheter un chateau
         {
             _nbMaisonsAchete=_selection.nbGameObjectSelect;
-            _bois._nbBois -= _prix * _selection.gameObjectListSelectionne.Count;//on retire le prix des batiments
+            _ressources._nbWood -= _prix * _selection.gameObjectListSelectionne.Count;//on retire le prix des batiments
             foreach (GameObject obj in _selection.gameObjectListSelectionne)//pour tout les gameobject dans liste selectionne
             {
                 _nbMaison += 1;//on ajoute une maison

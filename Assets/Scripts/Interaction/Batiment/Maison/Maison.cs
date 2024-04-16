@@ -5,7 +5,7 @@ using UnityEngine;
 public class MaisonBat : MonoBehaviour
 {
     public Compteur _compteur;
-    public Bois _bois;
+    public Ressources _ressources;
     public int _beneficeMaison;
     // Start is called before the first frame update
     void Start()
@@ -21,10 +21,10 @@ public class MaisonBat : MonoBehaviour
     }
       public void AjoutRessourcesMaison()
     {
-        if (_compteur.counterAjoutMaison < 0f)
+        if (_compteur.counterAjoutRessources > 10f)
         {
-            _compteur.counterAjoutMaison = 9;
-            _bois._nbBois += _beneficeMaison;
+            _compteur.counterAjoutRessources = 0;
+            _ressources._nbWood += _beneficeMaison;
         }
     }
     

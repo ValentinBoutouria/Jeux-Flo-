@@ -7,9 +7,7 @@ public class Upgrade : MonoBehaviour
 {
     public Selection _selection;
     public int _prixUpgrade;
-    public Stone _stone;
-    public Bois _bois;
-    public Gold _gold;
+    public Ressources _ressources;
 
     public TMP_Text _nom;
     public TMP_Text _niveau;
@@ -68,9 +66,9 @@ public class Upgrade : MonoBehaviour
 
         if (_infoFerme)
         {
-            if(_stone._nbStone-_prixUpgrade*_infoFerme._niveau>=0)//10*niveau si  il y a assez d'argent alors on upgrade
+            if(_ressources._nbStone-_prixUpgrade*_infoFerme._niveau>=0)//10*niveau si  il y a assez d'argent alors on upgrade
             {
-            _stone._nbStone-=_prixUpgrade*_infoFerme._niveau;
+            _ressources._nbStone-=_prixUpgrade*_infoFerme._niveau;
             _infoFerme._niveau+=1;
             }
             else
@@ -80,9 +78,9 @@ public class Upgrade : MonoBehaviour
         }
         if(_infoChateau)
         {
-            if(_gold._nbGold-_prixUpgrade*_infoChateau._niveau>=0)//10*niveau si  il y a assez d'argent alors on upgrade
+            if(_ressources._nbGold-_prixUpgrade*_infoChateau._niveau>=0)//10*niveau si  il y a assez d'argent alors on upgrade
             {
-            _gold._nbGold-=_prixUpgrade*_infoChateau._niveau;
+            _ressources._nbGold-=_prixUpgrade*_infoChateau._niveau;
             _infoChateau._niveau+=1;
             }
             else
@@ -93,9 +91,9 @@ public class Upgrade : MonoBehaviour
         }
         if(_infoMaison)
         {
-            if(_bois._nbBois-_prixUpgrade*_infoMaison._niveau>=0)//10*niveau si  il y a assez d'argent alors on upgrade
+            if(_ressources._nbWood-_prixUpgrade*_infoMaison._niveau>=0)//10*niveau si  il y a assez d'argent alors on upgrade
             {
-            _bois._nbBois-=_prixUpgrade*_infoMaison._niveau;
+            _ressources._nbWood-=_prixUpgrade*_infoMaison._niveau;
             _infoMaison._niveau+=1;
             }
             else

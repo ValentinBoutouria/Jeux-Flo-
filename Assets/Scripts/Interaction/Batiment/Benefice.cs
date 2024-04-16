@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
-public class Stone : MonoBehaviour
+public class Benefice : MonoBehaviour
 {
-    public int _nbStone;
-    public TMP_Text tMP_Text;
+    public int Wood;
+    public int ressource2;
+    public int ressource3;
+    public int ressource4;
+    public int ressource5;
+    public int ressource6;
+    public int ressource7;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +20,6 @@ public class Stone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        tMP_Text.text="Stone : "+_nbStone;
+        
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ferme : MonoBehaviour
 {
     public Compteur _compteur;
-    public Stone _stone;
+    public Ressources _ressources;
     public int _beneficeFerme;
     // Start is called before the first frame update
     void Start()
@@ -21,10 +21,10 @@ public class Ferme : MonoBehaviour
     }
       public void AjoutRessourcesFerme()
     {
-        if (_compteur.counterAjoutFerme < 0f)
+        if (_compteur.counterAjoutRessources > 10f)
         {
-            _compteur.counterAjoutFerme = 9;
-            _stone._nbStone += _beneficeFerme;
+            _compteur.counterAjoutRessources = 0;
+            _ressources._nbStone += _beneficeFerme;
         }
     }
     

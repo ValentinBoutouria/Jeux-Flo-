@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChateauBat : MonoBehaviour
 {    public Compteur _compteur;
-    public Gold _gold;
+    public Ressources _ressources;
     public int _beneficeChateau;
     // Start is called before the first frame update
     void Start()
@@ -20,10 +20,10 @@ public class ChateauBat : MonoBehaviour
     }
       public void AjoutRessourcesChateau()
     {
-        if (_compteur.counterAjoutChateau < 0f)
+        if (_compteur.counterAjoutRessources >10f)
         {
-            _compteur.counterAjoutChateau = 9;
-            _gold._nbGold += _beneficeChateau;
+            _compteur.counterAjoutRessources = 0;
+            _ressources._nbGold += _beneficeChateau;
         }
     }
 }

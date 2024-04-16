@@ -57,7 +57,7 @@ public class Instanciateur : MonoBehaviour
         if (_compteur.counterSpawnRessources == _spawnTime)
         {
             //instancie la ressource sur le bon hexa
-            GameObject _tempHexa=_selection.listeGameObjectNONSelect[_aleaHexaIndex];//hexa ou la ressource spawn
+            GameObject _tempHexa=_selection.listeGameObjectNONSelect[_aleaHexaIndex];//hexa ou la ressource spawn //ajouter le spawn des ressources sur les hexa attitrés
             GameObject _gameObjectTemp= Instantiate(_ressourceSpawn,_tempHexa.transform.position,Quaternion.identity,_tempHexa.transform);
             _selection.listeGameObjectNONSelect.Remove(_selection.listeGameObjectNONSelect[_aleaHexaIndex]);//on retire l'hexa ou la ressource vient de spawn de la liste des hexa selectionnables
             if(_ressourceSpawn==_woodPrefab)

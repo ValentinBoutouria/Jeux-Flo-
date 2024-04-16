@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InfoChateauPrefab : MonoBehaviour
 {
-    
+    public int id;
     public int benefice;
     public int _niveau;
     public int _niveauTemp;
@@ -14,6 +14,7 @@ public class InfoChateauPrefab : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {//init valeurs
+        id = 0;
         _niveau = 1;
         _niveauTemp=0;
         benefice=1;
