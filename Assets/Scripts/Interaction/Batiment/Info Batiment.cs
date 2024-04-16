@@ -6,17 +6,16 @@ public class InfoBatiment : MonoBehaviour
 
 {
     public int id; //0=chateau 1=Ferme 2=Maison ...
-    //public string _nom;
+    public string _nom;
     public int benefice;
     public int _niveau;
     public int _niveauTemp;
+    public string _ressource;
 
     public float _benefparsec;
     // Start is called before the first frame update
     void Start()
-    {//init valeurs
-        id = 0;
-        //_nom = "Chateau";
+    {//init valeur
         _niveau = 1;
         _niveauTemp = 0;
         benefice = 1;

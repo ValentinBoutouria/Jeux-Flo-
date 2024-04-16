@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6285868963730477025, guid: eab4a5aa203d7f7459837ec0b6bb6b51, type: 3}
       propertyPath: m_Name
-      value: Ferme_lvl1 Variant
+      value: Ferme
       objectReference: {fileID: 0}
     - target: {fileID: 6285868963730477025, guid: eab4a5aa203d7f7459837ec0b6bb6b51, type: 3}
       propertyPath: m_TagString
@@ -62,14 +62,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6285868963730477025, guid: eab4a5aa203d7f7459837ec0b6bb6b51, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5283589344936487481}
+      addedObject: {fileID: -4639132400659643948}
   m_SourcePrefab: {fileID: 100100000, guid: eab4a5aa203d7f7459837ec0b6bb6b51, type: 3}
 --- !u!1 &3452888887045216775 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6285868963730477025, guid: eab4a5aa203d7f7459837ec0b6bb6b51, type: 3}
   m_PrefabInstance: {fileID: 8705674282840593894}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5283589344936487481
+--- !u!114 &-4639132400659643948
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -78,10 +78,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3452888887045216775}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b7c0839b411b594ea85cc1a22bf5c0a, type: 3}
+  m_Script: {fileID: 11500000, guid: a41735cace9f68749a4d3340febc482e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _compteur: {fileID: 0}
-  benefice: 1
-  _stone: {fileID: 0}
+  id: 1
+  _nom: Ferme
+  benefice: 0
   _niveau: 0
+  _niveauTemp: 0
+  _ressource: Stone
+  _benefparsec: 0

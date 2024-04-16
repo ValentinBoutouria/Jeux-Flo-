@@ -12,6 +12,8 @@ public class Ressources : MonoBehaviour
     public int _nbCorpse = 0;
     public int _nbRats = 0;
 
+    public Compteur _compteur;
+
 
     public TMP_Text _textNbWood;
     public TMP_Text _textNbStone;
@@ -24,14 +26,23 @@ public class Ressources : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         _textNbWood.text = "Wood : " + _nbWood; // ajouter les autres ressources
-        _textNbStone.text = "Stone : " + _nbStone; 
-        _textNbGold.text = "Gold : " + _nbGold; 
+        _textNbStone.text = "Stone : " + _nbStone;
+        _textNbGold.text = "Gold : " + _nbGold;
+    }
+    public void AjoutRessources()
+    {
+        if (_compteur.counterAjoutRessources > 10f)
+        {
+            _compteur.counterAjoutRessources = 0;
+            //_ressources._nbGold += _beneficeChateau; a modifier pour ajouter les bonnes ressources en bonne quantite
+
+        }
     }
 }

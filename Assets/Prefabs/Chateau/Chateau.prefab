@@ -78,7 +78,7 @@ PrefabInstance:
       addedObject: {fileID: 5361125897033227291}
     - targetCorrespondingSourceObject: {fileID: 7419645748526018466, guid: 4ec48f7f8b2297543b8d598b9b35ad79, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4508461494932009476}
+      addedObject: {fileID: 72664923419409624}
   m_SourcePrefab: {fileID: 100100000, guid: 4ec48f7f8b2297543b8d598b9b35ad79, type: 3}
 --- !u!1 &5928208106729360501 stripped
 GameObject:
@@ -106,7 +106,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.698565, y: 3.634682, z: 3.1365352}
   m_Center: {x: -1.5449605, y: 1.817341, z: 1.5275595}
---- !u!114 &4508461494932009476
+--- !u!114 &72664923419409624
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,11 +115,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5928208106729360501}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9a78ce114fc0554b89ca40c022fad50, type: 3}
+  m_Script: {fileID: 11500000, guid: a41735cace9f68749a4d3340febc482e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
+  _nom: Chateau
   benefice: 0
   _niveau: 0
   _niveauTemp: 0
+  _ressource: Gold
   _benefparsec: 0
-  _nom: 
