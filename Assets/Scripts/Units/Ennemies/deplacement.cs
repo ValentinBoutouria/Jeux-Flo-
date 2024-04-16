@@ -64,12 +64,6 @@ void Start()
                         // Sortir de la boucle
                         break;
                     }
-
-                    // Si la distance entre l'unité et le soldat est inférieure à getPortee(), arrêter le mouvement de l'unité
-                    if (Vector3.Distance(transform.position, soldier.transform.position) < carac.getPortee())
-                    {
-                        return;
-                    }
                 }
             }
             catch { }

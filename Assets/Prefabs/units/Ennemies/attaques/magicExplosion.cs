@@ -43,7 +43,7 @@ public class magicExplosion : MonoBehaviour
     {
         if (GetComponent<ParticleSystem>().isStopped)
         {
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
     }
 }

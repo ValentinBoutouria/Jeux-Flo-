@@ -31,7 +31,7 @@ public class attack : MonoBehaviour
         //Debug.Log(Vector3.Distance(GetComponent<Transform>().position, target.GetComponent<Transform>().position));
         if (target != null)
         {
-            if(Vector3.Distance(GetComponent<Transform>().position, target.GetComponent<Transform>().position) <= portee+0.5)
+            if(Vector3.Distance(transform.position, target.GetComponent<Transform>().position) <= portee+0.5)
             {
                 timer += Time.deltaTime;
                 if(timer > vitesseAttaque) 
