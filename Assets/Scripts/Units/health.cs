@@ -61,7 +61,7 @@ public class health : MonoBehaviour
             if (squadScript != null)
             {
                 squadScript.units.Remove(gameObject.transform.parent.gameObject);
-                squadScript.setSlowestSpeed();
+                squadScript.slowestSpeed = squadScript.setSlowestSpeed();
                 if (squadScript.units.Count == 0)
                 {
                     Destroy(gameObject.transform.parent.parent.gameObject);

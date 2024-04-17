@@ -10,6 +10,7 @@ public class squad : MonoBehaviour
     private Vector3 destination; // La destination de l'escouade
 
     private Vector3 positionChef;
+    public int slowestSpeed;
 
         // Start is called before the first frame update
     void Start()
@@ -19,7 +20,7 @@ public class squad : MonoBehaviour
         {
             units.Add(child.gameObject);
         }
-        setSlowestSpeed();
+        slowestSpeed = setSlowestSpeed();
         GenerateSquadDestination();
     }
 
@@ -76,7 +77,7 @@ public class squad : MonoBehaviour
         unitScript.enabled = true;
     }
 
-    public void setSlowestSpeed()
+    public int setSlowestSpeed()
     {
         int slowestSpeed = 10000;
         foreach (GameObject unit in units)
@@ -92,6 +93,7 @@ public class squad : MonoBehaviour
             caracEnnemie unitScript = unit.GetComponent<caracEnnemie>();
             unitScript.setCurrentSpeed(slowestSpeed);
         }
+        return slowestSpeed;
     }   
 
 

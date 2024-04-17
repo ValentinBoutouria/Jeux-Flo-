@@ -10,10 +10,12 @@ public class deplacement : MonoBehaviour
 
     private float vision;
     private float portee;
+    private float speed;
+    private squad squadScript;
 
 
-// Start is called before the first frame update
-void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         // Obtenir la référence au script caracEnnemie
         carac = GetComponent<caracEnnemie>();
@@ -25,6 +27,7 @@ void Start()
         GenerateTargetPosition();
         vision = carac.getVision();
         portee = carac.getPortee();
+        squadScript = GetComponentInParent<squad>();
     }
 
     // Update is called once per frame
@@ -57,17 +60,19 @@ void Start()
                     else
                     {
                         // Rediriger l'unité vers ce soldat, mais s'arrêter à une distance égale à la portée
+                        speed = carac.getVitesse();
                         Vector3 directionToSoldier = soldier.transform.position - transform.position;
                         targetPosition = soldier.transform.position - directionToSoldier.normalized * portee;
 
                         // Assigner cette cible à toute l'escouade
-                        squad squadScript = GetComponentInParent<squad>();
+                        
                         squadScript.SetSquadTarget(targetPosition);
 
                         // Sortir de la boucle
                         break;
                     }
                 }
+                else { speed = squadScript.slowestSpeed; }
             }
             catch { }
 
@@ -94,7 +99,7 @@ void Start()
     void MoveTowardsTarget()
     {
         // Déplacer le personnage vers la position cible à la vitesse définie
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, carac.getCurrentSpeed() * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
 
         // Si le personnage est proche de la position cible, générer une nouvelle position cible
         if (transform.parent == null && Vector3.Distance( transform.position, targetPosition) < 1f)
