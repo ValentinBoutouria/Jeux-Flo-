@@ -55,8 +55,18 @@ public class health : MonoBehaviour
 
         if (currenthealth <= 0) 
         {
-            selectionController.GetComponent<SelectionController>().availableWarriorList.Remove(GetComponent<Transform>().GetChild(0).gameObject);
-            selectionController.GetComponent<SelectionController>().selectedWarriorList.Remove(GetComponent<Transform>().GetChild(0).gameObject);
+            if(gameObject.name == "Unit")
+            {
+                selectionController.GetComponent<SelectionController>().availableWarriorList.Remove(GetComponent<Transform>().GetChild(0).gameObject);
+                selectionController.GetComponent<SelectionController>().selectedWarriorList.Remove(GetComponent<Transform>().GetChild(0).gameObject);
+            }
+            else
+            {
+                GameObject original = GameObject.Find("body");
+                GameObject cadavre = Instantiate(original);
+                cadavre.SetActive(true);
+                cadavre.transform.parent = GameObject.Find("Cadavres").transform;
+            }
             // Supprimer l'unité de l'escouade
             if (squadScript != null)
             {

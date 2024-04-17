@@ -1,32 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
 
 public class caracteristique : MonoBehaviour
 {
     private Dictionary<string, int> nameToIndex = new Dictionary<string, int>()
     {
-     {"Soldie", 0},
-     {"Bowman", 1},
-     {"Horsem", 2 }
+        {"Soldie", 0},
+        {"Bowman", 1},
+        {"Horsem", 2 },
+        {"Worker", 3 }
     };
 
+    private const int sizeDict = 4;
     //spécificités unités
-    private int[] attaque = new int[3] {5, 7, 3};
-    private int[] vie = new int[3] {15, 10, 12};
-    private int[] defense = new int[3] {3, 1, 2};
-    private readonly int[] vitesse = new int[3] {5, 8, 15};
-    private int[] vitesseAttaque = new int[3] {2, 1, 3};
-    private float[] portee = new float[3] {0.4f, 2f, 0.2f};
+    private int[] attaque = new int[sizeDict] {5, 7, 3, 1};
+    private int[] vie = new int[sizeDict] {15, 10, 12, 6};
+    private int[] defense = new int[sizeDict] {3, 1, 2, 0};
+    private readonly int[] vitesse = new int[sizeDict] {5, 8, 15, 10};
+    private int[] vitesseAttaque = new int[sizeDict] {2, 1, 3, 5};
+    private float[] portee = new float[sizeDict] {0.4f, 2f, 0.2f, 0.2f};
 
 
     //Cout fabrication
-    private int[] stone = new int[3] {1 , 0 , 1};
-    private int[] bois = new int[3] {0 , 1, 1};
-    private int[] gold = new int[3] {0, 1, 1};
-    private int[] food = new int[3] {0, 1, 1};
-    private int[] mana = new int[3] {0, 0, 0};
-    private int[] corpse = new int[3] {0, 0, 0};
+    private int[] stone = new int[sizeDict] {1 , 0 , 1, 0};
+    private int[] bois = new int[sizeDict] {0 , 1, 1, 1 };
+    private int[] gold = new int[sizeDict] {0, 1, 1, 0};
+    private int[] food = new int[sizeDict] {0, 1, 1, 1 };
+    private int[] mana = new int[sizeDict] {0, 0, 0, 0};
+    private int[] corpse = new int[sizeDict] {0, 0, 0, 0};
 
     private string classe;
 

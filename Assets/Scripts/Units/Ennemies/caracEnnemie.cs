@@ -25,6 +25,9 @@ public class caracEnnemie : MonoBehaviour
 
     private bool isInSquad = false;
 
+    private int[] manaDrop = new int[3] { 0, 3, 0 };
+    private int[] corpseDrop = new int[3] { 3, 2, 1 };
+
     public int currentSpeed;
 
     public string classe;
@@ -101,5 +104,15 @@ public class caracEnnemie : MonoBehaviour
     public int getCurrentSpeed()
     {
         return currentSpeed;
+    }
+
+    public int getManaDrop()
+    {
+        return manaDrop[nameToIndex[classe]];
+    }
+
+    public int getCorpseDrop()
+    {
+        return corpseDrop[nameToIndex[classe]];
     }
 }
