@@ -19,6 +19,8 @@ public class GenerationGrille : MonoBehaviour
     public float cellSize = 1f; // Taille de chaque cellule
     private int paquet = 2;
     private int compteurpaquet = 2;
+    private int numeroHexa;
+
     private float posCamX; //Pos camX
     private float posCamY; //Pos camY
 
@@ -28,8 +30,8 @@ public class GenerationGrille : MonoBehaviour
     }
     void AleaHexa()
     {
-        int randomNumber = Random.Range(0, prefabs.Count-1);
-        cellPrefab=prefabs[randomNumber];
+        numeroHexa = Random.Range(0, prefabs.Count-1);
+        cellPrefab=prefabs[numeroHexa];
 
     }
 
@@ -54,7 +56,9 @@ public class GenerationGrille : MonoBehaviour
                     {
                         ControlePaquet();//on verifie si on doit changer le block
                         newCell = Instantiate(cellPrefab, cellPosition, Quaternion.identity);
-                        _selection.listeGameObjectNONSelect.Add(newCell);
+
+                        DetCellPrefab();
+
                     }
                     else
                     {
@@ -79,7 +83,23 @@ public class GenerationGrille : MonoBehaviour
 
     }
     void DetCellPrefab()
-    { 
+    {
+        switch (numeroHexa)
+        {
+            case 2:
+                _selection.listeGameObjectHexaWood.Add(newCell);
+                break;
+            case 1:
+                _selection.listeGameObjectHexaStone.Add(newCell);
+                break;
+            case 0:
+                _selection.listeGameObjectHexaGold.Add(newCell);
+                break;
+            default:
+                //Debug.Log("Paquet non reconnu !");
+                _selection.listeGameObjectNONSelect.Add(newCell);//Pas selectionnable les hexa de loot
+                break;
+        }
     }
     void ControlePaquet()
     {

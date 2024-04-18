@@ -3343,6 +3343,9 @@ MonoBehaviour:
   listeGameObjectGold: []
   listeGameObjectBatimentPresent: []
   listeGameObjectbatimentSelect: []
+  listeGameObjectHexaWood: []
+  listeGameObjectHexaStone: []
+  listeGameObjectHexaGold: []
   nbGameObjectSelect: 0
   _ressources: {fileID: 1296242154}
 --- !u!114 &674256383
@@ -6161,12 +6164,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
+  - {fileID: 1841913013192508, guid: d2c7ed6d9dcb93748ac807810622ecc9, type: 3}
   - {fileID: 1712155488500880, guid: faf4b4ec0cbbb3840a5ba44685c18d99, type: 3}
+  - {fileID: 1928123463396898, guid: 71be69e7a312bc844ad384574d3624fe, type: 3}
   - {fileID: 1408386809328536, guid: 0c9cd282647074244950d07c3846fa0c, type: 3}
   - {fileID: 1520068213326888, guid: d8deb0d5cca03814e8f5cd71fb9e7a1e, type: 3}
-  - {fileID: 1928123463396898, guid: 71be69e7a312bc844ad384574d3624fe, type: 3}
   - {fileID: 1209033865668100, guid: ba18ad1c2b7e68644b186f04055c20f2, type: 3}
-  - {fileID: 1841913013192508, guid: d2c7ed6d9dcb93748ac807810622ecc9, type: 3}
   - {fileID: 1398617842687680, guid: d4f75f0ac34d85a43a92e749133c074f, type: 3}
   _selection: {fileID: 674256382}
   cam: {fileID: 963194225}

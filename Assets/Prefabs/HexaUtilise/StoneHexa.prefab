@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 64908013253476108}
   - component: {fileID: 7263828559581104881}
   m_Layer: 0
-  m_Name: DigSite
+  m_Name: StoneHexa
   m_TagString: Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
