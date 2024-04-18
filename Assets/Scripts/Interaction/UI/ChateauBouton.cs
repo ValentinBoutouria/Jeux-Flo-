@@ -9,20 +9,19 @@ public class Chateau : MonoBehaviour
     public int _prix;
     public int _nbChateauAchete;
     public GameObject _validationUI;
-    public Selection _selection;
     public GameObject _chateauPrefabLVL1;
     public GameObject _parent;
 
-    public Gold _gold;
-    public int benefice;
-    public Compteur _compteur;
+    public Selection _selection;
+
+    public Ressources _ressources;
+    
     public TMP_Text _textCoutChateau;
   
     private int _nbChateau = 0;
     // Start is called before the first frame update
     void Start()
     {
-        
         CalculPrix();
     }
 
@@ -50,10 +49,10 @@ public class Chateau : MonoBehaviour
     {
         //_validationUI.SetActive(true);
         
-        if(_gold._nbGold>=_prix*_selection.gameObjectListSelectionne.Count)//si assez d'or pour acheter un chateau
+        if(_ressources._nbGold>=_prix*_selection.gameObjectListSelectionne.Count)//si assez d'or pour acheter un chateau
         {
             _nbChateauAchete=_selection.nbGameObjectSelect;
-            _gold._nbGold -= _prix * _selection.gameObjectListSelectionne.Count;//on retire le prix des batiments
+            _ressources._nbGold -= _prix * _selection.gameObjectListSelectionne.Count;//on retire le prix des batiments
 
             foreach (GameObject obj in _selection.gameObjectListSelectionne)//pour tout les gameobject dans liste selectionne
             {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Info : MonoBehaviour
+public class SelectionDeselection: MonoBehaviour
 {
     public Selection _selection;
     public GameObject _panelInfo;
@@ -21,7 +21,7 @@ public class Info : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0)) // V�rifie si l'utilisateur clique avec le bouton gauche de la souris
         {
-            CliqueselectionBat();
+            CliqueSelectionBat();
         }
         if (Input.GetMouseButtonUp(1)) // V�rifie si l'utilisateur clique avec le bouton droit de la souris
         {
@@ -56,7 +56,7 @@ public class Info : MonoBehaviour
         {
         }
     }
-    void CliqueselectionBat()
+    void CliqueSelectionBat()
     {
 
         // Convertit la position du curseur de la souris en un rayon dans la sc�ne

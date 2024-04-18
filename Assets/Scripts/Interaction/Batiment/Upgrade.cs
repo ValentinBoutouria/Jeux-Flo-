@@ -7,9 +7,7 @@ public class Upgrade : MonoBehaviour
 {
     public Selection _selection;
     public int _prixUpgrade;
-    public Stone _stone;
-    public Bois _bois;
-    public Gold _gold;
+    public Ressources _ressources;
 
     public TMP_Text _nom;
     public TMP_Text _niveau;
@@ -31,76 +29,63 @@ public class Upgrade : MonoBehaviour
     public void AffichagePanel()
     {
         GameObject _batimentUpgrade =_selection.listeGameObjectbatimentSelect[0];
-        InfoFermePrefab _infoFerme =_batimentUpgrade.GetComponent<InfoFermePrefab>();
-        InfoChateauPrefab _infoChateau = _batimentUpgrade.GetComponent<InfoChateauPrefab>();
-        InfoMaisonPrefab _infoMaison = _batimentUpgrade.GetComponent<InfoMaisonPrefab>();
-        if (_infoFerme)
+        InfoBatiment _infobat= _batimentUpgrade.GetComponent<InfoBatiment>();
+        if (_infobat)
         { 
             //Panel explicatif
-            _nom.text=_infoFerme._nom;
-            _niveau.text="Niveau : "+_infoFerme._niveau;
-            _benefParSec.text=_infoFerme._benefparsec+" Stone/s";
-            _cout.text="Prix : "+_infoFerme._niveau*_prixUpgrade;
+            _nom.text=_infobat._nom;
+            _benefParSec.text=_infobat._benefparsec+" "+_infobat._ressource+"/s";
+            _niveau.text="Niveau : "+_infobat._niveau;
+            _cout.text = "Prix : " + _infobat._niveau * _prixUpgrade;
         }
-        if(_infoChateau)
-        {
-            _nom.text=_infoChateau._nom;
-            _niveau.text="Niveau : "+_infoChateau._niveau;
-            _benefParSec.text=_infoChateau._benefparsec+" Gold/s";
-            _cout.text="Prix : "+_infoChateau._niveau*_prixUpgrade;    
-        }
-        if(_infoMaison)
-        {
-            _nom.text=_infoMaison._nom;
-            _niveau.text="Niveau : "+_infoMaison._niveau;
-            _benefParSec.text=_infoMaison._benefparsec+" Wood/s";
-            _cout.text="Prix : "+_infoMaison._niveau*_prixUpgrade;
-        }
+        
 
     }
     public void CliqueUpgrade()
     {
         GameObject _batimentUpgrade =_selection.listeGameObjectbatimentSelect[0];
-        InfoFermePrefab _infoFerme =_batimentUpgrade.GetComponent<InfoFermePrefab>();
-        InfoChateauPrefab _infoChateau = _batimentUpgrade.GetComponent<InfoChateauPrefab>();
-        InfoMaisonPrefab _infoMaison = _batimentUpgrade.GetComponent<InfoMaisonPrefab>();
+        InfoBatiment _infobat = _batimentUpgrade.GetComponent<InfoBatiment>();
 
 
-        if (_infoFerme)
+        if (_infobat)
         {
-            if(_stone._nbStone-_prixUpgrade*_infoFerme._niveau>=0)//10*niveau si  il y a assez d'argent alors on upgrade
+            if (_infobat.id == 1)
             {
-            _stone._nbStone-=_prixUpgrade*_infoFerme._niveau;
-            _infoFerme._niveau+=1;
+                if(_ressources._nbStone-_prixUpgrade*_infobat._niveau>=0)//10*niveau si  il y a assez d'argent alors on upgrade
+                {
+                _ressources._nbStone-=_prixUpgrade*_infobat._niveau;
+                _infobat._niveau+=1;
+                }
+                else
+                {
+                    Debug.Log("pas assez de Stone pour cette upgrade");
+                }
             }
-            else
+            if (_infobat.id==0)//chateau
             {
-                Debug.Log("pas assez d'argent pour cette upgrade");
-            }
-        }
-        if(_infoChateau)
-        {
-            if(_gold._nbGold-_prixUpgrade*_infoChateau._niveau>=0)//10*niveau si  il y a assez d'argent alors on upgrade
-            {
-            _gold._nbGold-=_prixUpgrade*_infoChateau._niveau;
-            _infoChateau._niveau+=1;
-            }
-            else
-            {
-                Debug.Log("pas assez d'argent pour cette upgrade");
-            }
+                if (_ressources._nbGold - _prixUpgrade * _infobat._niveau >= 0)//10*niveau si  il y a assez d'argent alors on upgrade
+                {
+                    _ressources._nbGold -= _prixUpgrade * _infobat._niveau;
+                    _infobat._niveau += 1;
+                }
+                else
+                {
+                    Debug.Log("pas assez d'Or pour cette upgrade");
+                }
 
-        }
-        if(_infoMaison)
-        {
-            if(_bois._nbBois-_prixUpgrade*_infoMaison._niveau>=0)//10*niveau si  il y a assez d'argent alors on upgrade
-            {
-            _bois._nbBois-=_prixUpgrade*_infoMaison._niveau;
-            _infoMaison._niveau+=1;
             }
-            else
+            if (_infobat.id == 2)//maison
             {
-                Debug.Log("pas assez d'argent pour cette upgrade");
+                if (_ressources._nbWood - _prixUpgrade * _infobat._niveau >= 0)//10*niveau si  il y a assez d'argent alors on upgrade
+                {
+                    _ressources._nbWood -= _prixUpgrade * _infobat._niveau;
+                    _infobat._niveau += 1;
+                }
+                else
+                {
+                    Debug.Log("pas assez de Wood pour cette upgrade");
+                }
+
             }
 
         }

@@ -6,21 +6,20 @@ using UnityEngine;
 public class recupRessourcesUnits : MonoBehaviour
 {
     private Selection selectionScript; // Référence au script Selection
-    private Bois boisScript; // Référence au script Bois
-    private Stone stoneScript; // Référence au script Stone
-    private Gold goldScript; // Référence au script Gold
+    private Ressources ressourcesScript; // Référence au script Gold
     private Collider soldierCollider; // Référence au Collider du soldat
+    private int Gains;
 
     // Start is called before the first frame update
     void Start()
     {
+        Gains = 100;//combien on gagne de ressource quand on la recup
         // Obtenir la référence au script Selection
         selectionScript = GameObject.FindGameObjectWithTag("empty").GetComponent<Selection>();
 
         // Obtenir les références aux scripts Bois, Stone et Gold
-        boisScript = GameObject.FindObjectOfType<Bois>();
-        stoneScript = GameObject.FindObjectOfType<Stone>();
-        goldScript = GameObject.FindObjectOfType<Gold>();
+        ressourcesScript = GameObject.FindObjectOfType<Ressources>();
+       
 
     }
 
@@ -35,19 +34,19 @@ public class recupRessourcesUnits : MonoBehaviour
             {
                 // Supprimer l'objet de la liste, incrémenter la variable correspondante de 100 et détruire le premier enfant de l'objet
                 selectionScript.listeGameObjectWOOD.Remove(other.gameObject);
-                boisScript._nbBois += 100;
+                ressourcesScript._nbWood += Gains;
                 Destroy(other.gameObject.transform.GetChild(0).gameObject);
             }
             else if (selectionScript.listeGameObjectStone.Contains(other.gameObject))
             {
                 selectionScript.listeGameObjectStone.Remove(other.gameObject);
-                stoneScript._nbStone += 100;
+                ressourcesScript._nbStone += Gains;
                 Destroy(other.gameObject.transform.GetChild(0).gameObject);
             }
             else if (selectionScript.listeGameObjectGold.Contains(other.gameObject))
             {
                 selectionScript.listeGameObjectGold.Remove(other.gameObject);
-                goldScript._nbGold += 100;
+                ressourcesScript._nbGold += Gains;
                 Destroy(other.gameObject.transform.GetChild(0).gameObject);
             }
         }

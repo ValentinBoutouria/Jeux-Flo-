@@ -17,13 +17,13 @@ public class Selection : MonoBehaviour
 
     public int nbGameObjectSelect;
 
-    public Bois _bois;
-    public Gold _gold;
-    public Stone _stone;
+    public Ressources _ressources;
+    private int Gains;
 
     // Start is called before the first frame update
     void Start()
     {
+        Gains = 100;//combien on agne de ressources quand on la recupére
         
     }
 
@@ -53,7 +53,7 @@ public class Selection : MonoBehaviour
             {
                 listeGameObjectNONSelect.Add(hit.collider.gameObject);//ajout du game object selectionne dans la liste NON selectionne
                 listeGameObjectWOOD.Remove(hit.collider.gameObject);//on retire l'hexa de la liste ou il y avait la ressource (bois)
-                _bois._nbBois+=100;
+                _ressources._nbWood+=Gains;
                 Destroy(hit.collider.gameObject.transform.GetChild(0).gameObject);
             }
 
@@ -62,7 +62,7 @@ public class Selection : MonoBehaviour
             {
                 listeGameObjectNONSelect.Add(hit.collider.gameObject);//ajout du game object selectionne dans la liste NON selectionne
                 listeGameObjectGold.Remove(hit.collider.gameObject);//on retire l'hexa de la liste ou il y avait la ressource (gold)
-                _gold._nbGold += 100;
+                _ressources._nbGold += Gains;
                 Destroy(hit.collider.gameObject.transform.GetChild(0).gameObject);
             }
 
@@ -71,7 +71,7 @@ public class Selection : MonoBehaviour
             {
                 listeGameObjectNONSelect.Add(hit.collider.gameObject);//ajout du game object selectionne dans la liste NON selectionne
                 listeGameObjectStone.Remove(hit.collider.gameObject);//on retire l'hexa de la liste ou il y avait la ressource (bois)
-                _stone._nbStone += 100;
+                _ressources._nbStone += Gains;
                 Destroy(hit.collider.gameObject.transform.GetChild(0).gameObject);
             }
 

@@ -6,9 +6,8 @@ public class Compteur : MonoBehaviour
 {
     private float timer = 0f; // Timer pour suivre le temps écoulé
     public int counterSpawnRessources = 0; // Compteur à incrémenter
-    public int counterAjoutFerme = 0; // Compteur à incrémenter
-    public int counterAjoutChateau = 0; // Compteur à incrémenter
-    public int counterAjoutMaison = 0; // Compteur à incrémenter
+    public int counterAjoutRessources = 0; // Compteur à incrémenter
+   
 
 
     void Update()
@@ -20,9 +19,8 @@ public class Compteur : MonoBehaviour
         if (timer >= 1f)
         {
             counterSpawnRessources++;
-            counterAjoutMaison--;
-            counterAjoutChateau--;
-            counterAjoutFerme--;
+            counterAjoutRessources++;
+          
             //Debug.Log("Compteur : " + counter);
             timer = 0f;
         }

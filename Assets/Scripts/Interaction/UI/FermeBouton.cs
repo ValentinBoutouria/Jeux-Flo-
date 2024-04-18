@@ -12,9 +12,9 @@ public class FermeBouton : MonoBehaviour
     public Selection _selection;
     public GameObject _fermePrefabLVL1;
     public GameObject _parent;
-    public Stone _stone;
+    public Ressources _ressources;
     public TMP_Text _textCoutFerme;
-    public int benefice;
+    
     
 
     private int _nbFerme = 0;
@@ -49,10 +49,10 @@ public class FermeBouton : MonoBehaviour
     public void CliqueFerme()
     {
         //_validationUI.SetActive(true);
-        if (_stone._nbStone >= _prix * _selection.gameObjectListSelectionne.Count)//si assez d'or pour acheter un chateau
+        if (_ressources._nbStone >= _prix * _selection.gameObjectListSelectionne.Count)//si assez d'or pour acheter un chateau
         {
             _nbFermeAchete=_selection.nbGameObjectSelect;
-            _stone._nbStone -= _prix * _selection.gameObjectListSelectionne.Count;//on retire le prix des batiments
+            _ressources._nbStone -= _prix * _selection.gameObjectListSelectionne.Count;//on retire le prix des batiments
             foreach (GameObject obj in _selection.gameObjectListSelectionne)//pour tout les gameobject dans liste selectionne
             {
                 _nbFerme += 1;//on ajoute une ferme
