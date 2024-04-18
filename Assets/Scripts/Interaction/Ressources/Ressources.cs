@@ -19,9 +19,9 @@ public class Ressources : MonoBehaviour
     public TMP_Text _textNbWood;
     public TMP_Text _textNbStone;
     public TMP_Text _textNbGold;
-    //public TMP_Text _textNbMana;
-    //public TMP_Text _textNbCorpse;
-    //public TMP_Text _textNbRats;
+    public TMP_Text _textNbMana;
+    public TMP_Text _textNbCorpse;
+    public TMP_Text _textNbFood;
 
 
     // Start is called before the first frame update
@@ -34,9 +34,7 @@ public class Ressources : MonoBehaviour
     void Update()
     {
         AjoutRessources();
-        _textNbWood.text = "Wood : " + _nbWood; // ajouter les autres ressources
-        _textNbStone.text = "Stone : " + _nbStone;
-        _textNbGold.text = "Gold : " + _nbGold;
+       
     }
     public void AjoutRessources()
     {
@@ -51,8 +49,19 @@ public class Ressources : MonoBehaviour
             _nbMana += _benefice.tableauBeneficeRessources[3];
             _nbCorpse += _benefice.tableauBeneficeRessources[4];
             _nbFood += _benefice.tableauBeneficeRessources[5];
-
+            RessourcesText();
 
         }
+    }
+    public void RessourcesText()
+    {
+        // ajouter les autres ressources
+        _textNbWood.text = "Wood : " + _nbWood; 
+        _textNbStone.text = "Stone : " + _nbStone;
+        _textNbGold.text = "Gold : " + _nbGold;
+        _textNbCorpse.text = "Corpse : " + _nbCorpse;
+        _textNbMana.text = "Mana " + _nbMana;
+        _textNbFood.text = "Food " + _nbFood;
+
     }
 }
