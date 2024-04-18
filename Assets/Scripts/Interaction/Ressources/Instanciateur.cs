@@ -79,7 +79,7 @@ public class Instanciateur : MonoBehaviour
             }
             GameObject _gameObjectTemp= Instantiate(_ressourceSpawn,_tempHexa.transform.position,Quaternion.identity,_tempHexa.transform);
             _gameObjectTemp.transform.SetAsFirstSibling();
-            _selection.listeGameObjectNONSelect.Remove(_selection.listeGameObjectNONSelect[_aleaHexaIndex]);//on retire l'hexa ou la ressource vient de spawn de la liste des hexa selectionnables
+            //_selection.listeGameObjectNONSelect.Remove(_selection.listeGameObjectNONSelect[_aleaHexaIndex]);//on retire l'hexa ou la ressource vient de spawn de la liste des hexa selectionnables
             _compteur.counterSpawnRessources=0;
         }
     }
