@@ -9,6 +9,7 @@ public class ___TMP_Storage : MonoBehaviour
         if(other.tag == "deadBody")
         {
             Debug.Log("dead body entered, add ressources ---- mana : " + other.gameObject.GetComponent<deadBodies>().mana + "  ------ corpses : " + other.gameObject.GetComponent<deadBodies>().corpse);
+            other.transform.parent.GetComponent<workersRecolt>().isCharged = false;
             Destroy(other.gameObject);
         }
     }
