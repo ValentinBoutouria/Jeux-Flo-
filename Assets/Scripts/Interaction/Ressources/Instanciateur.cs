@@ -64,18 +64,23 @@ public class Instanciateur : MonoBehaviour
             {
                 _tempHexa = _selection.listeGameObjectHexaWood[Random.Range(0, _selection.listeGameObjectHexaWood.Count)];//choisi un hexaWood au piff
                 _selection.listeGameObjectWOOD.Add(_tempHexa);  
+                _selection.listeGameObjectNONSelect.Remove(_tempHexa);//on ne peut pas select un hexa avec une ressource dessus
 
             }
             if(_ressourceSpawn==_stonePrefab)
             {
                 _tempHexa = _selection.listeGameObjectHexaStone[Random.Range(0, _selection.listeGameObjectHexaStone.Count)];//choisi un hexaWood au piff
 
-                _selection.listeGameObjectStone.Add(_tempHexa);  
+                _selection.listeGameObjectStone.Add(_tempHexa);
+                _selection.listeGameObjectNONSelect.Remove(_tempHexa);//on ne peut pas select un hexa avec une ressource dessus
+
             }
-            if(_ressourceSpawn==_goldPrefab)
+            if (_ressourceSpawn==_goldPrefab)
             {
                 _tempHexa = _selection.listeGameObjectHexaGold[Random.Range(0, _selection.listeGameObjectHexaGold.Count)];//choisi un hexaWood au piff
-                _selection.listeGameObjectGold.Add(_tempHexa);  
+                _selection.listeGameObjectGold.Add(_tempHexa);
+                _selection.listeGameObjectNONSelect.Remove(_tempHexa);//on ne peut pas select un hexa avec une ressource dessus
+
             }
             GameObject _gameObjectTemp= Instantiate(_ressourceSpawn,_tempHexa.transform.position,Quaternion.identity,_tempHexa.transform);
             _gameObjectTemp.transform.SetAsFirstSibling();

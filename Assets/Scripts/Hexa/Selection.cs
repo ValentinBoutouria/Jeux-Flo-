@@ -7,8 +7,10 @@ public class Selection : MonoBehaviour
     public Material _matSelection; // Le nouveau mat�riau que vous souhaitez appliquer
     public GenerationGrille _grille;
     public Material _matInitial; //Material initial de l'hexagone
+
     public List<GameObject> gameObjectListSelectionne = new List<GameObject>();
     public List<GameObject> listeGameObjectNONSelect = new List<GameObject>();
+
     public List<GameObject> listeGameObjectSousSol = new List<GameObject>();
 
     public List<GameObject> listeGameObjectWOOD = new List<GameObject>();
@@ -48,10 +50,24 @@ public class Selection : MonoBehaviour
         // Lance un rayon et v�rifie s'il a touch� un objet avec le tag "Cube"
         if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Cube"))
         {
-            if (listeGameObjectNONSelect.Contains(hit.collider.gameObject))//uniquement si dans liste NON selectionne
+            if (listeGameObjectNONSelect.Contains(hit.collider.gameObject))
+                //uniquement si dans liste NON selectionne || dans les listes des ressources
             {
+                
                 gameObjectListSelectionne.Add(hit.collider.gameObject);//ajout du game object selectionne dans la liste selectionne
                 listeGameObjectNONSelect.Remove(hit.collider.gameObject);
+                if (listeGameObjectHexaWood.Contains(hit.collider.gameObject))
+                {
+                    listeGameObjectHexaWood.Remove(hit.collider.gameObject);
+                }
+                if (listeGameObjectHexaStone.Contains(hit.collider.gameObject))
+                {
+                    listeGameObjectHexaStone.Remove(hit.collider.gameObject);
+                }
+                if (listeGameObjectHexaGold.Contains(hit.collider.gameObject))
+                {
+                    listeGameObjectHexaGold.Remove(hit.collider.gameObject);
+                }
                 Renderer renderer = hit.collider.GetComponent<Renderer>();//on recupere le renderer
                 renderer.material = _matSelection;//on place le mat selection
             }
@@ -61,6 +77,8 @@ public class Selection : MonoBehaviour
             {
                 //listeGameObjectNONSelect.Add(hit.collider.gameObject);//ajout du game object selectionne dans la liste NON selectionne
                 listeGameObjectWOOD.Remove(hit.collider.gameObject);//on retire l'hexa de la liste ou il y avait la ressource (bois)
+                listeGameObjectNONSelect.Add(hit.collider.gameObject);//apres recuperation on ajout l'hexa dans la liste non select pour pouvoir poser un bat
+
                 _ressources._nbWood+=Gains;
                 Destroy(hit.collider.gameObject.transform.GetChild(0).gameObject);
             }
@@ -70,6 +88,8 @@ public class Selection : MonoBehaviour
             {
                 //listeGameObjectNONSelect.Add(hit.collider.gameObject);//ajout du game object selectionne dans la liste NON selectionne
                 listeGameObjectGold.Remove(hit.collider.gameObject);//on retire l'hexa de la liste ou il y avait la ressource (gold)
+                listeGameObjectNONSelect.Add(hit.collider.gameObject);//apres recuperation on ajout l'hexa dans la liste non select pour pouvoir poser un bat
+
                 _ressources._nbGold += Gains;
                 Destroy(hit.collider.gameObject.transform.GetChild(0).gameObject);
             }
@@ -78,7 +98,9 @@ public class Selection : MonoBehaviour
             if (listeGameObjectStone.Contains(hit.collider.gameObject))
             {
                 //listeGameObjectNONSelect.Add(hit.collider.gameObject);//ajout du game object selectionne dans la liste NON selectionne
-                listeGameObjectStone.Remove(hit.collider.gameObject);//on retire l'hexa de la liste ou il y avait la ressource (bois)
+                listeGameObjectStone.Remove(hit.collider.gameObject);//on retire l'hexa de la liste ou il y avait la ressource (Stone)
+                listeGameObjectNONSelect.Add(hit.collider.gameObject);//apres recuperation on ajout l'hexa dans la liste non select pour pouvoir poser un bat
+
                 _ressources._nbStone += Gains;
                 Destroy(hit.collider.gameObject.transform.GetChild(0).gameObject);
             }
@@ -101,6 +123,18 @@ public class Selection : MonoBehaviour
             {
                 gameObjectListSelectionne.Remove(hit.collider.gameObject);//on retire le game object selectionne dans la liste
                 listeGameObjectNONSelect.Add(hit.collider.gameObject);
+                if (hit.collider.gameObject.name=="StoneHexa(Clone)")
+                {
+                    listeGameObjectHexaStone.Add(hit.collider.gameObject);
+                }
+                if (hit.collider.gameObject.name == "WoodHexa(Clone)")
+                {
+                    listeGameObjectHexaWood.Add(hit.collider.gameObject);
+                }
+                if (hit.collider.gameObject.name == "GoldHexa(Clone)")
+                {
+                    listeGameObjectHexaGold.Add(hit.collider.gameObject);//remettre l'hexa dans la liste pour pouvoir faire spawn des ressources quand on deselectionne
+                }
             }
         }       
     }

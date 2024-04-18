@@ -49,9 +49,9 @@ public class Ressources : MonoBehaviour
             _nbMana += _benefice.tableauBeneficeRessources[3];
             _nbCorpse += _benefice.tableauBeneficeRessources[4];
             _nbFood += _benefice.tableauBeneficeRessources[5];
-            RessourcesText();
 
         }
+            RessourcesText();
     }
     public void RessourcesText()
     {

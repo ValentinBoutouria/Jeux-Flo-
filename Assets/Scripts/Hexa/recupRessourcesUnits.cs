@@ -34,18 +34,21 @@ public class recupRessourcesUnits : MonoBehaviour
             {
                 // Supprimer l'objet de la liste, incrémenter la variable correspondante de 100 et détruire le premier enfant de l'objet
                 selectionScript.listeGameObjectWOOD.Remove(other.gameObject);
+                selectionScript.listeGameObjectNONSelect.Add(other.gameObject);//apres recuperation on ajout l'hexa dans la liste non select pour pouvoir poser un bat
                 ressourcesScript._nbWood += Gains;
                 Destroy(other.gameObject.transform.GetChild(0).gameObject);
             }
             else if (selectionScript.listeGameObjectStone.Contains(other.gameObject))
             {
                 selectionScript.listeGameObjectStone.Remove(other.gameObject);
+                selectionScript.listeGameObjectNONSelect.Add(other.gameObject);//apres recuperation on ajout l'hexa dans la liste non select pour pouvoir poser un bat
                 ressourcesScript._nbStone += Gains;
                 Destroy(other.gameObject.transform.GetChild(0).gameObject);
             }
             else if (selectionScript.listeGameObjectGold.Contains(other.gameObject))
             {
                 selectionScript.listeGameObjectGold.Remove(other.gameObject);
+                selectionScript.listeGameObjectNONSelect.Add(other.gameObject);//apres recuperation on ajout l'hexa dans la liste non select pour pouvoir poser un bat
                 ressourcesScript._nbGold += Gains;
                 Destroy(other.gameObject.transform.GetChild(0).gameObject);
             }

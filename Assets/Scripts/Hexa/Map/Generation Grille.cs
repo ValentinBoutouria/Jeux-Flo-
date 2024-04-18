@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class GenerationGrille : MonoBehaviour
@@ -21,12 +22,23 @@ public class GenerationGrille : MonoBehaviour
     private int compteurpaquet = 2;
     private int numeroHexa;
 
+    public int _nbMaxHexaStone;
+    public int _nbMaxHexaWood;
+    public int _nbMaxHexaGold;
+
+    private int _nbHexaStone;
+    private int _nbHexaWood;
+    private int _nbHexaGold;
+
     private float posCamX; //Pos camX
     private float posCamY; //Pos camY
 
     void Start()
     {
         GenerateGrid();
+        _nbHexaWood = 0;
+        _nbHexaGold = 0;
+        _nbHexaStone = 0;
     }
     void AleaHexa()
     {
@@ -48,7 +60,7 @@ public class GenerationGrille : MonoBehaviour
                     // Calculer la position de l'hexagone
                     float xPos = x * (cellSize/2);
                     float yPos = (x % 2 == 0 ? 0 : 0.866f) + y * (1.732f * cellSize);
-                    float zPos = (cellSize/5)*z;
+                    float zPos = (cellSize/2)*z;
                     // Calcule la position de la cellule dans la grille
                     Vector3 cellPosition = new Vector3(xPos, zPos, yPos);
                     
@@ -56,13 +68,14 @@ public class GenerationGrille : MonoBehaviour
                     {
                         ControlePaquet();//on verifie si on doit changer le block
                         newCell = Instantiate(cellPrefab, cellPosition, Quaternion.identity);
-
-                        DetCellPrefab();
+                        DetHexaPrefab();
+                        
+                        _selection.listeGameObjectNONSelect.Add(newCell);//on ajoute les hexa "spawnable" aussi a la liste "nonselect" pour poser des bat dessus
 
                     }
                     else
                     {
-                        cellPrefab = prefabs[6];
+                        cellPrefab = prefabs[prefabs.Count-1];
                         newCell = Instantiate(cellPrefab, cellPosition, Quaternion.identity);
                         _selection.listeGameObjectSousSol.Add(newCell);
                     }
@@ -80,20 +93,22 @@ public class GenerationGrille : MonoBehaviour
         Vector3 posCamVect=new Vector3 (posCamX,gridSizeY*2,posCamY);
         cam.transform.localPosition =posCamVect;
 
-
     }
-    void DetCellPrefab()
+    void DetHexaPrefab()
     {
-        switch (numeroHexa)
+        switch (prefabs[numeroHexa].name)
         {
-            case 2:
+            case "WoodHexa":
                 _selection.listeGameObjectHexaWood.Add(newCell);
+               
                 break;
-            case 1:
-                _selection.listeGameObjectHexaStone.Add(newCell);
+            case "StoneHexa":
+                _selection.listeGameObjectHexaStone.Add(newCell);//ajout liste stone
+                
                 break;
-            case 0:
+            case "GoldHexa": 
                 _selection.listeGameObjectHexaGold.Add(newCell);
+                //_nbHexaGold++;
                 break;
             default:
                 //Debug.Log("Paquet non reconnu !");
@@ -101,11 +116,49 @@ public class GenerationGrille : MonoBehaviour
                 break;
         }
     }
+
+
+    void MaxHexaAtteind()
+    {
+        if(_nbHexaGold==_nbMaxHexaGold)
+        {
+            prefabs.Remove(prefabs[parcourlist(prefabs, "GoldHexa")]);//on retire la possibilité de tomber sur l'hexa ou le Gold peut spawn
+            _nbHexaGold++;
+        }
+        if (_nbHexaStone == _nbMaxHexaStone)
+        {
+            
+            prefabs.Remove(prefabs[parcourlist(prefabs, "StoneHexa")]);//on retire la possibilité de tomber sur l'hexa ou le Gold peut spawn
+            _nbHexaStone++;
+        }
+        if (_nbHexaWood == _nbMaxHexaWood)
+        {
+            prefabs.Remove(prefabs[parcourlist(prefabs, "WoodHexa")]);//on retire la possibilité de tomber sur l'hexa ou le Gold peut spawn
+            _nbHexaWood++;
+        }
+    }
+
+
+
     void ControlePaquet()
     {
         if (compteurpaquet == paquet)//on a atteind le nombre de meme hexa voulu
         {
+            MaxHexaAtteind();
             AleaHexa();//Choisi aleatoirement un hexagone parmi les n-1
+            if (cellPrefab.name=="WoodHexa")
+            {
+                _nbHexaWood++;
+            }
+            if (cellPrefab.name == "StoneHexa")
+            {
+                _nbHexaStone++;
+            }
+            if (cellPrefab.name == "GoldHexa")
+            {
+                _nbHexaGold++;
+            }
+           
             AleaPaquet();//donne un nombre de paquet d'hexa random
             compteurpaquet = 0;
 
@@ -120,5 +173,21 @@ public class GenerationGrille : MonoBehaviour
     {
         paquet = Random.Range(1, 5);
 
+    }
+
+    int parcourlist(List<GameObject> list,string objectname)
+    {
+        int index=0;
+        for (int i = 0; i < prefabs.Count; i++)
+        {
+            if (prefabs[i].name==objectname)
+            {
+                index = i;
+
+            }
+
+
+        }
+        return index;
     }
 }
