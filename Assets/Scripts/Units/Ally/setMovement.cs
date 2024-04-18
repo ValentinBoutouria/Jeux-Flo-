@@ -45,7 +45,7 @@ public class setMovement : MonoBehaviour
         }
     }
 
-    public void setMovementDest(UnityEngine.Vector3 position, bool is_bad, GameObject opt = null)
+    public void setMovementDest(UnityEngine.Vector3 position, bool is_bad = false, GameObject opt = null)
     {
         gameObject.GetComponent<goToDest>().setIsEnnemie(is_bad);
 

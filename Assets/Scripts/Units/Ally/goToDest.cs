@@ -33,7 +33,7 @@ public class goToDest : MonoBehaviour
         {
             if (isEnnemie)
             {
-                minDist = portee;
+                minDist = portee*0.9f;
                 try
                 {
                     if (ennemie == null)

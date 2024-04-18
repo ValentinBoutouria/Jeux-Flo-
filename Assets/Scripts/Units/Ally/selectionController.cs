@@ -104,6 +104,10 @@ public class SelectionController : MonoBehaviour
                 {
                     warrior.GetComponent<select_unselect>().Select();
                     selectedWarriorList.Add(warrior);
+                    if(warrior.name == "Worker")
+                    {
+                        warrior.GetComponent<workersRecolt>().selected = true;
+                    }
                 }
             }
             else

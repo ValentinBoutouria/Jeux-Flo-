@@ -7,7 +7,7 @@ public class deadBodies : MonoBehaviour
     public int mana;
     public int corpse;
 
-    void setCarac(int mana, int corpse)
+    public void setCarac(int mana, int corpse)
     {
         this.mana = mana;
         this.corpse = corpse;

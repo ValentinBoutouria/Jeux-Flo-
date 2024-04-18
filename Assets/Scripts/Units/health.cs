@@ -63,9 +63,11 @@ public class health : MonoBehaviour
             else
             {
                 GameObject original = GameObject.Find("Cadavres").transform.GetChild(0).gameObject;
-                GameObject cadavre = Instantiate(original);
+                GameObject cadavre = Instantiate(original, this.transform);
+                GameObject.Find("Cadavres").GetComponent<listCorpses>().corpses.Add(cadavre);
                 cadavre.SetActive(true);
                 cadavre.transform.parent = GameObject.Find("Cadavres").transform;
+                cadavre.GetComponent<deadBodies>().setCarac(carac.GetComponent<caracEnnemie>().getManaDrop(), carac.GetComponent<caracEnnemie>().getCorpseDrop());
             }
             // Supprimer l'unité de l'escouade
             if (squadScript != null)
