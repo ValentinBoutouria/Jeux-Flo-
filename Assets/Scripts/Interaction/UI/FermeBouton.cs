@@ -14,7 +14,7 @@ public class FermeBouton : MonoBehaviour
     public GameObject _parent;
     public Ressources _ressources;
     public TMP_Text _textCoutFerme;
-    public int benefice;
+    
     
 
     private int _nbFerme = 0;

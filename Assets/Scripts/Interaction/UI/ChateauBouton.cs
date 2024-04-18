@@ -9,13 +9,13 @@ public class Chateau : MonoBehaviour
     public int _prix;
     public int _nbChateauAchete;
     public GameObject _validationUI;
-    public Selection _selection;
     public GameObject _chateauPrefabLVL1;
     public GameObject _parent;
 
+    public Selection _selection;
+
     public Ressources _ressources;
-    public int benefice;
-    public Compteur _compteur;
+    
     public TMP_Text _textCoutChateau;
   
     private int _nbChateau = 0;

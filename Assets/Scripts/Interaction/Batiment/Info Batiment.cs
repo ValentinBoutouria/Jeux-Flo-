@@ -26,7 +26,7 @@ public class InfoBatiment : MonoBehaviour
     void Update()
     {
         benefParSec();
-        if (_niveauTemp != _niveau)
+        if (_niveauTemp != _niveau)//a chaque changement de niveau
         {
 
             ModificationBenefice();
@@ -45,8 +45,13 @@ public class InfoBatiment : MonoBehaviour
     public void ModificationBeneficeParent()
     //fonction lance apres chaque upgrade
     {
+        //on recupere le parent
+        
+        
         Benefice _benefice = GetComponentInParent<Benefice>();
-        _benefice.Wood = _benefice.Wood + 2;//0.2 ressource par secondes en plus par niveau (2 toutes les 10 sec) //on peut selectionner quelle ressource on veut augmenter
+        _benefice.tableauBeneficeRessources[id] += 2;//0.2 ressource par secondes en plus par niveau (2 toutes les 10 sec) //on peut selectionner quelle ressource on veut augmenter
+
+        
         
     }
     void benefParSec()

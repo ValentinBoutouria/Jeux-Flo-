@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class Benefice : MonoBehaviour
 {
-    public int Wood;
-    public int ressource2;
-    public int ressource3;
-    public int ressource4;
-    public int ressource5;
-    public int ressource6;
-    public int ressource7;
+   //Gold Chateau id : 0
+   //Stone Ferme id : 1
+   //Wood Maison id : 2
+     
+    //public int Corpse;
+    //public int Food;
+    //public int ressource7;
+    public int[] tableauBeneficeRessources;
     // Start is called before the first frame update
     void Start()
     {
-        
+        tableauBeneficeRessources = new int[6];
+
     }
 
     // Update is called once per frame

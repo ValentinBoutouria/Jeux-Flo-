@@ -81,7 +81,7 @@ public class AchatUnit : MonoBehaviour
         
         if (_selection.listeGameObjectbatimentSelect.Count != 0)
         {//on recupere la position du spawn de l'unit :
-            Vector3 _positionSpawnUnit=_selection.listeGameObjectbatimentSelect[0].transform.position;
+            Vector3 _positionSpawnUnit=_selection.listeGameObjectbatimentSelect[0].transform.position+new Vector3(0,10,0);
             InfoBatiment _infobat = _selection.listeGameObjectbatimentSelect[0].GetComponent<InfoBatiment>();//on recupere l'info du batiment qu'on selectionne
             //select bat Maison
             if (_infobat.id == 2)//Maison
@@ -203,7 +203,7 @@ public class AchatUnit : MonoBehaviour
 
         if ( _ressources._nbStone>=_caracteristique.getStone()&&
              _ressources._nbWood>= _caracteristique.getBois()&&
-             _ressources._nbRats>=_caracteristique.getFood()&&
+             _ressources._nbFood>=_caracteristique.getFood()&&
              _ressources._nbMana>=_caracteristique.getMana()&&
              _ressources._nbGold>=_caracteristique.getGold()&&
              _ressources._nbCorpse>=_caracteristique.getCorpse()

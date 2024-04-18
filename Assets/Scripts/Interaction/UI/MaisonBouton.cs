@@ -12,8 +12,7 @@ public class Maison : MonoBehaviour
     public GameObject _maisonPrefabLVL1;
     public GameObject _parent;
     public Ressources _ressources;
-    public Compteur _compteur;
-    public int benefice;
+    
  
     private int _nbMaison = 0;
 
@@ -26,16 +25,9 @@ public class Maison : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        AjoutRessourcesMaison();
+       
     }
-    public void AjoutRessourcesMaison()
-    {
-        if (_compteur.counterAjoutRessources>10f)
-        {
-            _compteur.counterAjoutRessources = 0;
-            _ressources._nbWood += benefice * _nbMaison;
-        }
-    }
+    
     public void CliqueMaison()
     {
         //_validationUI.SetActive(true);
