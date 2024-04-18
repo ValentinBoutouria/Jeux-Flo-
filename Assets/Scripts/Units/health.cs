@@ -62,7 +62,7 @@ public class health : MonoBehaviour
             }
             else
             {
-                GameObject original = GameObject.Find("body");
+                GameObject original = GameObject.Find("Cadavres").transform.GetChild(0).gameObject;
                 GameObject cadavre = Instantiate(original);
                 cadavre.SetActive(true);
                 cadavre.transform.parent = GameObject.Find("Cadavres").transform;

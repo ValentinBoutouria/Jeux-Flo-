@@ -62,7 +62,7 @@ public class deplacement : MonoBehaviour
                         // Rediriger l'unité vers ce soldat, mais s'arrêter à une distance égale à la portée
                         speed = carac.getVitesse();
                         Vector3 directionToSoldier = soldier.transform.position - transform.position;
-                        targetPosition = soldier.transform.position - directionToSoldier.normalized * portee;
+                        targetPosition = soldier.transform.position - directionToSoldier.normalized * (portee*0.9f);
 
                         // Assigner cette cible à toute l'escouade
                         
