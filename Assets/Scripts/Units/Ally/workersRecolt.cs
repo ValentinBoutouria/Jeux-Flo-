@@ -9,30 +9,37 @@ public class workersRecolt : MonoBehaviour
     public bool isCharged;
     public bool selected;
     private listCorpses listCorpsesScript;
-    GameObject closestCorpse = null;
+    private Selection autresRessourcesScript;
+    private List<GameObject> stoneList;
+    private List<GameObject> woodList;
+    private List<GameObject> goldList;
+    public string ressourceType;
+    GameObject closestRessource = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        autoRecolt = true;
+        autoRecolt = false;
         selected = false;
         isCharged = false;
         listCorpsesScript = GameObject.Find("Cadavres").GetComponent<listCorpses>();
+        autresRessourcesScript = GameObject.Find("Action/Liste Manager").GetComponent<Selection>();
+        woodList = autresRessourcesScript.listeGameObjectWOOD;
+        stoneList = autresRessourcesScript.listeGameObjectStone;
+        goldList = autresRessourcesScript.listeGameObjectGold;
 
+        ressourceType = "all";
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(selected && Input.GetKeyDown(KeyCode.A))
-        {
-            autoRecolt = !autoRecolt;
-        }
+        changeMode();
         if(autoRecolt)
         {
             if(!isCharged)
             {
-                goFindClosestCorpse();
+                goFindClosestRessource(ressourceType);
             }
             else
             {
@@ -44,7 +51,7 @@ public class workersRecolt : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!isCharged && other.gameObject.tag == "deadBody")
+        if (!isCharged && other.gameObject.tag == "ressourceTag")
         {
             other.transform.parent = this.transform;
             isCharged = true;
@@ -52,21 +59,36 @@ public class workersRecolt : MonoBehaviour
     }
     
 
-    private void goFindClosestCorpse()
+    private void goFindClosestRessource(string ressourceType = "all")
     {
         //go to closest corpse
-        closestCorpse = null;
+        closestRessource = null;
         //recolt
-        foreach (var corpse in listCorpsesScript.corpses)
+        switch (ressourceType)
         {
-            if (corpse != null && (closestCorpse == null || Vector3.Distance(corpse.transform.position, this.transform.position) < Vector3.Distance(closestCorpse.transform.position, this.transform.position)))
-            {
-                closestCorpse = corpse;
-            }
+            case "corpse":
+                closestCorpse();
+                break;
+            case "wood":
+                closestNotCorpse(woodList);
+                break;
+            case "stone":
+                closestNotCorpse(stoneList);
+                break;
+            case "gold":
+                closestNotCorpse(goldList);
+                break;
+
+            case "all":
+                closestCorpse();
+                closestNotCorpse(woodList);
+                closestNotCorpse(stoneList);
+                closestNotCorpse(goldList);
+                break;
         }
-        if (closestCorpse != null)
+        if (    closestRessource != null)
         {
-            GetComponent<setMovement>().setMovementDest(closestCorpse.transform.position);
+            GetComponent<setMovement>().setMovementDest(closestRessource.transform.position);
         }
     }
 
@@ -84,6 +106,55 @@ public class workersRecolt : MonoBehaviour
         if (closestStorage != null)
         {
             GetComponent<setMovement>().setMovementDest(closestStorage.transform.position);
+        }
+    }
+
+    private void closestNotCorpse(List<GameObject> li)
+    {
+        foreach (var wood in li)
+        {
+            if (wood != null && (closestRessource == null || Vector3.Distance(wood.transform.position, this.transform.position) < Vector3.Distance(closestRessource.transform.position, this.transform.position)))
+            {
+                closestRessource = wood;
+            }
+        }
+    }
+
+    private void closestCorpse()
+    {
+        foreach (var corpse in listCorpsesScript.corpses)
+        {
+            if (corpse != null && (closestRessource == null || Vector3.Distance(corpse.transform.position, this.transform.position) < Vector3.Distance(closestRessource.transform.position, this.transform.position)))
+            {
+                closestRessource = corpse;
+            }
+        }
+    }
+
+    private void changeMode()
+    {
+        if (selected)
+        {
+            if (Input.GetKeyDown(KeyCode.Keypad0))
+            { 
+                autoRecolt = !autoRecolt;
+            }
+            if (Input.GetKeyDown(KeyCode.Keypad1))
+            {
+                ressourceType = "corpse";
+            }
+            if (Input.GetKeyDown(KeyCode.Keypad2))
+            {
+                ressourceType = "wood";
+            }   
+            if (Input.GetKeyDown(KeyCode.Keypad3))
+            {
+                ressourceType = "stone";
+            }
+            if (Input.GetKeyDown(KeyCode.Keypad4))
+            {
+                ressourceType = "gold";
+            }
         }
     }
     

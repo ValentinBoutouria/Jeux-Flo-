@@ -6,9 +6,9 @@ public class ___TMP_Storage : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "deadBody")
+        if(other.tag == "ressourceTag")
         {
-            Debug.Log("dead body entered, add ressources ---- mana : " + other.gameObject.GetComponent<deadBodies>().mana + "  ------ corpses : " + other.gameObject.GetComponent<deadBodies>().corpse);
+            Debug.Log("dead body entered, add ressources ---- mana : ");
             other.transform.parent.GetComponent<workersRecolt>().isCharged = false;
             Destroy(other.gameObject);
         }
