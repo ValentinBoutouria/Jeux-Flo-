@@ -44,7 +44,7 @@ public class workersRecolt : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "deadBody")
+        if (!isCharged && other.gameObject.tag == "deadBody")
         {
             other.transform.parent = this.transform;
             isCharged = true;
