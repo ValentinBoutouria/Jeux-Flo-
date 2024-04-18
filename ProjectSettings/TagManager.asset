@@ -9,6 +9,8 @@ TagManager:
   - selectionController
   - ennemie
   - empty
+  - Batiment
+  - deadBody
   layers:
   - Default
   - TransparentFX
