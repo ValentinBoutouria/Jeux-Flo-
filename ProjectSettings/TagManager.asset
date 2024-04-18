@@ -10,7 +10,8 @@ TagManager:
   - ennemie
   - empty
   - Batiment
-  - deadBody
+  - ressourceTag
+  - Worker
   layers:
   - Default
   - TransparentFX

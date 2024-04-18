@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 8175867491850780383}
   m_Layer: 0
   m_Name: Workers
-  m_TagString: Untagged
+  m_TagString: Worker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -355,7 +355,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 378096a24dc6859429ed30b157b456ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  autoRecolt: 0
+  isCharged: 0
   selected: 0
+  ressourceType: 
 --- !u!4 &7072494085393176193 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5903226695761890226, guid: 33cdc01ee9f7a8a448fcb94618719198, type: 3}
