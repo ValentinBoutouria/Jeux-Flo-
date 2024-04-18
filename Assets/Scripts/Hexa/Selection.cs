@@ -59,7 +59,7 @@ public class Selection : MonoBehaviour
             //clique sur du bois
             if (listeGameObjectWOOD.Contains(hit.collider.gameObject))
             {
-                listeGameObjectNONSelect.Add(hit.collider.gameObject);//ajout du game object selectionne dans la liste NON selectionne
+                //listeGameObjectNONSelect.Add(hit.collider.gameObject);//ajout du game object selectionne dans la liste NON selectionne
                 listeGameObjectWOOD.Remove(hit.collider.gameObject);//on retire l'hexa de la liste ou il y avait la ressource (bois)
                 _ressources._nbWood+=Gains;
                 Destroy(hit.collider.gameObject.transform.GetChild(0).gameObject);
@@ -68,7 +68,7 @@ public class Selection : MonoBehaviour
             //clique sur du Gold
             if (listeGameObjectGold.Contains(hit.collider.gameObject))
             {
-                listeGameObjectNONSelect.Add(hit.collider.gameObject);//ajout du game object selectionne dans la liste NON selectionne
+                //listeGameObjectNONSelect.Add(hit.collider.gameObject);//ajout du game object selectionne dans la liste NON selectionne
                 listeGameObjectGold.Remove(hit.collider.gameObject);//on retire l'hexa de la liste ou il y avait la ressource (gold)
                 _ressources._nbGold += Gains;
                 Destroy(hit.collider.gameObject.transform.GetChild(0).gameObject);
@@ -77,7 +77,7 @@ public class Selection : MonoBehaviour
             //clique sur de la Stone
             if (listeGameObjectStone.Contains(hit.collider.gameObject))
             {
-                listeGameObjectNONSelect.Add(hit.collider.gameObject);//ajout du game object selectionne dans la liste NON selectionne
+                //listeGameObjectNONSelect.Add(hit.collider.gameObject);//ajout du game object selectionne dans la liste NON selectionne
                 listeGameObjectStone.Remove(hit.collider.gameObject);//on retire l'hexa de la liste ou il y avait la ressource (bois)
                 _ressources._nbStone += Gains;
                 Destroy(hit.collider.gameObject.transform.GetChild(0).gameObject);
