@@ -9,6 +9,7 @@ public class Selection : MonoBehaviour
     public Material _matInitial; //Material initial de l'hexagone
     public List<GameObject> gameObjectListSelectionne = new List<GameObject>();
     public List<GameObject> listeGameObjectNONSelect = new List<GameObject>();
+    public List<GameObject> listeGameObjectSousSol = new List<GameObject>();
     public List<GameObject> listeGameObjectWOOD = new List<GameObject>();
     public List<GameObject> listeGameObjectStone = new List<GameObject>();
     public List<GameObject> listeGameObjectGold = new List<GameObject>();
@@ -23,7 +24,7 @@ public class Selection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Gains = 100;//combien on agne de ressources quand on la recupére
+        Gains = 100;//combien on gagne de ressources quand on la recupére
         
     }
 
