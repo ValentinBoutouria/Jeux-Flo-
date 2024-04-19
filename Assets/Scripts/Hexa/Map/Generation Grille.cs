@@ -84,6 +84,7 @@ public class GenerationGrille : MonoBehaviour
                     // Calcule la position de la cellule dans la grille
                     Vector3 cellPosition = new Vector3(xPos, zPos, yPos);
                     
+                    
                     if(z==0)
                     {
                         ControlePaquet();//on verifie si on doit changer le block
@@ -96,8 +97,8 @@ public class GenerationGrille : MonoBehaviour
                     else
                     {
                         cellPrefab = prefabs[prefabs.Count-1];
-                        _blockHexa=Instantiate(_blockHexa, cellPosition, Quaternion.identity);
                         newCell = Instantiate(cellPrefab, cellPosition, Quaternion.identity);
+                        _blockHexa=Instantiate(_blockHexa, cellPosition+new Vector3(0,0.35f,0), Quaternion.identity,newCell.transform);
                         _selection.listeGameObjectSousSol.Add(newCell);
                     }
                     newCell.transform.localScale = new Vector3(cellSize, 1f, cellSize); // R�glage de la taille de la cellule
