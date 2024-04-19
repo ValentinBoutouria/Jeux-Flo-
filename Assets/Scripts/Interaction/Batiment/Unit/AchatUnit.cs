@@ -17,6 +17,13 @@ public class AchatUnit : MonoBehaviour
     public TMP_Text _unit3TMP;
     public TMP_Text _unit4TMP;
 
+    public TMP_Text _coutUnit1TMP;
+    public TMP_Text _coutUnit2TMP;
+    public TMP_Text _coutUnit3TMP;
+    public TMP_Text _coutUnit4TMP;
+
+
+
     public GameObject _maison;
     public GameObject _ferme;
     public GameObject _chateau;
@@ -48,31 +55,43 @@ public class AchatUnit : MonoBehaviour
     {
         if(_selection.listeGameObjectbatimentSelect.Count!=0)
         {
-            InfoBatiment _infobat = _selection.listeGameObjectbatimentSelect[0].GetComponent<InfoBatiment>();//on recupere l'info du batiment qu'on selectionne
+            _infobat = _selection.listeGameObjectbatimentSelect[0].GetComponent<InfoBatiment>();//on recupere l'info du batiment qu'on selectionne
 
             //select bat Maison
             if (_infobat.id==2) 
             {
                 _unit1TMP.text = _unitMaison.transform.GetChild(0).name;//pour selectionner l'une des 4 troupes du batiment maison on regarde ses fils
+                DetCoutUnit(_unitMaison.transform.GetChild(0).gameObject, 0);//pour afficher le cout de la bonne unit/au bon TMP
                 _unit2TMP.text = _unitMaison.transform.GetChild(1).name;
+                DetCoutUnit(_unitMaison.transform.GetChild(1).gameObject, 1);
                 _unit3TMP.text = _unitMaison.transform.GetChild(2).name;
+                DetCoutUnit(_unitMaison.transform.GetChild(2).gameObject, 2);
                 _unit4TMP.text = _unitMaison.transform.GetChild(3).name;
+                DetCoutUnit(_unitMaison.transform.GetChild(3).gameObject, 3);
             }
             //select bat Ferme
             if (_infobat.id == 1)
             {
                 _unit1TMP.text = _unitFerme.transform.GetChild(0).name;
+                DetCoutUnit(_unitFerme.transform.GetChild(0).gameObject, 0);
                 _unit2TMP.text = _unitFerme.transform.GetChild(1).name;
+                DetCoutUnit(_unitFerme.transform.GetChild(1).gameObject, 1);
                 _unit3TMP.text = _unitFerme.transform.GetChild(2).name;
+                DetCoutUnit(_unitFerme.transform.GetChild(2).gameObject, 2);
                 _unit4TMP.text = _unitFerme.transform.GetChild(3).name;
+                DetCoutUnit(_unitFerme.transform.GetChild(3).gameObject, 3);
             }
             //select bat Chateau
             if (_infobat.id == 0)
             {
                 _unit1TMP.text = _unitChateau.transform.GetChild(0).name;
+                DetCoutUnit(_unitChateau.transform.GetChild(0).gameObject, 0);
                 _unit2TMP.text = _unitChateau.transform.GetChild(1).name;
+                DetCoutUnit(_unitChateau.transform.GetChild(1).gameObject, 1);
                 _unit3TMP.text = _unitChateau.transform.GetChild(2).name;
+                DetCoutUnit(_unitChateau.transform.GetChild(2).gameObject, 2);
                 _unit4TMP.text = _unitChateau.transform.GetChild(3).name;
+                DetCoutUnit(_unitChateau.transform.GetChild(3).gameObject, 3);
             }
         }
     }
@@ -108,7 +127,11 @@ public class AchatUnit : MonoBehaviour
         getCaracteristique(tmpUnit); // a changer pour tout 
         if (VerifieRessource())
         {
-            Instantiate(_unitBat.transform.GetChild(_lvlUnit), _positionSpawnUnit, Quaternion.identity, _unitRangementBat.transform.GetChild(_lvlUnit));//instancie l'unité lors de l'appuie du bouton1
+            //depense le cout de l'unit
+            TaxeAchatUnit();
+            //instancie l'unité lors de l'appuie du bouton
+            Instantiate(_unitBat.transform.GetChild(_lvlUnit), _positionSpawnUnit, Quaternion.identity, _unitRangementBat.transform.GetChild(_lvlUnit));
+
         }
     }
 
@@ -137,6 +160,61 @@ public class AchatUnit : MonoBehaviour
             Debug.Log("pas assez de ressource pour acheter cette unité");
         }
         return result;
+    }
+    void TaxeAchatUnit()
+    {
+        _ressources._nbStone -= _caracteristique.getStone();
+        _ressources._nbWood -= _caracteristique.getBois();
+        _ressources._nbFood -= _caracteristique.getFood();
+        _ressources._nbMana -= _caracteristique.getMana();
+        _ressources._nbGold -= _caracteristique.getGold();
+        _ressources._nbCorpse -= _caracteristique.getCorpse();
+    }
+    void DetCoutUnit(GameObject unit,int _lvlUnit)
+    {
+        getCaracteristique(unit);
+        switch (_lvlUnit)
+        {
+            case 0:
+                _coutUnit1TMP.text ="Stone : " + _caracteristique.getStone() + //a modifier avec Flo + si les get sont nul
+                    "\nWood : " + _caracteristique.getBois() +
+                    "\nGold : " + _caracteristique.getGold() +
+                    "\nCorpse : " + _caracteristique.getCorpse() +
+                    "\nMana " + _caracteristique.getMana() +
+                    "\nFood " + _caracteristique.getFood();
+                    
+
+                break;
+            case 1:
+                _coutUnit2TMP.text = "Stone : " + _caracteristique.getStone() +
+                    "\nWood : " + _caracteristique.getBois() +
+                    "\nGold : " + _caracteristique.getGold() +
+                    "\nCorpse : " + _caracteristique.getCorpse() +
+                    "\nMana " + _caracteristique.getMana() +
+                    "\nFood " + _caracteristique.getFood();
+                break;
+            case 2:
+                _coutUnit3TMP.text = "Stone : " + _caracteristique.getStone() +
+                    "\nWood : " + _caracteristique.getBois() +
+                    "\nGold : " + _caracteristique.getGold() +
+                    "\nCorpse : " + _caracteristique.getCorpse() +
+                    "\nMana " + _caracteristique.getMana() +
+                    "\nFood " + _caracteristique.getFood(); ;
+                break;
+            case 3:
+                _coutUnit4TMP.text = "Stone : " + _caracteristique.getStone() +
+                    "\nWood : " + _caracteristique.getBois() +
+                    "\nGold : " + _caracteristique.getGold() +
+                    "\nCorpse : " + _caracteristique.getCorpse() +
+                    "\nMana " + _caracteristique.getMana() +
+                    "\nFood " + _caracteristique.getFood();
+                break;
+            default:
+
+                break;
+        }
+
+
     }
  
 }
