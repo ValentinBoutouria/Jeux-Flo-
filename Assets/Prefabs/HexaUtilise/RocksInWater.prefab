@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 33243527443208850}
   - component: {fileID: 23166101814404474}
   - component: {fileID: 8188503218338008488}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RocksInWater
   m_TagString: Untagged
   m_Icon: {fileID: 0}

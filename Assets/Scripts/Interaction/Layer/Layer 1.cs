@@ -29,7 +29,7 @@ public class Layer1 : MonoBehaviour
     }
     void SetTrueObject()
     {
-        if (_layerselection.layer==0)
+        if (_layerselection.layer==0)//faire un switch case break
         {
             this.transform.position = _layerPoint0.transform.position;
             foreach (GameObject obj in ObjectDetruit) 
@@ -40,19 +40,22 @@ public class Layer1 : MonoBehaviour
         if (_layerselection.layer == -1)
         {
             this.transform.position = _layerPoint1.transform.position;
-
+        }
+        if ( _layerselection.layer == -2)
+        {
+            this.transform.position = _layerPoint2.transform.position;
+        }
+        if (_layerselection.layer == -3)
+        {
+            this.transform.position = _layerPoint3.transform.position;
         }
 
     }
     
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Test");
-       
-            
+    private void OnTriggerStay(Collider other)
+    {//ajouter dans la bonne liste suivant le bon layout pour les reactiver 
             ObjectDetruit.Add(other.gameObject);
-            other.gameObject.SetActive(false);
-        
+            other.gameObject.SetActive(false);  
     }
    
     
