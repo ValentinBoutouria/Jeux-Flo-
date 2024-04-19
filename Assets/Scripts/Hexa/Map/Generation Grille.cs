@@ -9,7 +9,6 @@ public class GenerationGrille : MonoBehaviour
   
     private GameObject cellPrefab; // Pr�fabriqu� de la cellule de la grille
     private GameObject newCell;
-    public List<GameObject> prefabs = new List<GameObject>();
    
     public Selection _selection;
     public GameObject cam; // GameObject de la camera
@@ -22,9 +21,14 @@ public class GenerationGrille : MonoBehaviour
     private int compteurpaquet = 2;
     private int numeroHexa;
 
+
+    public List<GameObject> prefabs = new List<GameObject>();
     public int _nbMaxHexaStone;
     public int _nbMaxHexaWood;
     public int _nbMaxHexaGold;
+    public List<int> TableauNbOccurIndex = new List<int>();
+    public List<int> TableauIndex = new List<int>();
+
 
     private int _nbHexaStone;
     private int _nbHexaWood;
@@ -35,15 +39,30 @@ public class GenerationGrille : MonoBehaviour
 
     void Start()
     {
+        instancieTableauIntIndex();
         GenerateGrid();
         _nbHexaWood = 0;
         _nbHexaGold = 0;
         _nbHexaStone = 0;
     }
+    void instancieTableauIntIndex()
+    {
+        
+        for (int j = 0; j < TableauNbOccurIndex.Count; j++)
+        {
+
+            for (int i = 0; i < TableauNbOccurIndex[j]; i++)
+            {
+                TableauIndex.Add(j);
+            }
+        }
+        
+
+    }
     void AleaHexa()
     {
-        numeroHexa = Random.Range(0, prefabs.Count-1);
-        cellPrefab=prefabs[numeroHexa];
+        numeroHexa = Random.Range(0, TableauIndex.Count);
+        cellPrefab=prefabs[TableauIndex[numeroHexa]];
 
     }
 
@@ -96,7 +115,7 @@ public class GenerationGrille : MonoBehaviour
     }
     void DetHexaPrefab()
     {
-        switch (prefabs[numeroHexa].name)
+        switch (prefabs[TableauIndex[numeroHexa]].name)
         {
             case "WoodHexa":
                 _selection.listeGameObjectHexaWood.Add(newCell);
@@ -116,24 +135,42 @@ public class GenerationGrille : MonoBehaviour
                 break;
         }
     }
+    void MoinsUnListe(List<int> liste)
+    {
+        for (int i = 0; i < liste.Count; i++)
+        {
+            if (liste[i] == 0) 
+            { 
+                liste.RemoveAt(i);
+            }
+            else
+            {
+                liste[i] -= 1;
 
+            }
+        }
+    }
 
     void MaxHexaAtteind()
     {
         if(_nbHexaGold==_nbMaxHexaGold)
         {
             prefabs.Remove(prefabs[parcourlist(prefabs, "GoldHexa")]);//on retire la possibilité de tomber sur l'hexa ou le Gold peut spawn
+            MoinsUnListe(TableauIndex);
             _nbHexaGold++;
         }
         if (_nbHexaStone == _nbMaxHexaStone)
         {
             
+
             prefabs.Remove(prefabs[parcourlist(prefabs, "StoneHexa")]);//on retire la possibilité de tomber sur l'hexa ou le Gold peut spawn
+            MoinsUnListe(TableauIndex);
             _nbHexaStone++;
         }
         if (_nbHexaWood == _nbMaxHexaWood)
         {
             prefabs.Remove(prefabs[parcourlist(prefabs, "WoodHexa")]);//on retire la possibilité de tomber sur l'hexa ou le Gold peut spawn
+            MoinsUnListe(TableauIndex);
             _nbHexaWood++;
         }
     }

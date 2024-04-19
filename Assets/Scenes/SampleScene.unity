@@ -6733,6 +6733,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74c1707755bcc3d46b785ee80157549e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _selection: {fileID: 674256382}
+  cam: {fileID: 963194225}
+  gridSizeX: 100
+  gridSizeY: 40
+  gridSizeZ: 3
+  cellSize: 1
   prefabs:
   - {fileID: 1841913013192508, guid: d2c7ed6d9dcb93748ac807810622ecc9, type: 3}
   - {fileID: 1712155488500880, guid: faf4b4ec0cbbb3840a5ba44685c18d99, type: 3}
@@ -6741,15 +6747,11 @@ MonoBehaviour:
   - {fileID: 1520068213326888, guid: d8deb0d5cca03814e8f5cd71fb9e7a1e, type: 3}
   - {fileID: 1209033865668100, guid: ba18ad1c2b7e68644b186f04055c20f2, type: 3}
   - {fileID: 1398617842687680, guid: d4f75f0ac34d85a43a92e749133c074f, type: 3}
-  _selection: {fileID: 674256382}
-  cam: {fileID: 963194225}
-  gridSizeX: 20
-  gridSizeY: 5
-  gridSizeZ: 3
-  cellSize: 1
-  _nbMaxHexaStone: 1
-  _nbMaxHexaWood: 1
+  _nbMaxHexaStone: 10
+  _nbMaxHexaWood: 10
   _nbMaxHexaGold: 1
+  TableauNbOccurIndex: 010000000500000005000000c8000000c8000000c8000000
+  TableauIndex: 
 --- !u!1 &1272260714
 GameObject:
   m_ObjectHideFlags: 0
