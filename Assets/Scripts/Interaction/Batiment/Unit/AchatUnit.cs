@@ -179,9 +179,9 @@ public class AchatUnit : MonoBehaviour
                 _coutUnit1TMP.text ="Stone : " + _caracteristique.getStone() + //a modifier avec Flo + si les get sont nul
                     "\nWood : " + _caracteristique.getBois() +
                     "\nGold : " + _caracteristique.getGold() +
-                    "\nCorpse : " + _caracteristique.getCorpse() +
                     "\nMana " + _caracteristique.getMana() +
-                    "\nFood " + _caracteristique.getFood();
+                    "\nFood " + _caracteristique.getFood()+
+                    "\nCorpse : " + _caracteristique.getCorpse();
                     
 
                 break;
@@ -189,17 +189,17 @@ public class AchatUnit : MonoBehaviour
                 _coutUnit2TMP.text = "Stone : " + _caracteristique.getStone() +
                     "\nWood : " + _caracteristique.getBois() +
                     "\nGold : " + _caracteristique.getGold() +
-                    "\nCorpse : " + _caracteristique.getCorpse() +
                     "\nMana " + _caracteristique.getMana() +
-                    "\nFood " + _caracteristique.getFood();
+                    "\nFood " + _caracteristique.getFood()+
+                    "\nCorpse : " + _caracteristique.getCorpse();
                 break;
             case 2:
                 _coutUnit3TMP.text = "Stone : " + _caracteristique.getStone() +
                     "\nWood : " + _caracteristique.getBois() +
                     "\nGold : " + _caracteristique.getGold() +
-                    "\nCorpse : " + _caracteristique.getCorpse() +
                     "\nMana " + _caracteristique.getMana() +
-                    "\nFood " + _caracteristique.getFood(); ;
+                    "\nFood " + _caracteristique.getFood()+
+                    "\nCorpse : " + _caracteristique.getCorpse();
                 break;
             case 3:
                 _coutUnit4TMP.text = "Stone : " + _caracteristique.getStone() +

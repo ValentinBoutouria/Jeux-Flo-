@@ -15,11 +15,11 @@ public class CameraController : MonoBehaviour
         transform.Translate(new Vector3(moveHorizontal, 0, moveVertical), Space.World);
 
         // Pivoter la caméra avec A et E
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.E))
         {
             transform.RotateAround(transform.position, Vector3.up, turnSpeed * Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.Q))
         {
             transform.RotateAround(transform.position, Vector3.up, -turnSpeed * Time.deltaTime);
         }
