@@ -12,6 +12,7 @@ public class GenerationGrille : MonoBehaviour
    
     public Selection _selection;
     public GameObject cam; // GameObject de la camera
+    public GameObject _blockHexa;
     public int gridSizeX = 5; // Nombre de cellules en largeur
     public int gridSizeY = 5; // Nombre de cellules en hauteur
     public int gridSizeZ = 2; // Nombre de cellules en hauteur
@@ -79,7 +80,7 @@ public class GenerationGrille : MonoBehaviour
                     // Calculer la position de l'hexagone
                     float xPos = x * (cellSize/2);
                     float yPos = (x % 2 == 0 ? 0 : 0.866f) + y * (1.732f * cellSize);
-                    float zPos = (cellSize/2)*z;
+                    float zPos = cellSize*z;
                     // Calcule la position de la cellule dans la grille
                     Vector3 cellPosition = new Vector3(xPos, zPos, yPos);
                     
@@ -95,6 +96,7 @@ public class GenerationGrille : MonoBehaviour
                     else
                     {
                         cellPrefab = prefabs[prefabs.Count-1];
+                        _blockHexa=Instantiate(_blockHexa, cellPosition, Quaternion.identity);
                         newCell = Instantiate(cellPrefab, cellPosition, Quaternion.identity);
                         _selection.listeGameObjectSousSol.Add(newCell);
                     }
