@@ -50,28 +50,6 @@ public class Selection : MonoBehaviour
         // Lance un rayon et v�rifie s'il a touch� un objet avec le tag "Cube"
         if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Cube"))
         {
-            if (listeGameObjectNONSelect.Contains(hit.collider.gameObject))
-                //uniquement si dans liste NON selectionne || dans les listes des ressources
-            {
-                
-                gameObjectListSelectionne.Add(hit.collider.gameObject);//ajout du game object selectionne dans la liste selectionne
-                listeGameObjectNONSelect.Remove(hit.collider.gameObject);
-                if (listeGameObjectHexaWood.Contains(hit.collider.gameObject))
-                {
-                    listeGameObjectHexaWood.Remove(hit.collider.gameObject);
-                }
-                if (listeGameObjectHexaStone.Contains(hit.collider.gameObject))
-                {
-                    listeGameObjectHexaStone.Remove(hit.collider.gameObject);
-                }
-                if (listeGameObjectHexaGold.Contains(hit.collider.gameObject))
-                {
-                    listeGameObjectHexaGold.Remove(hit.collider.gameObject);
-                }
-                Renderer renderer = hit.collider.GetComponent<Renderer>();//on recupere le renderer
-                renderer.material = _matSelection;//on place le mat selection
-            }
-
             //clique sur du bois
             if (listeGameObjectWOOD.Contains(hit.collider.gameObject))
             {
@@ -151,6 +129,37 @@ public class Selection : MonoBehaviour
         if (Input.GetMouseButtonUp(0)) // V�rifie si l'utilisateur clique avec le bouton gauche de la souris
         {
             CliqueGauche();  
+        }
+
+        if (Input.GetKey(KeyCode.Keypad7))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            // Lance un rayon et v�rifie s'il a touch� un objet avec le tag "Cube"
+            if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Cube"))
+            {
+                if (GameObject.FindGameObjectWithTag("empty").GetComponent<isWorkerSelected>().nbWorkerSelected > 0 && listeGameObjectNONSelect.Contains(hit.collider.gameObject))
+                //uniquement si dans liste NON selectionne || dans les listes des ressources
+                {
+
+                    gameObjectListSelectionne.Add(hit.collider.gameObject);//ajout du game object selectionne dans la liste selectionne
+                    listeGameObjectNONSelect.Remove(hit.collider.gameObject);
+                    if (listeGameObjectHexaWood.Contains(hit.collider.gameObject))
+                    {
+                        listeGameObjectHexaWood.Remove(hit.collider.gameObject);
+                    }
+                    if (listeGameObjectHexaStone.Contains(hit.collider.gameObject))
+                    {
+                        listeGameObjectHexaStone.Remove(hit.collider.gameObject);
+                    }
+                    if (listeGameObjectHexaGold.Contains(hit.collider.gameObject))
+                    {
+                        listeGameObjectHexaGold.Remove(hit.collider.gameObject);
+                    }
+                    Renderer renderer = hit.collider.GetComponent<Renderer>();//on recupere le renderer
+                    renderer.material = _matSelection;//on place le mat selection
+                }
+            }
         }
 
         UpdateNbGameObjectSelect();

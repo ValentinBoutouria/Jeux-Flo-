@@ -24,6 +24,7 @@ public class recupRessourcesUnits : MonoBehaviour
     }
 
     // Cette méthode est appelée lorsque le Collider du soldat entre en collision avec un autre Collider
+    /*
     void OnTriggerEnter(Collider other)
     {
         // Vérifier si l'autre Collider a le tag "Cube"
@@ -54,5 +55,6 @@ public class recupRessourcesUnits : MonoBehaviour
             }
         }
     }
+    */
 
 }

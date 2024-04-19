@@ -22,6 +22,9 @@ public class SelectionController : MonoBehaviour
 
     private bool isDown = false;
 
+    public isWorkerSelected workerSelectedScript;
+
+
     private void Awake()
     {
         //Initialise selectedWarriorList
@@ -29,7 +32,6 @@ public class SelectionController : MonoBehaviour
 
         //Le rectangle de sélection ne doit pas être visible
         selectionBox.gameObject.SetActive(false);
-
     }
 
     private void Update()
@@ -43,7 +45,8 @@ public class SelectionController : MonoBehaviour
         {
             //Déselectionne toutes les unités
             foreach (GameObject warrior in availableWarriorList)
-                warrior.GetComponent<select_unselect>().UnSelect();
+                if(warrior.GetComponent<select_unselect>().isSelected)
+                    warrior.GetComponent<select_unselect>().UnSelect();
 
             //Vide le tableau
             selectedWarriorList.Clear();
@@ -104,16 +107,15 @@ public class SelectionController : MonoBehaviour
                 {
                     warrior.GetComponent<select_unselect>().Select();
                     selectedWarriorList.Add(warrior);
-                    if(warrior.transform.parent.parent.parent.tag == "Worker")
-                    {
-                        warrior.GetComponent<workersRecolt>().selected = true;
-                    }
                 }
             }
             else
             {
-                warrior.GetComponent<select_unselect>().UnSelect();
-                selectedWarriorList.Remove(warrior);
+                if (warrior.GetComponent<select_unselect>().isSelected)
+                {
+                    warrior.GetComponent<select_unselect>().UnSelect();
+                    selectedWarriorList.Remove(warrior);
+                }
             }
         }
     }
