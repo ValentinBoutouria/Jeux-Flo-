@@ -27,7 +27,9 @@ public class AchatUnit : MonoBehaviour
 
     public GameObject _unitRangement;
 
-    private GameObject tmpinstance;
+    private GameObject tmpUnit;
+
+    private InfoBatiment _infobat;
 
 
     // Start is called before the first frame update
@@ -39,10 +41,10 @@ public class AchatUnit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ChoixUnitAffiche();
+        ChoixUnitTMPAffiche();
         
     }
-    public void ChoixUnitAffiche() 
+    public void ChoixUnitTMPAffiche() 
     {
         if(_selection.listeGameObjectbatimentSelect.Count!=0)
         {
@@ -75,123 +77,42 @@ public class AchatUnit : MonoBehaviour
         }
     }
 
-    //unit 1
-    public void ChoiUnitSpawnBouton1()
-    {
-        
-        if (_selection.listeGameObjectbatimentSelect.Count != 0)
-        {//on recupere la position du spawn de l'unit :
-            Vector3 _positionSpawnUnit=_selection.listeGameObjectbatimentSelect[0].transform.position+new Vector3(0,10,0);
-            InfoBatiment _infobat = _selection.listeGameObjectbatimentSelect[0].GetComponent<InfoBatiment>();//on recupere l'info du batiment qu'on selectionne
-            //select bat Maison
-            if (_infobat.id == 2)//Maison
-            {
-                tmpinstance =_unitRangement.transform.GetChild(0).GetChild(0).gameObject;// ferme/caracteristique
-                getCaracteristique(tmpinstance); // a changer pour tout
-
-                
-                if(VerifieRessource())
-                {
-                Instantiate(_unitMaison.transform.GetChild(0), _positionSpawnUnit,Quaternion.identity,_maison.transform.GetChild(0));//instancie l'unité lors de l'appuie du bouton1
-                }
-
-                
-            }
-            //select bat Ferme
-            if (_infobat.id == 1)
-            {
-                Instantiate(_unitFerme.transform.GetChild(0), _positionSpawnUnit, Quaternion.identity, _ferme.transform.GetChild(0));//instancie l'unité lors de l'appuie du bouton1
-
-
-            }
-            //select bat Chateau
-            if (_infobat.id == 0)
-            {
-                Instantiate(_unitChateau.transform.GetChild(0), _positionSpawnUnit, Quaternion.identity, _chateau.transform.GetChild(0));//instancie l'unité lors de l'appuie du bouton1
-            }
-        }
-
-    }
-
-    //unit 2
-    public void ChoiUnitSpawnBouton2()
+    public void ChoiUnitSpawn(int idBouton)
     {
         if (_selection.listeGameObjectbatimentSelect.Count != 0)
-        {//on recupere la position du spawn de l'unit :
-            Vector3 _positionSpawnUnit = _selection.listeGameObjectbatimentSelect[0].transform.position;
-            InfoBatiment _infobat = _selection.listeGameObjectbatimentSelect[0].GetComponent<InfoBatiment>();//on recupere l'info du batiment qu'on selectionne
-            //select bat Maison
-            if (_infobat.id == 2)
+        {
+            _infobat = _selection.listeGameObjectbatimentSelect[0].GetComponent<InfoBatiment>();//on recupere l'info du batiment qu'on selectionne
+            if (_infobat.id==2)//maison
             {
-                Instantiate(_unitMaison.transform.GetChild(1), _positionSpawnUnit, Quaternion.identity, _maison.transform.GetChild(1));//instancie l'unité lors de l'appuie du bouton2
+                SpawnUnit(idBouton,_unitMaison,_maison);//lvl de l'unit , quelle groupe d'unit(unitMaison),où on la range (maison au child du niveau)
             }
-            //select bat Ferme
-            if (_infobat.id == 1)
+            if(_infobat.id==1)//select bat Ferme
             {
-                Instantiate(_unitFerme.transform.GetChild(1), _positionSpawnUnit, Quaternion.identity, _ferme.transform.GetChild(1));//instancie l'unité lors de l'appuie du bouton2
+                SpawnUnit(idBouton, _unitFerme, _ferme);//lvl de l'unit , quelle groupe d'unit(unitMaison),où on la range (maison au child du niveau)
             }
-            //select bat Chateau
-            if (_infobat.id == 0)
+            if(_infobat.id==0) 
             {
-                Instantiate(_unitChateau.transform.GetChild(1), _positionSpawnUnit, Quaternion.identity, _chateau.transform.GetChild(1));//instancie l'unité lors de l'appuie du bouton2
-            }
+                SpawnUnit(idBouton, _unitChateau, _chateau);//lvl de l'unit , quelle groupe d'unit(unitMaison),où on la range (maison au child du niveau)
+            }  
         }
-
     }
-    //unit 3
-    public void ChoiUnitSpawnBouton3()
+    void ChoixTempUnit(int bat,int lvlUnit)
     {
-        if (_selection.listeGameObjectbatimentSelect.Count != 0)
-        {//on recupere la position du spawn de l'unit :
-            Vector3 _positionSpawnUnit = _selection.listeGameObjectbatimentSelect[0].transform.position;
-            InfoBatiment _infobat = _selection.listeGameObjectbatimentSelect[0].GetComponent<InfoBatiment>();//on recupere l'info du batiment qu'on selectionne
-            //select bat Maison
-            if (_infobat.id == 2)
-            {
-                Instantiate(_unitMaison.transform.GetChild(2), _positionSpawnUnit, Quaternion.identity, _maison.transform.GetChild(2));//instancie l'unité lors de l'appuie du bouton3
-            }
-            //select bat Ferme
-            if (_infobat.id == 1)
-            {
-                Instantiate(_unitFerme.transform.GetChild(2), _positionSpawnUnit, Quaternion.identity, _ferme.transform.GetChild(2));//instancie l'unité lors de l'appuie du bouton3
-            }
-            //select bat Chateau
-            if (_infobat.id == 0)
-            {
-                Instantiate(_unitChateau.transform.GetChild(2), _positionSpawnUnit, Quaternion.identity, _chateau.transform.GetChild(2));//instancie l'unité lors de l'appuie du bouton3
-            }
-        }
-
+        tmpUnit = _unitRangement.transform.GetChild(bat).GetChild(lvlUnit).gameObject;// Maison/soldier/
     }
-    //unit 4
-    public void ChoiUnitSpawnBouton4()
+    void SpawnUnit(int _lvlUnit,GameObject _unitBat,GameObject _unitRangementBat)
     {
-        if (_selection.listeGameObjectbatimentSelect.Count != 0)
-        {//on recupere la position du spawn de l'unit :
-            //Vector3 DecalageSpawn=new Vector3(0,40,0);
-            Vector3 _positionSpawnUnit = _selection.listeGameObjectbatimentSelect[0].transform.position;
-            InfoBatiment _infobat = _selection.listeGameObjectbatimentSelect[0].GetComponent<InfoBatiment>();//on recupere l'info du batiment qu'on selectionne
-            //select bat Maison
-            if (_infobat.id == 2)
-            {
-                //si le cout le permet
-              
-                Instantiate(_unitMaison.transform.GetChild(3), _positionSpawnUnit, Quaternion.identity, _maison.transform.GetChild(3));//instancie l'unité lors de l'appuie du bouton4
-                
-            }
-            //select bat Ferme
-            if (_infobat.id == 1)
-            {
-                Instantiate(_unitFerme.transform.GetChild(3), _positionSpawnUnit, Quaternion.identity, _ferme.transform.GetChild(3));//instancie l'unité lors de l'appuie du bouton4
-            }
-            //select bat Chateau
-            if (_infobat.id == 0)
-            {
-                Instantiate(_unitChateau.transform.GetChild(3), _positionSpawnUnit , Quaternion.identity, _chateau.transform.GetChild(3));//instancie l'unité lors de l'appuie du bouton4
-            }
+        //on recupere la position du spawn de l'unit :
+        Vector3 _positionSpawnUnit = _selection.listeGameObjectbatimentSelect[0].transform.position + new Vector3(0, 1, 0);
+        ChoixTempUnit(_infobat.id, _lvlUnit);//recup le gameobject de l'unité a spawn
+        getCaracteristique(tmpUnit); // a changer pour tout 
+        if (VerifieRessource())
+        {
+            Instantiate(_unitBat.transform.GetChild(_lvlUnit), _positionSpawnUnit, Quaternion.identity, _unitRangementBat.transform.GetChild(_lvlUnit));//instancie l'unité lors de l'appuie du bouton1
         }
-
     }
+
+
     void getCaracteristique(GameObject unit)
     {
         Transform Caracteristique=unit.transform.GetChild(0); //on recup le tranform de l'enfant du prefab de la troupe

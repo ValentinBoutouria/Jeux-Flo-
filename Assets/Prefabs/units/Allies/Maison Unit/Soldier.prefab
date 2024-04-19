@@ -164,7 +164,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
@@ -350,6 +350,10 @@ PrefabInstance:
       propertyPath: carac
       value: 
       objectReference: {fileID: 2761500418332950576}
+    - target: {fileID: 8508800203977237703, guid: 33cdc01ee9f7a8a448fcb94618719198, type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
