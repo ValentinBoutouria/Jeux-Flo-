@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitPrefab: {fileID: 273035526023087803, guid: 3763b09130287e54994431fa068a9d62, type: 3}
   UnitScale: 1
-  UnitSpawnRate: 10
+  UnitSpawnRate: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

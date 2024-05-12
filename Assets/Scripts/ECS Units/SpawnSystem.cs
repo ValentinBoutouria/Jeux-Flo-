@@ -33,10 +33,14 @@ public partial struct SpawnSystem : ISystem
         {
             var UnitEntity = state.EntityManager.Instantiate(config.UnitPrefab);
             var EntityTransform = state.EntityManager.GetComponentData<LocalTransform>(UnitEntity);
+            var unit = state.EntityManager.GetComponentData<Unit>(UnitEntity);
 
             EntityTransform.Scale = config.UnitScale;
             EntityTransform.Position = new float3(rand.NextFloat(-5, 5), 0, rand.NextFloat(-5, 5));
+            unit.TargetPosition = new float3(rand.NextFloat(-5, 5), 0, rand.NextFloat(-5, 5));
+            unit.Speed = rand.NextFloat(0.5f, 3f);
             state.EntityManager.SetComponentData(UnitEntity, EntityTransform);
+            state.EntityManager.SetComponentData(UnitEntity, unit); // Réaffecter la Unit modifiée à l'entité
             timer = 0f;
         }
     }
