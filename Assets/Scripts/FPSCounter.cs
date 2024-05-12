@@ -3,16 +3,12 @@ using UnityEngine;
 
 public class FPSCounter : MonoBehaviour
 {
-    public generateSquad squadGenerator; // Ajouter une référence au script generateSquad
-    public GameObject tmp;
     public float updateInterval = 0.5f; // Le taux de rafraîchissement de l'affichage en secondes
     private float deltaTime = 0.0f;
     private float nextUpdate = 0.0f; // Le temps auquel l'affichage sera mis à jour
-    private int enemyCount = 0; // Le nombre total d'unités ennemies
 
     private void Start()
     {
-        squadGenerator = tmp.GetComponent<generateSquad>();
     }
 
     void Update()
@@ -25,12 +21,6 @@ public class FPSCounter : MonoBehaviour
             // Mettre à jour nextUpdate
             nextUpdate = Time.unscaledTime + updateInterval;
 
-            // Mettre à jour le nombre d'unités ennemies
-            enemyCount = 0;
-            foreach (List<GameObject> squad in squadGenerator.squads)
-            {
-                enemyCount += squad.Count;
-            }
         }
     }
 
@@ -47,7 +37,7 @@ public class FPSCounter : MonoBehaviour
         float msec = deltaTime * 1000.0f;
         float fps = 1.0f / deltaTime;
 
-        string text = string.Format("{0:0.0} ms ({1:0.} fps) {2} ennemies", msec, fps, enemyCount);
+        string text = string.Format("{0:0.0} ms ({1:0.} fps)", msec, fps);
         GUI.Label(rect, text, style);
     }
 }
